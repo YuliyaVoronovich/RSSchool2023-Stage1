@@ -124,14 +124,14 @@ body {
   flex-direction: column;
   gap: 40px;
 }
-.title {
+.main-title {
   margin: 0;
   color: #e1d4c9;
   font-size: 72px;
   font-weight: 600;
   line-height: 105%; 
 }
-.title > span {
+.main-title > span {
   font-style: italic;
   color: #b0907a;
 }
@@ -152,4 +152,99 @@ body {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
+}
+/* Finish Enjoy*/
+.section-favorites {
+  padding-top: 100px;
+}
+.title {
+  color: #403f3d;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.title > span {
+  font-style: italic;
+  color: #b0907a;
+}
+.favorites-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 40px;
+}
+.favorites-button {
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  background: none;
+  border-radius: 100px;
+  border: 1px solid #665F55;
+  cursor: pointer;
+}
+.favorites-slides {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  overflow: hidden;
+}
+.favorites-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  transition: 0.3s;
+}
+.favorites-item-img {
+  display: block;
+  min-width: 480px;
+  width: 100%;
+}
+.favorites-slides-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+.heading {
+  color: #403f3d;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.favorites-slide-text {
+  color: #403f3d;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.favorites-slide-price {
+  color: #403f3d;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.carousel-list {
+  display: flex;
+  justify-content: center;
+  padding: 36px 0;
+}
+.carousel-item {
+  padding: 5px;
+  cursor:pointer;
+}
+.carousel-button {
+  display: block;
+  border: 1px solid;
+  border-radius: 100px;
+  width: 40px;
+  height: 4px;
+  background: #665F55;
+  color: #665F55;
+  cursor: pointer;
 }
