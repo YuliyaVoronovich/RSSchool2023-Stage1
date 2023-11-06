@@ -16,3 +16,87 @@
   src: url('../fonts/inter-v13-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
        url('../fonts/inter-v13-latin-600.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
 }
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; 
+}
+*, 
+*::before, 
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter;
+  background: #e1d4c9;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px 40px;
+  color: #665F55;
+}
+.header-wrap {
+  display: flex;
+  justify-content: space-between; 
+  height: 60px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: #403F3D;
+  cursor: pointer;
+}
+.logo-link {
+  text-decoration: none;
+}
+.nav {
+  flex:1;
+  padding: 16px 0;
+}
+.nav-list {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  list-style: none;
+}
+.nav-item {
+  position: relative;
+}
+
+.nav-item .nav-link {  
+  color: #403F3D;
+  text-decoration: none; 
+  transition: 0.5s;
+}
+.nav-item a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 0;/*задаём длинну линии до наведения курсора*/
+  height: 2px; /*задаём ширину линии*/
+  bottom: 0;
+  background-color: #403F3D; /*задаём цвет линии*/
+  transition: width 0.5s ease-out; /*задаём время анимации*/
+}
+
+.nav-item a:hover:after,
+.nav-item a:focus:after {
+  width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+.coffee-menu {
+  display: flex;
+  padding: 16px 0;
+  gap:8px;
+  background: none;
+  border: none;
+  color: #403F3D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  cursor: pointer;
+}
