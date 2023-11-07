@@ -81,7 +81,8 @@ body {
   text-decoration: none; 
   transition: 0.5s;
 }
-.nav-item a:after {
+.nav-item a:after,
+.coffee-menu::after {
   content: "";
   display: block;
   position: absolute;
@@ -90,25 +91,31 @@ body {
   right: 0;
   width: 0;/*задаём длинну линии до наведения курсора*/
   height: 2px; /*задаём ширину линии*/
-  bottom: 0;
+  bottom: -4px;
   background-color: #403F3D; /*задаём цвет линии*/
   transition: width 0.5s ease-out; /*задаём время анимации*/
 }
+.coffee-menu::after {
+  bottom: 16px;
+}
 
 .nav-item a:hover:after,
-.nav-item a:focus:after {
+.nav-item a:focus:after,
+.coffee-menu:hover:after {
   width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
 }
-.coffee-menu {
-  display: flex;
+.coffee-menu-link {
+  position: relative;
   padding: 16px 0;
+}
+.coffee-menu {
+  display: flex;  
   gap:8px;
-  background: none;
-  border: none;
   color: #403F3D;
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
+  text-decoration: none;
   cursor: pointer;
 }
 /* Finish header*/
@@ -319,7 +326,7 @@ body {
 }
 /* Finish About*/
 .section-mobile {
-  margin-top: 100px;
+  margin-top: 98px;
 }
 .mobile-wrap {
   display: flex;
@@ -375,4 +382,76 @@ body {
   min-width: 630px;
   width: 100%;
   object-fit: cover;
+}
+/* Finish Mobile App*/
+.footer {
+  margin-top: 100px; 
+}
+.footer-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 100px;
+  padding: 100px;
+  background: #665F55;
+  border-radius: 40px;
+}
+.footer-social {
+  max-width: 530px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.footer-social-text {
+  color: #e1d4c9;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.footer-social-text > span {
+  color: #b0907a;
+  font-style: italic;
+}
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+}
+.social-link {
+  width: 60px;
+  height: 60px;
+  padding: 18px;
+  display: block;
+  text-decoration: none;
+  border-radius: 100px;
+  border: 1px solid #e1d4c9;
+}
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contact-text {
+  color: #e1d4c9;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%; 
+}
+.contacts-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contacts-item-text {
+  color: #e1d4c9;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+.contacts-item {
+  display: flex;
+  gap: 8px;
 }
