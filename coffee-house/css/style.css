@@ -365,6 +365,17 @@ body {
   border-radius: 100px;
   border: 1px solid #665F55;
   background: transparent;
+  transition: 0.8s;
+  cursor: pointer;
+}
+.mobile-button:hover {
+  background: #665F55;
+}
+.mobile-button:hover >.mobile-button-text  {
+  color: #e1d4c9;
+}
+.mobile-button:hover > svg path  {
+  fill: #e1d4c9;
 }
 .mobile-button-text {
   color: #403f3d;
@@ -429,6 +440,7 @@ body {
   border-radius: 100px;
   border: 1px solid #e1d4c9;
 }
+
 .footer-contacts {
   display: flex;
   flex-direction: column;
