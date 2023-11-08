@@ -496,7 +496,8 @@ body {
   font-weight: 600;
   line-height: 150%;
 }
-.contacts-item {
+.contacts-item,
+.contacts-item a {
   display: flex;
   gap: 8px;
 }
