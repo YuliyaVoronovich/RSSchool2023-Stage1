@@ -200,6 +200,12 @@ body {
   border: 1px solid #665F55;
   cursor: pointer;
 }
+.favorites-button:hover {
+  background: #665F55;
+}
+.favorites-button:hover > svg path {
+  stroke: #e1d4c9;
+}
 .favorites-slides {
   display: flex;
   flex-direction: column;
