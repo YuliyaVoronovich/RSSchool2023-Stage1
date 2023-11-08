@@ -480,3 +480,8 @@ body {
   display: flex;
   gap: 8px;
 }
+.contacts-item a,
+.contacts-item a:visited,
+.contacts-item a:focus {
+  text-decoration: none;
+}
