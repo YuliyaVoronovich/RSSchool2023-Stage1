@@ -173,7 +173,7 @@ body {
   cursor: pointer;
 }
 .enjoy-button > .enjoy-button-text {
-  translate: 0;
+  translate: 10px;
   transition: all 0.5s;
 }
 .enjoy-button-text ~ svg {
@@ -181,7 +181,7 @@ body {
   transition: all 0.5s;
 }
 .enjoy-button:hover .enjoy-button-text {
-  translate: -8px;
+  translate: -10px;
   transition: all 0.5s;
 }
 .enjoy-button:hover > svg {
