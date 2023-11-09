@@ -522,9 +522,46 @@ body {
   color: #b0907a;
   font-style: italic;
 }
-.menu-choiсe-buttons {
+.menu-choice-buttons {
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
+.menu-choice-button {
+  display: flex;
+  padding: 8px 16px 8px 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid #c1b6ad;
+  background: transparent;
+}
+.menu-choice-button:first-child {
+  background: #665F55;
+}
+.menu-choice-button-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background: #c1b6ad;
+}
+.menu-choice-button:first-child  .menu-choice-button-icon {
+  background: #e1d4c9;
+}
+.menu-choice-button-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: #403f3d;
+}
+.menu-choice-button:first-child .menu-choice-button-title {
+  color: #e1d4c9;
+}
+
 .menu_wrap {
   margin-top: 40px;
   display: flex;
