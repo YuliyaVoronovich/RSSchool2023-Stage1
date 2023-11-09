@@ -610,15 +610,15 @@ body {
   justify-content: flex-start;
   border-radius: 40px;
   border: 1px solid #c1b6ad;
+  cursor: pointer;
 }
 .menu-item-overflow {
   max-width: 340px;
   width: 100%;
   border-radius: 40px;
   overflow: hidden;
-  cursor: pointer;
 }
-.menu-item-overflow:hover > .menu-item-img {
+.menu-item:hover .menu-item-img {
   -webkit-transform:scale(1);
   transform:scale(1);
 }
