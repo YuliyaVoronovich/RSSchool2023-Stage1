@@ -554,9 +554,8 @@ body {
   border-radius: 100px;
   border: 1px solid #c1b6ad;
   background: transparent;
-}
-.menu-choice-button:first-child {
-  background: #665F55;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .menu-choice-button-icon {
   width: 30px;
@@ -567,19 +566,33 @@ body {
   align-items: center;
   background: #c1b6ad;
 }
-.menu-choice-button:first-child  .menu-choice-button-icon {
-  background: #e1d4c9;
-}
 .menu-choice-button-title {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
   color: #403f3d;
 }
+.menu-choice-button:first-child {
+  background: #665F55;
+}
+.menu-choice-button:first-child  .menu-choice-button-icon {
+  background: #e1d4c9;
+}
 .menu-choice-button:first-child .menu-choice-button-title {
   color: #e1d4c9;
 }
-
+.menu-choice-button:hover {
+  background: #665F55;
+  transition: 0.5s;
+}
+.menu-choice-button:hover .menu-choice-button-icon {
+  background: #e1d4c9;
+  transition: 0.5s;
+}
+.menu-choice-button:hover .menu-choice-button-title {
+  color: #e1d4c9;
+  transition: 0.5s;
+}
 .menu_wrap {
   margin-top: 40px;
   display: flex;
