@@ -499,6 +499,7 @@ body {
 }
 .contacts-item,
 .contacts-item a {
+  position: relative;
   display: flex;
   gap: 8px;
 }
@@ -506,6 +507,23 @@ body {
 .contacts-item a:visited,
 .contacts-item a:focus {
   text-decoration: none;
+} 
+.contacts-item a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 0;/*задаём длинну линии до наведения курсора*/
+  height: 2px; /*задаём ширину линии*/
+  bottom: -4px;
+  background-color: #e1d4c9; /*задаём цвет линии*/
+  transition: width 0.5s ease-out; /*задаём время анимации*/
+}
+
+.contacts-item a:hover:after {
+  width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
 }
 /* Finish Footer*/
 .menu-text {
