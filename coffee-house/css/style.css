@@ -581,15 +581,18 @@ body {
 .menu-choice-button:first-child .menu-choice-button-title {
   color: #e1d4c9;
 }
-.menu-choice-button:hover {
+.menu-choice-button:hover,
+.menu-choice-button:active {
   background: #665F55;
   transition: 0.5s;
 }
-.menu-choice-button:hover .menu-choice-button-icon {
+.menu-choice-button:hover .menu-choice-button-icon,
+.menu-choice-button:active .menu-choice-button-icon {
   background: #e1d4c9;
   transition: 0.5s;
 }
-.menu-choice-button:hover .menu-choice-button-title {
+.menu-choice-button:hover .menu-choice-button-title,
+.menu-choice-button:active .menu-choice-button-title {
   color: #e1d4c9;
   transition: 0.5s;
 }
