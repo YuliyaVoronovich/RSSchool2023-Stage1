@@ -40,7 +40,7 @@ body {
   background: #e1d4c9;
 }
 .container {
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
   color: #665F55;
@@ -92,8 +92,9 @@ body {
   width: 0;/*задаём длинну линии до наведения курсора*/
   height: 2px; /*задаём ширину линии*/
   bottom: -4px;
+  opacity: 0;
   background-color: #403F3D; /*задаём цвет линии*/
-  transition: width 0.5s ease-out; /*задаём время анимации*/
+  transition: all 0.5s ease-out; /*задаём время анимации*/
 }
 .coffee-menu::after {
   bottom: 16px;
@@ -103,6 +104,7 @@ body {
 .nav-item a:focus:after,
 .coffee-menu:hover:after {
   width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+  opacity: 1;
 }
 .coffee-menu-link {
   position: relative;
@@ -332,7 +334,8 @@ body {
   gap: 40px;
 }
 .galery-overflow {
-  width: 660px;
+  max-width: 660px;
+  width: 100%;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -415,15 +418,18 @@ body {
   font-size: 16px;
   line-height: 150%;
 }
+.mobile-img-wrap {
+  max-width: 630px;
+  width: 100%;
+}
 .mobile-img {
   display: block;
-  min-width: 630px;
   width: 100%;
   object-fit: cover;
 }
 /* Finish Mobile App*/
 .footer {
-  margin-top: 100px; 
+  margin-top: 99px; 
 }
 .footer-wrap {
   display: flex;
