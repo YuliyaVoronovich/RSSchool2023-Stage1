@@ -222,9 +222,11 @@ body {
   border-radius: 100px;
   border: 1px solid #665F55;
   cursor: pointer;
+  transition: all 0.5s
 }
 .favorites-button:hover {
   background: #665F55;
+  transition: all 0.5s
 }
 .favorites-button:hover > svg path {
   stroke: #e1d4c9;
