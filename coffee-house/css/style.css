@@ -707,6 +707,21 @@ body {
   font-weight: 600;
   line-height: 125%;
 }
+.loader {
+  display: none;
+}
+.loader-button {
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  background: none;
+  border-radius: 100px;
+  border: 1px solid #665F55;
+  cursor: pointer;
+  transition: all 0.5s
+}
 @media (max-width: 769px) { 
   .nav {
     display: flex;
@@ -796,5 +811,11 @@ body {
 }
   .footer-social {
     max-width: 568px;
+  }
+  .menu-item.hide {
+    display: none;
+  }
+  .loader {
+    display: block;
   }
 }
