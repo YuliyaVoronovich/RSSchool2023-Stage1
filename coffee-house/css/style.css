@@ -197,6 +197,7 @@ body {
 .enjoy-button {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 200px;
   padding: 20px 0;
   background: #e1d4c9;
@@ -780,6 +781,15 @@ body {
    } 
    .enjoy-container {
     padding: 100px 60px;
+   }
+   .enjoy-button {    
+    gap: 8px;
+   }
+   .enjoy-button > .enjoy-button-text {
+     translate: 0;
+   }
+   .enjoy-button-text ~ svg {
+    opacity: 1;
    }
   .img2 {
     display: none;
