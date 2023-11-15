@@ -80,35 +80,6 @@ body {
   text-decoration: none; 
   transition: 0.5s;
 }
-.nav-item a:after,
-.coffee-menu::after {
-  content: "";
-  display: block;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  width: 0;/*задаём длинну линии до наведения курсора*/
-  height: 2px; /*задаём ширину линии*/
-  bottom: -4px;
-  opacity: 0;
-  background-color: #403F3D; /*задаём цвет линии*/
-  transition: all 0.5s ease-out; /*задаём время анимации*/
-}
-.coffee-menu::after {
-  bottom: 16px;
-}
-
-.nav-item a:hover:after,
-.nav-item a:focus:after,
-.coffee-menu:hover:after {
-  width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
-  opacity: 1;
-}
-.coffee-menu-link {
-  position: relative;
-  padding: 16px 0;
-}
 .coffee-menu {
   display: flex;  
   gap:8px;
@@ -119,6 +90,35 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+.nav-link::after,
+.coffee-menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: scale(0, 0);
+  height: 2px; /*задаём ширину линии*/
+  opacity: 0;
+  background-color: #403F3D; /*задаём цвет линии*/
+  transition: all 0.5s ease-out; /*задаём время анимации*/
+}
+.coffee-menu::after {
+  bottom: 16px;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.coffee-menu:hover::after {
+  transform: scale(1, 1.1);
+  opacity: 1;
+}
+.coffee-menu-link {
+  position: relative;
+  padding: 16px 0;
+}
+
 /* Finish header*/
 .section-enjoy {
   padding-top: 20px;
@@ -522,15 +522,17 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 0;/*задаём длинну линии до наведения курсора*/
+  top: 22px;
+  transform: scale(0, 0);
   height: 2px; /*задаём ширину линии*/
-  bottom: -4px;
+  opacity: 0;
   background-color: #e1d4c9; /*задаём цвет линии*/
-  transition: width 0.5s ease-out; /*задаём время анимации*/
+  transition: all 0.5s ease-out; /*задаём время анимации*/
 }
 
 .contacts-item a:hover:after {
-  width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+  transform: scale(1, 1.1);
+  opacity: 1;
 }
 /* Finish Footer*/
 .menu-text {
