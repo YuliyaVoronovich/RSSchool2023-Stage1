@@ -821,9 +821,7 @@ body {
   .mobile-download {
     max-width: 688px;
   }
-  .footer {
-    margin-top: 102px; 
-  }
+
   .footer-wrap {
     padding: 100px 60px;
   }
@@ -873,5 +871,11 @@ body {
   }
   .footer-social-text {
     font-size: 32px;
+  }
+  .menu-text {
+    font-size: 32px;
+  }
+  .menu-choice-buttons {
+    gap: 8px;
   }
 }
