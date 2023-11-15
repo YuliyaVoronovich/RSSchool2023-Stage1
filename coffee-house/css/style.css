@@ -452,6 +452,9 @@ body {
   font-weight: 600;
   line-height: 140%;
 }
+.mobile-button-text span {
+  display: block;
+}
 .mobile-button-text-high {
   font-size: 16px;
   line-height: 150%;
