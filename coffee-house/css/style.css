@@ -23,7 +23,6 @@
   font-weight: 600;
   src: url('../fonts/Inter-SemiBoldItalic.woff2') format('woff2');
 }
-
 html {
   box-sizing: border-box;
   scroll-behavior: smooth; 
