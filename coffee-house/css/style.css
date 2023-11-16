@@ -399,7 +399,7 @@ body {
 }
 .mobile-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   gap: 100px;
 }
@@ -727,7 +727,13 @@ body {
   cursor: pointer;
   transition: all 0.5s
 }
-@media (max-width: 769px) { 
+@media (max-width: 1024px) { 
+  .mobile-wrap {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 790px) { 
   .nav {
     display: flex;
     flex-direction: column;
@@ -879,3 +885,4 @@ body {
     gap: 8px;
   }
 }
+
