@@ -811,7 +811,7 @@ body {
   .img3 {
     display: none;
   }
-  .about-galery {
+  .about-gallery {
     padding-top: 40px;
     display: grid;
     grid-template-columns: 1fr;
@@ -821,10 +821,10 @@ body {
           "img4";
     gap: 40px;
   }
-  .galery-overflow {
+  .gallery-overflow {
     max-width: 726px;
   }
-  .galery-img {
+  .gallery-img {
     transform: scale(1.05);
   }
   .mobile-wrap {
@@ -906,7 +906,7 @@ body {
   .about-text {
     font-size: 32px;
   }
-  .galery-img {
+  .gallery-img {
     transform: scale(1.22);
   }
   .mobile-wrap {
