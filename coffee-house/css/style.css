@@ -367,7 +367,7 @@ body {
   grid-area: img4;
   height: 590px;
 }
-.about-galery {
+.about-gallery {
   padding-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -378,18 +378,17 @@ body {
         "img2 img4";
   gap: 40px;
 }
-.galery-overflow {
+.gallery-overflow {
   max-width: 660px;
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
 }
-.galery-overflow:hover > .galery-img {
+.gallery-overflow:hover > .gallery-img {
   -webkit-transform:scale(1);
   transform:scale(1);
 }
-.galery-img {
+.gallery-img {
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
   border-radius: 20px;
