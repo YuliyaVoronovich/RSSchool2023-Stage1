@@ -631,6 +631,7 @@ body {
 }
 .menu-choice-button:first-child {
   background: #665F55;
+  pointer-events: none;
 }
 .menu-choice-button:first-child  .menu-choice-button-icon {
   background: #e1d4c9;
