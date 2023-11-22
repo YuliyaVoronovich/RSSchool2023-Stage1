@@ -38,6 +38,11 @@ body {
   font-family: 'Inter', sans-serif;
   background: #e1d4c9;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -405,6 +410,7 @@ body {
 /* Finish About*/
 .section-mobile {
   margin-top: 98px;
+  margin-bottom: 98px;
 }
 .mobile-wrap {
   display: flex;
@@ -481,7 +487,8 @@ body {
 }
 /* Finish Mobile App*/
 .footer {
-  margin-top: 99px; 
+  margin-top: auto; 
+  margin-bottom: 40px; 
 }
 .footer-wrap {
   display: flex;
@@ -586,6 +593,9 @@ body {
   opacity: 1;
 }
 /* Finish Footer*/
+.section-menu {
+  margin-bottom: 98px;
+}
 .menu-text {
   margin: 20px auto 0;
   max-width: 800px;
