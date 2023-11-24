@@ -52,6 +52,10 @@ body {
   background: var(--bg-body);
 }
 
+.body-overflow {
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -961,6 +965,11 @@ body {
   .coffee-menu svg {
     width: 40px;
     height: 40px;
+  }
+
+  .coffee-menu-disabled >.coffee-menu::after {
+    transform: scale(0, 0);
+    opacity: 0;
   }
 
   .nav-item {
