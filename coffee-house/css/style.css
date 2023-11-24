@@ -139,7 +139,7 @@ body {
 }
 
 .coffee-menu::after {
-  bottom: 4px;
+  bottom: 0;
 }
 
 .coffee-menu-disabled {
