@@ -157,18 +157,11 @@ body {
   opacity: 1;
 }
 
-.nav-link:hover::after,
-.nav-link:focus::after,
-.coffee-menu:hover::after {
-  transform: scale(1, 1.1);
-  opacity: 1;
-}
-
 .coffee-menu-link {
   position: relative;
 }
 
- @media (hover: none) {
+@media (hover: hover) {
 
   .nav-link:hover::after,
   .coffee-menu:hover::after {
