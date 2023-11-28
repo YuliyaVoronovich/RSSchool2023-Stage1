@@ -52,6 +52,10 @@ body {
   background: var(--bg-body);
 }
 
+.body-overflow {
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -218,19 +222,33 @@ body {
   margin-left: auto;
   height: 644px;
   padding: 100px;
-  background-image: url(../assets/img/img-hero.jpg);
+  /* background-image: url(../assets/img/img-hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-radius: 40px; */
+}
+
+.video {
+  position: relative;
+}
+
+.enjoy-video {
+  position: absolute;
+  width: 100%;
+  height: 644px;
   border-radius: 40px;
+  object-fit: cover;
 }
 
 .enjoy-wrap {
+  position: relative;
   max-width: 530px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  z-index: 1;
 }
 
 .main-title {
@@ -809,7 +827,7 @@ body {
     transition: 0.5s;
   }
   
-  .menu-choice-button:hover .menu-choice-button-title {
+  .menu-choice-button:hover .menu-choice-button-titleы{
     color: var(--text-light);
     transition: 0.5s;
   }
@@ -1017,6 +1035,11 @@ body {
     height: 40px;
   }
 
+  .coffee-menu-disabled >.coffee-menu::after {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+
   .nav-item {
     width: 100%;
     color: var(--text-dark);
@@ -1044,6 +1067,9 @@ body {
   .enjoy-container {
     height: 552px;
     padding: 60px 16px;
+  }
+  .enjoy-video {
+    height: 552px;
   }
 
   .main-title {
