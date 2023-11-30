@@ -827,7 +827,7 @@ body {
     transition: 0.5s;
   }
   
-  .menu-choice-button:hover .menu-choice-button-titleы{
+  .menu-choice-button:hover .menu-choice-button-title {
     color: var(--text-light);
     transition: 0.5s;
   }
