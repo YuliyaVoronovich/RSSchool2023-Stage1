@@ -82,16 +82,27 @@
               </svg>
             </button>              
             <div class="favorites-slides">
-              <ul class="favorites-list">
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-1.png" alt="Favorites Image"></li>
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-2.png" alt="Favorites Image"></li>
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-3.png" alt="Favorites Image"></li>
-              </ul>
-              <div class="favorites-slides-desc">
-                <h3 class="heading">S’mores Frappuccino</h3>
-                <p class="favorites-slide-text">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
-                <div class="favorites-slide-price">$5.50</div>                
+              <div class="favorites-list">
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-1.png" alt="Favorites Image">                  
+                  <h3 class="heading">S’mores Frappuccino</h3>
+                  <p class="favorites-slide-text">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+                  <span class="favorites-slide-price">$5.50</span>
+                </div>
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-2.png" alt="Favorites Image">
+                  <h3 class="heading">Caramel Macchiato</h3>
+                  <p class="favorites-slide-text">Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.</p>
+                  <span class="favorites-slide-price">$5.00</span>
+                </div>
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-3.png" alt="Favorites Image">
+                  <h3 class="heading">Ice coffee</h3>
+                  <p class="favorites-slide-text">A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.</p>
+                  <span class="favorites-slide-price">$4.50</span>
+                </div>
               </div>
+              
             </div>
             <button class="favorites-button favorites-button-right">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -100,9 +111,9 @@
             </button>
           </div>
           <div class="carousel-list">
-            <div class="carousel-item" data-item="item-1"><span class="carousel-button"></span></div>
-            <div class="carousel-item" data-item="item-2"><span class="carousel-button"></span></div>
-            <div class="carousel-item" data-item="item-3"><span class="carousel-button"></span></div>
+            <span class="carousel-item" data-item="item-1"><span class="carousel-button"></span></span>
+            <span class="carousel-item" data-item="item-2"><span class="carousel-button"></span></span>
+            <span class="carousel-item" data-item="item-3"><span class="carousel-button"></span></span>
           </div>
         </div>
       </section>
@@ -229,6 +240,7 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="./js/main.js"></script>     
+  <script type="module" src="./js/burger.js"></script> 
+  <script type="module" src="./js/slider.js"></script>    
 </body>
 </html>

@@ -377,17 +377,24 @@ body {
   overflow: hidden;
 }
 
+
 .favorites-list {
   display: flex;
   justify-content: space-between;
-  list-style: none;
-  transition: 0.3s;
+  transition: transform 0.8s ease-out;
+}
+.favorites-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
 }
 
 .favorites-item-img {
   display: block;
   min-width: 480px;
   width: 100%;
+  padding-bottom: 4px;
 }
 
 .favorites-slides-desc {
@@ -429,7 +436,6 @@ body {
 
 .carousel-item {
   padding: 5px;
-  cursor:pointer;
 }
 
 .carousel-button {
@@ -440,7 +446,6 @@ body {
   height: 4px;
   background: var(--border-light);
   color: var(--border-light);
-  cursor: pointer;
 }
 
 .carousel-item:first-child .carousel-button {
