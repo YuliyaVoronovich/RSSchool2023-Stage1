@@ -675,6 +675,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 118px;
 }
 
 .contacts-item-text {
@@ -783,10 +784,10 @@ body {
   color: var(--text-light);
 }
 
-.menu-choice-button:active {
+/* .menu-choice-button:active {
   background: var(--bg-container);
   transition: 0.5s;
-}
+} */
 
 .menu-choice-button:active .menu-choice-button-icon {
   background: var(--bg-body);
@@ -863,6 +864,7 @@ body {
 }
 
 .menu-item-desc {
+  min-height: 196px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -943,6 +945,11 @@ body {
 
   .gallery-overflow {
     max-width: 726px;
+  }
+
+  .gallery-img {
+    -webkit-transform:scale(1.05);
+    transform:scale(1.05);
   }
 
   .mobile-wrap {
