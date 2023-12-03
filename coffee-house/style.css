@@ -377,24 +377,17 @@ body {
   overflow: hidden;
 }
 
-
 .favorites-list {
   display: flex;
   justify-content: space-between;
-  transition: transform 0.8s ease-out;
-}
-.favorites-item {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 480px;
+  list-style: none;
+  transition: 0.3s;
 }
 
 .favorites-item-img {
   display: block;
   min-width: 480px;
   width: 100%;
-  padding-bottom: 4px;
 }
 
 .favorites-slides-desc {
@@ -436,6 +429,7 @@ body {
 
 .carousel-item {
   padding: 5px;
+  cursor:pointer;
 }
 
 .carousel-button {
@@ -446,6 +440,7 @@ body {
   height: 4px;
   background: var(--border-light);
   color: var(--border-light);
+  cursor: pointer;
 }
 
 .carousel-item:first-child .carousel-button {
@@ -698,7 +693,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 118px;
 }
 
 .contacts-item-text {
@@ -807,10 +801,10 @@ body {
   color: var(--text-light);
 }
 
-/* .menu-choice-button:active {
+.menu-choice-button:active {
   background: var(--bg-container);
   transition: 0.5s;
-} */
+}
 
 .menu-choice-button:active .menu-choice-button-icon {
   background: var(--bg-body);
@@ -833,7 +827,7 @@ body {
     transition: 0.5s;
   }
   
-  .menu-choice-button:hover .menu-choice-button-title {
+  .menu-choice-button:hover .menu-choice-button-titleы{
     color: var(--text-light);
     transition: 0.5s;
   }
@@ -887,7 +881,6 @@ body {
 }
 
 .menu-item-desc {
-  min-height: 196px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -968,11 +961,6 @@ body {
 
   .gallery-overflow {
     max-width: 726px;
-  }
-
-  .gallery-img {
-    -webkit-transform:scale(1.05);
-    transform:scale(1.05);
   }
 
   .mobile-wrap {
