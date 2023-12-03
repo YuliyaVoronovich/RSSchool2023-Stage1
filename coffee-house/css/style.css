@@ -432,26 +432,32 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 36px;
+  gap: 12px;
 }
 
 .carousel-item {
-  padding: 5px;
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 100px;  
+  background: var(--border-light);
 }
 
 .carousel-button {
-  display: block;
-  border: 1px solid;
-  border-radius: 100px;
-  width: 40px;
+  position: absolute;
+  left: 0;
+  border-radius: 100px;  
+  width: 0;
   height: 4px;
-  background: var(--border-light);
-  color: var(--border-light);
+  background: var(--border-dark);
+  transition: width 0.3s ease;
 }
 
-.carousel-item:first-child .carousel-button {
+/* .carousel-item:first-child .carousel-button {
   background: var(--border-dark);
   color: var(--border-dark);
-}
+} */
 /* Finish Favorites*/
 
 /* Start About*/
