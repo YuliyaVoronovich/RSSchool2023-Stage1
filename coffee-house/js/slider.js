@@ -6,9 +6,7 @@ let movePosition;
 let step = 0;
 let endStep = 2;
 let progressStep = 0;
-let predBar = 0;
-
-let currentSlide = 0;
+let progressStepInterval = 4;
 
 const container = document.querySelector('.favorites-slides');
 const track = document.querySelector('.favorites-list');
@@ -35,7 +33,7 @@ const progressBar = () => {
         progressBarButtons[step].style.width = `0%`;
         nextSlide();
     } else {
-        progressStep +=4;
+        progressStep +=progressStepInterval;
         progressBarButtons[step].style.width = `${progressStep}%`;
     }
    
@@ -45,8 +43,7 @@ const nextSlide = () => {
 
     if (step >= endStep) {        
         step = 0;
-        currentSlide = endStep;
-        track.style.transform = `translateX(${0}%)`;
+        track.style.transform = `translateX(-${0}%)`;
     } else {
         step += 1; 
         movePosition = startPosition * step;

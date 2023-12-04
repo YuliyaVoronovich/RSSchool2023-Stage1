@@ -801,15 +801,15 @@ body {
   color: var(--text-dark);
 }
 
-.menu-choice-button:first-child {
+.menu-choice-button.active {
   background: var(--bg-container);
   pointer-events: none;
 }
 
-.menu-choice-button:first-child  .menu-choice-button-icon {
+.menu-choice-button.active  .menu-choice-button-icon {
   background: var(--bg-body);
 }
-.menu-choice-button:first-child .menu-choice-button-title {
+.menu-choice-button.active .menu-choice-button-title {
   color: var(--text-light);
 }
 
@@ -845,13 +845,14 @@ body {
   }
 }
 
-.menu_list {
+.menu-list {
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap:40px;
   list-style: none;
+  transition: opacity 0.5s;
 }
 
 .menu-card {
