@@ -855,6 +855,9 @@ body {
   transition: opacity 0.5s;
 }
 .menu-item.hide {
+  /* visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s; */
   display: none;
 }
 
@@ -1007,10 +1010,6 @@ body {
     max-width: 568px;
   }
 
-  .menu-item.hide {
-    display: none;
-  }
-
 }
 
 @media (max-width: 769px) { 
@@ -1062,6 +1061,15 @@ body {
   .coffee-menu-disabled >.coffee-menu::after {
     transform: scale(0, 0);
     opacity: 0;
+  }
+  .coffee-menu-disabled {
+    pointer-events: visible;
+    cursor: none;
+  }
+  
+  .coffee-menu-disabled >.coffee-menu {
+    pointer-events: visible;
+    cursor: none;
   }
 
   .nav-item {

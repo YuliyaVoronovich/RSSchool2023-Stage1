@@ -5,6 +5,7 @@ let currentProducts = [];
 const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
 let menuList = document.querySelector('.menu-list');
 let loader = document.querySelector('.loader');
+const nodes = menuList.childNodes;
 
 let list = '';
 
@@ -61,16 +62,15 @@ function menuItem (item, index)  {
 function resizeProduct () {
     let widthWind = document.querySelector('body').offsetWidth;
 
-    loader.classList.remove('active');
-    const nodes = menuList.childNodes;
-    
+    loader.classList.remove('active');  
+
     Array.from(nodes).forEach((item) => {
       item.classList.remove('hide');     
     });
 
     if (widthWind < 769) {
        if (currentProducts.length > 4) {
-        //показать только 4 карточки      
+        //показать только 4 карточки    
 
         Array.from(nodes).slice(4).forEach((item) => {
              item.classList.add('hide');     
@@ -79,6 +79,13 @@ function resizeProduct () {
        } 
     }    
 }
+
+loader.addEventListener ('click', event => {
+  Array.from(nodes).forEach((item) => {
+    item.classList.remove('hide');     
+  });
+  loader.classList.remove('active'); 
+});
 
 window.onresize = function(event) {
     resizeProduct();
