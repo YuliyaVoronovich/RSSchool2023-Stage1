@@ -5,9 +5,8 @@ let currentProducts = [];
 const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
 let menuList = document.querySelector('.menu-list');
 let loader = document.querySelector('.loader');
-const nodes = menuList.childNodes;
-
-let list = '';
+//const nodes = menuList.childNodes;
+let arrayCards = [];
 
 const getCurrentProduts = () => {
     currentProducts = products.filter((item) => item.category === currentCategory);
@@ -26,45 +25,93 @@ itemCategoryButtons.forEach((button) => {
     });
 });
 
-const showMenuList = (currentProducts) => {   
-  
+const showMenuList = (currentProducts) => {     
 
     menuList.style.opacity = 0;  
 
     setTimeout(() => {
       menuList.innerHTML = '';
-      list = '';
+     // item = '';
+     arrayCards = [];
       currentProducts.forEach((item, index) => {
-        list += menuItem(item, index);  
+
+       const itemCard = createCard(item, index);
+       menuList.appendChild(itemCard);
+
+       arrayCards.push(itemCard); 
+
       }); 
       menuList.style.opacity = 1;
-      menuList.innerHTML = list;
+      //menuList.innerHTML = list;
+     
       resizeProduct();
     }, 400);
 }
 
-function menuItem (item, index)  {
-    return `<li class="menu-item">
-    <article class="menu-card">
-      <h2 class="hidden">menu-card</h2>
-      <div class="menu-item-overflow">
-        <img class="menu-item-img" src="./assets/img/${item.category}-${index+1}.jpg" alt="Image ${item.category}_${index+1}">
-      </div>
-      <div class="menu-item-desc">
-        <strong class="menu-item-title">${item.name}</strong>
-        <p class="menu-item-text">${item.description}</p>
-        <span class="menu-item-price">$${item.price}</span>
-      </div>
-    </article>
-  </li>`;
+const createCard = (item, index) => {
+  const itemCard = document.createElement('li');
+  itemCard.classList.add('menu-item');
+
+  const article = document.createElement('article');
+  article.classList.add('menu-card');
+  itemCard.append(article);
+
+  const h2 = document.createElement('h2');
+  h2.classList.add('hidden');
+  h2.textContent = `menu-card`;
+  article.append(h2);
+
+  const div = document.createElement('div');
+  div.classList.add('menu-item-overflow');
+  article.append(div);
+
+  const image = document.createElement('img');
+  image.classList.add('menu-item-img');
+  image.src = `./assets/img/${item.category}-${index+1}.jpg`;
+  image.alt = `Image ${item.category}_${index+1}`;
+  div.append(image);
+
+  const divDesc = document.createElement('div');
+  divDesc.classList.add('menu-item-desc');
+  article.append(divDesc);
+
+  const strong = document.createElement('strong');
+  strong.classList.add('menu-item-title');
+  strong.textContent = `${item.name}`;
+  divDesc.append(strong);
+
+  const p = document.createElement('p');
+  p.classList.add('menu-item-text');
+  p.textContent = `${item.description}`;
+  divDesc.append(p);
+
+  const span = document.createElement('span');
+  span.classList.add('menu-item-price');
+  span.textContent = `$${item.price}`;
+  divDesc.append(span);
+
+  return itemCard;
+  //   return `<li class="menu-item">
+  //   <article class="menu-card">
+  //     <h2 class="hidden">menu-card</h2>
+  //     <div class="menu-item-overflow">
+  //       <img class="menu-item-img" src="./assets/img/${item.category}-${index+1}.jpg" alt="Image ${item.category}_${index+1}">
+  //     </div>
+  //     <div class="menu-item-desc">
+  //       <strong class="menu-item-title">${item.name}</strong>
+  //       <p class="menu-item-text">${item.description}</p>
+  //       <span class="menu-item-price">$${item.price}</span>
+  //     </div>
+  //   </article>
+  // </li>`;
 }
 
 function resizeProduct () {
     let widthWind = document.querySelector('body').offsetWidth;
 
-    loader.classList.remove('active');  
+    loader.classList.remove('active'); 
 
-    Array.from(nodes).forEach((item) => {
+    arrayCards.forEach((item) => {
       item.classList.remove('hide');     
     });
 
@@ -72,7 +119,7 @@ function resizeProduct () {
        if (currentProducts.length > 4) {
         //показать только 4 карточки    
 
-        Array.from(nodes).slice(4).forEach((item) => {
+        arrayCards.slice(4).forEach((item) => {
              item.classList.add('hide');     
            });
          loader.classList.add('active');
@@ -81,9 +128,11 @@ function resizeProduct () {
 }
 
 loader.addEventListener ('click', event => {
-  Array.from(nodes).forEach((item) => {
+
+  arrayCards.forEach((item) => {
     item.classList.remove('hide');     
   });
+  
   loader.classList.remove('active'); 
 });
 
