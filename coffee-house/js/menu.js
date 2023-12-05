@@ -4,6 +4,8 @@ let currentCategory = 'coffee';
 let currentProducts = [];
 const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
 let menuList = document.querySelector('.menu-list');
+let loader = document.querySelector('.loader');
+
 let list = '';
 
 const getCurrentProduts = () => {
@@ -19,22 +21,25 @@ itemCategoryButtons.forEach((button) => {
         currentCategory = button.querySelector('.menu-choice-button-title').innerText.toLowerCase();
         getCurrentProduts();
         showMenuList(currentProducts);
+    
     });
 });
 
 const showMenuList = (currentProducts) => {   
   
+
     menuList.style.opacity = 0;  
 
     setTimeout(() => {
       menuList.innerHTML = '';
       list = '';
       currentProducts.forEach((item, index) => {
-        list += menuItem(item, index);      
+        list += menuItem(item, index);  
       }); 
       menuList.style.opacity = 1;
       menuList.innerHTML = list;
-    }, 500);
+      resizeProduct();
+    }, 400);
 }
 
 function menuItem (item, index)  {
@@ -53,8 +58,34 @@ function menuItem (item, index)  {
   </li>`;
 }
 
+function resizeProduct () {
+    let widthWind = document.querySelector('body').offsetWidth;
+
+    loader.classList.remove('active');
+    const nodes = menuList.childNodes;
+    
+    Array.from(nodes).forEach((item) => {
+      item.classList.remove('hide');     
+    });
+
+    if (widthWind < 769) {
+       if (currentProducts.length > 4) {
+        //показать только 4 карточки      
+
+        Array.from(nodes).slice(4).forEach((item) => {
+             item.classList.add('hide');     
+           });
+         loader.classList.add('active');
+       } 
+    }    
+}
+
+window.onresize = function(event) {
+    resizeProduct();
+}; 
+
 window.addEventListener('load', () => {
   getCurrentProduts();
-  showMenuList(currentProducts);
+  showMenuList(currentProducts); 
 });
 
