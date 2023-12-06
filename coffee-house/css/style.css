@@ -1100,7 +1100,7 @@ body {
 
 }
 
-@media (max-width: 767px) { 
+@media (max-width: 765px) { 
   .container {
     padding: 0 16px;
   }
@@ -1227,7 +1227,7 @@ body {
   opacity: 0;
   visibility: hidden;
   background: var(--bg-body);
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -50%);
   transition: opacity 0.8s, visibility 0.5s, transform 0.5s;
 }
 
@@ -1245,13 +1245,126 @@ body {
   max-width: 800px;
   width: 100%;   
   padding: 16px; 
+  border-radius: 40px;
 }
 
 .modal-content-wrap {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 20px;
 }
+.modal-card-left {
+  max-width: 310px;
+  width: 100%;
+}
+
+.modal-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-card-title {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.modal-card-heading {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.modal-choice-buttons {
+  max-height: 46px;
+  display: flex;
+  gap: 7px;
+}
+
+.modal-choice-button {
+  display: flex;
+  padding: 8px 16px 8px 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.modal-choice-button-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background: var(--border-light);
+}
+
+.modal-choice-button-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: var(--text-dark);
+}
+
+.modal-sum {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dark);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.modal-text-important {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.modal-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.modal-text-important::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: 0;
+  background-color: var(--border-light);
+}
+
+.modal-text {
+  color: var(--text-dark);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%; 
+}
+
+.modal-button {
+  width: 100%;
+  max-height: 44px;
+  margin-top: -1px;
+  padding: 10px 0;
+  background: var(--bg-body);
+  border: 1px solid var(--border-dark);
+  border-radius: 100px;
+  color: var(--text-dark);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* End modal*/
 
