@@ -1,5 +1,6 @@
 import products from "./product.json" assert { type: "json" };
 
+const body = document.querySelector('body');
 let currentCategory = 'coffee';
 let currentProducts = [];
 const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
@@ -7,6 +8,8 @@ let menuList = document.querySelector('.menu-list');
 let loader = document.querySelector('.loader');
 //const nodes = menuList.childNodes;
 let arrayCards = [];
+
+let unlock = true;
 
 const getCurrentProduts = () => {
     currentProducts = products.filter((item) => item.category === currentCategory);
@@ -45,6 +48,7 @@ const showMenuList = (currentProducts) => {
       //menuList.innerHTML = list;
      
       resizeProduct();
+      openCard();
     }, 400);
 }
 
@@ -126,6 +130,62 @@ function resizeProduct () {
        } 
     }    
 }
+function openCard() {
+  arrayCards.forEach((item, index) => {
+
+    item.addEventListener ('click', event => {
+
+      const currentPopUp = document.querySelector('#modal-popup');
+      openPopUp(currentPopUp);  
+      const itemCard =  currentProducts[index];
+      document.querySelector('.modal-img').innerHTML = `<img class="menu-item-img" src="./assets/img/${itemCard.category}-${index+1}.jpg" alt="Image ${itemCard.category}_${index+1}">`;   
+
+    });
+  
+  });
+}
+
+//popup
+function openPopUp(popUp) {
+
+  if (popUp && unlock) {
+  const popupActive = document.querySelector('.modal-wrap.open');   
+      if (popupActive) {
+          closePopUp(popupActive, false);
+      } else {
+          bodyLock();
+      }
+      popUp.classList.add('open');
+
+      popUp.addEventListener('click', event => {
+            if (!event.target.closest('.modal-content')) {
+              closePopUp(event.target.closest('.modal-wrap'));
+          }
+      });          
+  }     
+}
+
+function closePopUp(popUp, doUnlock = true) {
+  if (unlock) {
+      popUp.classList.remove('open');
+      if(doUnlock) {
+          bodyUnlock();
+      }
+  }    
+}
+
+function  bodyLock() {
+  body.style.paddingRight = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
+  body.classList.add('body-overflow');
+}
+
+function  bodyUnlock() {
+  body.style.paddingRight = '0px';
+  body.classList.remove('body-overflow');
+}
+
+
+
 
 loader.addEventListener ('click', event => {
 
