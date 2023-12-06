@@ -960,6 +960,9 @@ body {
     justify-content: center;
     flex-wrap: wrap;
   }
+  .main-title {
+    font-size: 66px;
+  }
 }
 @media (max-width: 790px) { 
   
@@ -1097,7 +1100,7 @@ body {
 
 }
 
-@media (max-width: 740px) { 
+@media (max-width: 767px) { 
   .container {
     padding: 0 16px;
   }
@@ -1200,4 +1203,55 @@ body {
     padding: 4px 8px 4px 4px;
   }
 }
+
+/* Start modal*/
+.modal-wrap {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background: var(--bg-backdrop);
+  /* z-index: 1; */
+  transition: opacity 0.8s, transform 0.5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;    
+  opacity: 0;
+  visibility: hidden;
+  background: var(--bg-body);
+  transform: translate(-50%, -100%);
+  transition: opacity 0.8s, visibility 0.5s, transform 0.5s;
+}
+
+.modal-wrap.open {
+  visibility: visible;
+}
+
+.modal-wrap.open .modal-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
+}
+
+.modal-card {
+  max-width: 800px;
+  width: 100%;   
+  padding: 16px; 
+}
+
+.modal-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+/* End modal*/
 
