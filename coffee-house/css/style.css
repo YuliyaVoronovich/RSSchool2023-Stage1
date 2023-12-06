@@ -1276,9 +1276,6 @@ body {
 
   .modal-choice-buttons {
     max-height: 100px; /*сделать в медиа другую высоту*/
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
   }
 
 }
@@ -1337,6 +1334,20 @@ body {
   .menu-text {
     font-size: 42px;
   }
+  .modal-choice-buttons {
+    max-height: unset;
+  }
+}
+
+@media (max-width: 700px) { 
+    
+  .modal-card {
+    max-width: 380px;
+  }
+
+  .modal-card-left {
+    display: none;
+  }
 }
 
 @media (max-width: 380px) { 
@@ -1375,15 +1386,11 @@ body {
   .menu-choice-buttons {
     gap: 8px;
   }
-
   
   .modal-card {
     max-width: 342px;
   }
-  
-  .modal-card-left {
-    display: none;
-  }
+
 
 }
 @media (max-width: 360px) { 
