@@ -1,5 +1,7 @@
 import products from "./product.json" assert { type: "json" };
 
+// import modalCard from "./modal-card.js";
+
 const body = document.querySelector('body');
 let currentCategory = 'coffee';
 let currentProducts = [];
@@ -137,12 +139,34 @@ function openCard() {
 
       const currentPopUp = document.querySelector('#modal-popup');
       openPopUp(currentPopUp);  
-      const itemCard =  currentProducts[index];
-      document.querySelector('.modal-img').innerHTML = `<img class="menu-item-img" src="./assets/img/${itemCard.category}-${index+1}.jpg" alt="Image ${itemCard.category}_${index+1}">`;   
+      drawModalCard(currentProducts[index], index);     
 
     });
   
   });
+}
+
+// function drawModalCard(item, index) {
+//   document.querySelector('.modal-card').innerHTML =  modalCard(item, index);
+ 
+// }
+
+function drawModalCard(item, index) {
+  document.querySelector('.modal-img').innerHTML = `<img class="menu-item-img" src="./assets/img/${item.category}-${index+1}.jpg" alt="Image ${item.category}_${index+1}">`;   
+  document.querySelector('.modal-card-title').innerHTML = `${item.name}`;
+  document.querySelector('.modal-card-text').innerHTML = `${item.description}`;
+
+  const modalSize = document.querySelectorAll('.modal-choice-size');
+  modalSize.forEach((size, index) => {
+    size.innerHTML = `${item.sizes[Object.keys(item.sizes)[index]].size}`;
+  });
+
+  const modalAdditives = document.querySelectorAll('.modal-choice-additives');
+  modalAdditives.forEach((additive, index) => {
+    additive.innerHTML = `${item.additives[Object.keys(item.additives)[index]].name}`;
+  });
+
+  document.querySelector('.modal-card-price').innerHTML = `${item.price}`;
 }
 
 //popup

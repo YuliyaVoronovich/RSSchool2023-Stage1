@@ -1065,6 +1065,18 @@ body {
   color: var(--text-dark);
 }
 
+.modal-choice-button.active {
+  background: var(--bg-container);
+  pointer-events: none;
+}
+
+.modal-choice-button.active  .modal-choice-button-icon {
+  background: var(--bg-body);
+}
+.modal-choice-button.active .modal-choice-button-title {
+  color: var(--text-light);
+}
+
 .modal-sum {
   display: flex;
   justify-content: space-between;
