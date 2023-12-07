@@ -1114,7 +1114,7 @@ body {
   line-height: 140%; 
 }
 
-.modal-button {
+.modal-button-close {
   width: 100%;
   max-height: 44px;
   margin-top: -1px;
@@ -1129,6 +1129,13 @@ body {
   line-height: 150%;
   cursor: pointer;
   text-decoration: none;
+}
+
+@media (hover: hover) {
+  .modal-button-close:hover {
+    background: var(--bg-container);
+    color: var(--text-light);
+  }
 }
 
 /* End modal*/
