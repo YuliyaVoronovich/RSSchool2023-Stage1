@@ -8,6 +8,7 @@ let currentProducts = [];
 const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
 let menuList = document.querySelector('.menu-list');
 let loader = document.querySelector('.loader');
+const closeModal = document.querySelector('.modal-button-close');
 //const nodes = menuList.childNodes;
 let arrayCards = [];
 
@@ -159,17 +160,25 @@ function drawModalCard(item, index) {
   const modalSize = document.querySelectorAll('.modal-choice-size');
   modalSize.forEach((size, index) => {
     size.innerHTML = `${item.sizes[Object.keys(item.sizes)[index]].size}`;
+    size.dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
   });
 
   const modalAdditives = document.querySelectorAll('.modal-choice-additives');
   modalAdditives.forEach((additive, index) => {
     additive.innerHTML = `${item.additives[Object.keys(item.additives)[index]].name}`;
+    additive.dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
   });
 
   document.querySelector('.modal-card-price').innerHTML = `${item.price}`;
 }
 
 //popup
+
+closeModal.addEventListener('click', event => {
+  closePopUp(event.target.closest('.modal-wrap'));  
+  event.preventDefault();  
+});
+
 function openPopUp(popUp) {
 
   if (popUp && unlock) {
@@ -197,6 +206,7 @@ function closePopUp(popUp, doUnlock = true) {
       }
   }    
 }
+
 
 function  bodyLock() {
   body.style.paddingRight = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
