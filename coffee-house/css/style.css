@@ -1077,6 +1077,27 @@ body {
   color: var(--text-light);
 }
 
+.modal-choice-additives.active {
+  pointer-events: visible;
+}
+
+@media (hover: hover) {
+  .modal-choice-button:hover {
+    background: var(--bg-container);
+    transition: 0.5s;
+  }
+  
+  .modal-choice-button:hover .modal-choice-button-icon {
+    background: var(--bg-body);
+    transition: 0.5s;
+  }
+  
+  .modal-choice-button:hover .modal-choice-button-title {
+    color: var(--text-light);
+    transition: 0.5s;
+  }
+}
+
 .modal-sum {
   display: flex;
   justify-content: space-between;

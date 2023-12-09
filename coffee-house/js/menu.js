@@ -9,10 +9,20 @@ const itemCategoryButtons = document.querySelectorAll('.menu-choice-button');
 let menuList = document.querySelector('.menu-list');
 let loader = document.querySelector('.loader');
 const closeModal = document.querySelector('.modal-button-close');
+
+const modalSize = document.querySelectorAll('.modal-choice-size-value');
+const modalAdditives = document.querySelectorAll('.modal-choice-additives-value');
+
+const modalSizeButtons = document.querySelectorAll('.modal-choice-size');
+const modalAdditivesButtons = document.querySelectorAll('.modal-choice-additives');
 //const nodes = menuList.childNodes;
 let arrayCards = [];
 
 let unlock = true;
+
+let currentSizeButton = modalSizeButtons[0];
+let totalPrice = 0;
+let price = 0;
 
 const getCurrentProduts = () => {
     currentProducts = products.filter((item) => item.category === currentCategory);
@@ -139,7 +149,9 @@ function openCard() {
     item.addEventListener ('click', event => {
 
       const currentPopUp = document.querySelector('#modal-popup');
-      openPopUp(currentPopUp);  
+      openPopUp(currentPopUp); 
+      resetActiveButtonModal ();
+      currentSizeButton.classList.add('active');
       drawModalCard(currentProducts[index], index);     
 
     });
@@ -157,19 +169,61 @@ function drawModalCard(item, index) {
   document.querySelector('.modal-card-title').innerHTML = `${item.name}`;
   document.querySelector('.modal-card-text').innerHTML = `${item.description}`;
 
-  const modalSize = document.querySelectorAll('.modal-choice-size');
   modalSize.forEach((size, index) => {
     size.innerHTML = `${item.sizes[Object.keys(item.sizes)[index]].size}`;
-    size.dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
+    size.closest('.modal-choice-size').dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
   });
 
-  const modalAdditives = document.querySelectorAll('.modal-choice-additives');
   modalAdditives.forEach((additive, index) => {
     additive.innerHTML = `${item.additives[Object.keys(item.additives)[index]].name}`;
-    additive.dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
+    additive.closest('.modal-choice-additives').dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
   });
 
   document.querySelector('.modal-card-price').innerHTML = `${item.price}`;
+  totalPrice = +item.price;
+}
+
+
+function resetActiveButtonModal () {
+  modalSizeButtons.forEach((currentButton) => currentButton.classList.remove('active'));
+  modalAdditivesButtons.forEach((currentButton) => currentButton.classList.remove('active'));
+}
+
+
+modalSizeButtons.forEach((button) => {
+    
+  button.addEventListener ('click', event => {
+     currentSizeButton.classList.remove('active');
+     totalPrice -= +currentSizeButton.getAttribute('data-price');
+
+    button.classList.add('active');
+    totalPrice += +button.getAttribute('data-price');
+
+    changePrice(totalPrice); 
+    currentSizeButton = button;
+
+  });
+});
+
+modalAdditivesButtons.forEach((button) => {
+    
+  button.addEventListener ('click', event => {
+
+    if (button.classList.contains('active')) {
+      button.classList.remove('active');
+      totalPrice -= +button.getAttribute('data-price');
+    } else {
+      button.classList.add('active');
+      totalPrice += +button.getAttribute('data-price');
+    }    
+    console.log(totalPrice);
+    changePrice(totalPrice);  
+  });
+});
+
+function changePrice(totalPrice) {
+
+  document.querySelector('.modal-card-price').innerHTML = totalPrice.toFixed(2);
 }
 
 //popup
