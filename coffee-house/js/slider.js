@@ -1,6 +1,5 @@
 //let autoplayInterval;
 let progressInterval;
-const startPosition = 100;
 let movePosition;
 
 let step = 0;
@@ -46,8 +45,9 @@ const nextSlide = () => {
         track.style.transform = `translateX(-${0}%)`;
     } else {
         step += 1; 
-        movePosition = startPosition * step;
-        track.style.transform = `translateX(-${movePosition}%)`;
+        movePosition = container.clientWidth * step;
+
+        track.style.transform = `translateX(-${movePosition}px)`;
     }    
 }
 
@@ -55,12 +55,12 @@ const prevSlide = () => {
 
     if (step === 0) {  
         step = endStep;       
-        movePosition = startPosition * endStep;
-        track.style.transform = `translateX(-${movePosition}%)`;
+        movePosition = container.clientWidth * endStep;
+        track.style.transform = `translateX(-${movePosition}px)`;
     } else {
         step -= 1; 
-        movePosition = startPosition * step;
-        track.style.transform = `translateX(-${movePosition}%)`;
+        movePosition = container.clientWidth * step;
+        track.style.transform = `translateX(-${movePosition}px)`;
     }    
 }
 

@@ -151,7 +151,7 @@ function openCard() {
       const currentPopUp = document.querySelector('#modal-popup');
       openPopUp(currentPopUp); 
       resetActiveButtonModal ();
-      currentSizeButton.classList.add('active');
+      modalSizeButtons[0].classList.add('active');
       drawModalCard(currentProducts[index], index);     
 
     });
@@ -216,7 +216,6 @@ modalAdditivesButtons.forEach((button) => {
       button.classList.add('active');
       totalPrice += +button.getAttribute('data-price');
     }    
-    console.log(totalPrice);
     changePrice(totalPrice);  
   });
 });

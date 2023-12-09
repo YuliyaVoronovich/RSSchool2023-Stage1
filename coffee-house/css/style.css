@@ -1399,6 +1399,10 @@ body {
   .title {
     font-size: 32px;
   }
+  
+  .favorites-slides {
+    max-width: 348px;
+  }
 
   .favorites-item-img {
     min-width: 348px;
@@ -1440,6 +1444,14 @@ body {
 
   .menu-choice-button {
     padding: 4px 8px 4px 4px;
+  }
+
+  .favorites-slides {
+    max-width: 280px;
+  }
+
+  .favorites-item-img {
+    min-width: 280px;
   }
 
 }
