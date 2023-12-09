@@ -1380,6 +1380,14 @@ body {
 }
 
 @media (max-width: 700px) { 
+
+  .favorites-slides {
+    max-width: 348px;
+  }
+
+  .favorites-item-img {
+    min-width: 348px;
+  }
     
   .modal-card {
     max-width: 380px;
@@ -1387,6 +1395,17 @@ body {
 
   .modal-card-left {
     display: none;
+  }
+}
+
+@media (max-width: 700px) { 
+
+  .favorites-slides {
+    max-width: 348px;
+  }
+
+  .favorites-item-img {
+    min-width: 348px;
   }
 }
 
@@ -1398,14 +1417,6 @@ body {
 
   .title {
     font-size: 32px;
-  }
-  
-  .favorites-slides {
-    max-width: 348px;
-  }
-
-  .favorites-item-img {
-    min-width: 348px;
   }
 
   .about-text {
