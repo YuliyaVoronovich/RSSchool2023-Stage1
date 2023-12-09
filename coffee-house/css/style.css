@@ -1437,7 +1437,7 @@ body {
 
 
 }
-@media (max-width: 360px) { 
+@media (max-width: 379px) { 
   .main-title {
     font-size: 26px;
   }
