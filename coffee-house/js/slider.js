@@ -45,6 +45,7 @@ const nextSlide = () => {
         track.style.transform = `translateX(-${0}%)`;
     } else {
         step += 1; 
+        console.log(container.clientWidth);
         movePosition = container.clientWidth * step;
 
         track.style.transform = `translateX(-${movePosition}px)`;
