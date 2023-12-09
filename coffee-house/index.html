@@ -48,11 +48,17 @@
     <main class="main">
       <section class="section-enjoy">
         <div class="container">
-          <div class="enjoy-container">
+            <div class="video">
+              <video class="enjoy-video" loop muted autoplay playsinline poster="./assets/img/enjoy.png" loading="lazy">
+                <source src="./assets/video/enjoy.webm" type="video/webm">
+                <source src="./assets/video/enjoy.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="enjoy-container">
             <div class="enjoy-wrap">
               <h1 class="main-title"><span>Enjoy</span> premium coffee at our charming cafe</h1>
               <p class="enjoy-text">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
-              <a class="enjoy-button" href="./menu.html">
+              <a class="enjoy-button" href="./menu">
                 <span class="enjoy-button-text">Menu</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M14.167 9.76667V11.6667C14.167 14.8883 11.5553 17.5 8.33366 17.5C5.112 17.5 2.50033 14.8883 2.50033 11.6667V9.76667C2.50033 9.4353 2.76896 9.16667 3.10033 9.16667H13.567C13.8984 9.16667 14.167 9.4353 14.167 9.76667Z" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -63,6 +69,7 @@
               </a>
             </div>
           </div>
+
         </div> 
       </section> 
       <section class="section-favorites" id="favorite_coffee">
@@ -75,16 +82,27 @@
               </svg>
             </button>              
             <div class="favorites-slides">
-              <ul class="favorites-list">
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-1.png" alt="Favorites Image"></li>
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-2.png" alt="Favorites Image"></li>
-                <li class="favorites-item"><img class="favorites-item-img" src="./assets/img/coffee-slider-3.png" alt="Favorites Image"></li>
-              </ul>
-              <div class="favorites-slides-desc">
-                <h3 class="heading">S’mores Frappuccino</h3>
-                <p class="favorites-slide-text">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
-                <div class="favorites-slide-price">$5.50</div>                
+              <div class="favorites-list">
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-1.png" alt="Favorites Image">                  
+                  <h3 class="heading">S’mores Frappuccino</h3>
+                  <p class="favorites-slide-text">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+                  <span class="favorites-slide-price">$5.50</span>
+                </div>
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-2.png" alt="Favorites Image">
+                  <h3 class="heading">Caramel Macchiato</h3>
+                  <p class="favorites-slide-text">Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.</p>
+                  <span class="favorites-slide-price">$5.00</span>
+                </div>
+                <div class="favorites-item">
+                  <img class="favorites-item-img" src="./assets/img/coffee-slider-3.png" alt="Favorites Image">
+                  <h3 class="heading">Ice coffee</h3>
+                  <p class="favorites-slide-text">A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.</p>
+                  <span class="favorites-slide-price">$4.50</span>
+                </div>
               </div>
+              
             </div>
             <button class="favorites-button favorites-button-right">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -93,9 +111,9 @@
             </button>
           </div>
           <div class="carousel-list">
-            <div class="carousel-item" data-item="item-1"><span class="carousel-button"></span></div>
-            <div class="carousel-item" data-item="item-2"><span class="carousel-button"></span></div>
-            <div class="carousel-item" data-item="item-3"><span class="carousel-button"></span></div>
+            <span class="carousel-item" data-item="item-1"><span class="carousel-button"></span></span>
+            <span class="carousel-item" data-item="item-2"><span class="carousel-button"></span></span>
+            <span class="carousel-item" data-item="item-3"><span class="carousel-button"></span></span>
           </div>
         </div>
       </section>
@@ -222,6 +240,7 @@
       </div>
     </footer>
   </div>
-  <script src="./js/index.js"></script>     
+  <script type="module" src="./js/burger.js"></script> 
+  <script type="module" src="./js/slider.js"></script>    
 </body>
 </html>
