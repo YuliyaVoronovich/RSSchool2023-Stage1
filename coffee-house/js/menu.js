@@ -176,7 +176,7 @@ function drawModalCard(item, index) {
 
   modalAdditives.forEach((additive, index) => {
     additive.innerHTML = `${item.additives[Object.keys(item.additives)[index]].name}`;
-    additive.closest('.modal-choice-additives').dataset.price = `${item.sizes[Object.keys(item.sizes)[index]]['add-price']}`;
+    additive.closest('.modal-choice-additives').dataset.price = `${item.additives[Object.keys(item.additives)[index]]['add-price']}`;
   });
 
   document.querySelector('.modal-card-price').innerHTML = `${item.price}`;
