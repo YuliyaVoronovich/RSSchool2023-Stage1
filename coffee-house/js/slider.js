@@ -103,9 +103,8 @@ function handleTouchStart (event) {
     x1 = event.touches[0].clientX;
 }
 
-function handleTouchEnd (event) {
-    stopSlider();
-  
+function handleTouchEnd (event) { 
+
     let x2 = event.changedTouches[0].clientX;
     let xDiff = x2-x1;
 
