@@ -14,6 +14,9 @@ const prevArrow = document.querySelector('.favorites-button-left');
 
 const progressBarButtons = document.querySelectorAll('.carousel-button');
 
+let x1 = null;
+let y1 = null;
+
 function startSlider() {
    // stopSlider();
    // autoplayInterval = setInterval(nextSlide, 4000);  
@@ -45,7 +48,6 @@ const nextSlide = () => {
         track.style.transform = `translateX(-${0}%)`;
     } else {
         step += 1; 
-        console.log(container.clientWidth);
         movePosition = container.clientWidth * step;
 
         track.style.transform = `translateX(-${movePosition}px)`;
@@ -92,13 +94,35 @@ container.addEventListener ('mouseout',  event => {
     startSlider();   
 });
 
-// container.addEventListener ('mouseup',  event => { 
-//     stopSlider();   
-// });
+container.addEventListener ('touchstart', handleTouchStart, false); 
+container.addEventListener ('touchend', handleTouchEnd, false); 
 
-// container.addEventListener ('mousedown',  event => {    
-//     startSlider();   
-// });
+
+function handleTouchStart (event) {
+    stopSlider();
+    x1 = event.touches[0].clientX;
+}
+
+function handleTouchEnd (event) {
+    stopSlider();
+  
+    let x2 = event.changedTouches[0].clientX;
+    let xDiff = x2-x1;
+
+    if (xDiff === 0)  startSlider();
+    else if (xDiff < 0) {   
+        progressBarButtons[step].style.width = `0%`;
+        progressStep = 0;
+        startSlider();  
+        nextSlide(); 
+    }  else {
+        progressBarButtons[step].style.width = `0%`;
+        progressStep = 0;
+        startSlider();    
+        prevSlide();
+    }
+    x1 = null;
+}
 
 window.addEventListener('load', () => {
     startSlider(); 
