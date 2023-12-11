@@ -94,7 +94,6 @@ container.addEventListener ('mouseout',  event => {
     startSlider();   
 });
 
-
 container.addEventListener ('touchstart', handleTouchStart, false); 
 container.addEventListener ('touchend', handleTouchEnd, false); 
 
@@ -109,19 +108,19 @@ function handleTouchEnd (event) {
     let x2 = event.changedTouches[0].clientX;
     let xDiff = x2-x1;
 
-    if (xDiff === 0)  startSlider();
-    else if (xDiff < 100) {   
+   // if (xDiff === 0)  startSlider();
+    if (x1-x2 > 100) {   
         progressBarButtons[step].style.width = `0%`;
-        progressStep = 0;
-        startSlider();  
+        progressStep = 0; 
         nextSlide(); 
-    }  else {
+    }
+    if (x2-x1 > 100) {  
         progressBarButtons[step].style.width = `0%`;
-        progressStep = 0;
-        startSlider();    
+        progressStep = 0;  
         prevSlide();
     }
-    x1 = null;
+    stopSlider();
+    startSlider();
 }
 
 window.addEventListener('load', () => {
