@@ -110,14 +110,17 @@ function handleTouchEnd (event) {
 
    // if (xDiff === 0)  startSlider();
     if (x1-x2 > 100) {   
+        console.log('next');
         progressBarButtons[step].style.width = `0%`;
         progressStep = 0; 
         nextSlide(); 
-    }
-    if (x2-x1 > 100) {  
+    } else if (x2-x1 > 100) { 
+        console.log('prev'); 
         progressBarButtons[step].style.width = `0%`;
         progressStep = 0;  
         prevSlide();
+    } else {
+        event.preventDefault(); 
     }
     stopSlider();
     startSlider();
