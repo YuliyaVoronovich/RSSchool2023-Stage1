@@ -19,8 +19,9 @@ function closeOnClick() {
      document.querySelector('.header').classList.remove('open');
      document.querySelector('body').classList.remove('body-overflow');
  }
-
- linkMenu.addEventListener('click', event => {
+if (linkMenu) {
+    linkMenu.addEventListener('click', event => {
         event.preventDefault();  
         closeOnClick();
   });
+}
