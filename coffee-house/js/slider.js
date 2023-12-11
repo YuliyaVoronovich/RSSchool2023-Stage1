@@ -94,6 +94,7 @@ container.addEventListener ('mouseout',  event => {
     startSlider();   
 });
 
+
 container.addEventListener ('touchstart', handleTouchStart, false); 
 container.addEventListener ('touchend', handleTouchEnd, false); 
 
