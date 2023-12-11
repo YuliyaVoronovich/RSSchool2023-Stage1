@@ -278,9 +278,6 @@ function  bodyUnlock() {
   body.classList.remove('body-overflow');
 }
 
-
-
-
 loader.addEventListener ('click', event => {
 
   arrayCards.forEach((item) => {
