@@ -454,6 +454,35 @@ body {
   transition: width 0.3s ease;
 }
 
+/* .carousel-button.active {
+  position: absolute;
+  left: 0;
+  border-radius: 100px; 
+  background: var(--border-dark);
+  height: 4px;
+  animation: load 5s linear 1s;
+  animation-fill-mode: forwards;
+  width: 0%;
+}
+
+@-webkit-keyframes load {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes load {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+} */
+
 /* .carousel-item:first-child .carousel-button {
   background: var(--border-dark);
   color: var(--border-dark);
