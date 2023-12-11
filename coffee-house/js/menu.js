@@ -179,7 +179,7 @@ function drawModalCard(item, index) {
     additive.closest('.modal-choice-additives').dataset.price = `${item.additives[Object.keys(item.additives)[index]]['add-price']}`;
   });
 
-  document.querySelector('.modal-card-price').innerHTML = `${item.price}`;
+  document.querySelector('.modal-card-price').innerHTML =`$${item.price}`;
   totalPrice = +item.price;
 }
 
@@ -222,7 +222,7 @@ modalAdditivesButtons.forEach((button) => {
 
 function changePrice(totalPrice) {
 
-  document.querySelector('.modal-card-price').innerHTML = totalPrice.toFixed(2);
+  document.querySelector('.modal-card-price').innerHTML = `$${totalPrice.toFixed(2)}`;
 }
 
 //popup
