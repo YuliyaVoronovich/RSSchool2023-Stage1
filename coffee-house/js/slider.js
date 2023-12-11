@@ -109,7 +109,7 @@ function handleTouchEnd (event) {
     let xDiff = x2-x1;
 
     if (xDiff === 0)  startSlider();
-    else if (xDiff < 0) {   
+    else if (xDiff < 100) {   
         progressBarButtons[step].style.width = `0%`;
         progressStep = 0;
         startSlider();  

@@ -23,6 +23,7 @@ let unlock = true;
 let currentSizeButton = modalSizeButtons[0];
 let totalPrice = 0;
 let price = 0;
+let isLoader = false;
 
 const getCurrentProduts = () => {
     currentProducts = products.filter((item) => item.category === currentCategory);
@@ -37,6 +38,7 @@ itemCategoryButtons.forEach((button) => {
         currentCategory = button.querySelector('.menu-choice-button-title').innerText.toLowerCase();
         getCurrentProduts();
         showMenuList(currentProducts);
+        isLoader = false;
     
     });
 });
@@ -133,26 +135,31 @@ function resizeProduct () {
     });
 
     if (widthWind < 769) {
-       if (currentProducts.length > 4) {
-        //показать только 4 карточки    
-
-        arrayCards.slice(4).forEach((item) => {
-             item.classList.add('hide');     
-           });
-         loader.classList.add('active');
-       } 
+      if (!isLoader) {
+        console.log(isLoader);
+        if (currentProducts.length > 4) {
+          //показать только 4 карточки    
+  
+          arrayCards.slice(4).forEach((item) => {
+               item.classList.add('hide');     
+             });
+           loader.classList.add('active');
+         } 
+      }       
     }    
 }
 function openCard() {
   arrayCards.forEach((item, index) => {
 
     item.addEventListener ('click', event => {
-
       const currentPopUp = document.querySelector('#modal-popup');
       openPopUp(currentPopUp); 
-      resetActiveButtonModal ();
-      modalSizeButtons[0].classList.add('active');
-      drawModalCard(currentProducts[index], index);     
+      resetActiveButtonModal();
+      currentSizeButton = modalSizeButtons[0];
+      currentSizeButton.classList.add('active');
+      totalPrice = 0;
+      drawModalCard(currentProducts[index], index);  
+      
 
     });
   
@@ -281,6 +288,7 @@ loader.addEventListener ('click', event => {
   });
   
   loader.classList.remove('active'); 
+  isLoader = true;
 });
 
 window.onresize = function(event) {
