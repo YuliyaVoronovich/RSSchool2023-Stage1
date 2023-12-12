@@ -39,3 +39,9 @@ if (linkMenuHome) {
           }, 500);
   });
 }
+
+window.addEventListener('resize', (event) =>{
+    if (window.innerWidth > 768) {
+        closeOnClick();
+    }
+})
