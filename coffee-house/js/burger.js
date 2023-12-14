@@ -40,8 +40,3 @@ if (linkMenuHome) {
   });
 }
 
-window.addEventListener('resize', (event) =>{
-    if (window.innerWidth > 768) {
-        closeOnClick();
-    }
-})
