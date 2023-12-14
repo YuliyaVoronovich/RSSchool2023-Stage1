@@ -18,12 +18,11 @@ const modalAdditivesButtons = document.querySelectorAll('.modal-choice-additives
 //const nodes = menuList.childNodes;
 let arrayCards = [];
 
-let unlock = true;
-
 let currentSizeButton = modalSizeButtons[0];
 let totalPrice = 0;
 let price = 0;
 let isLoader = false;
+let isPopUp = false;;
 
 const getCurrentProduts = () => {
     currentProducts = products.filter((item) => item.category === currentCategory);
@@ -241,10 +240,10 @@ closeModal.addEventListener('click', event => {
 
 function openPopUp(popUp) {
 
-  if (popUp && unlock) {
+  if (popUp) {
   const popupActive = document.querySelector('.modal-wrap.open');   
       if (popupActive) {
-          closePopUp(popupActive, false);
+          closePopUp(popupActive);
       } else {
           bodyLock();
       }
@@ -254,23 +253,23 @@ function openPopUp(popUp) {
             if (!event.target.closest('.modal-content')) {
               closePopUp(event.target.closest('.modal-wrap'));
           }
-      });          
+      });  
+      isPopUp = true;        
   }     
 }
 
-function closePopUp(popUp, doUnlock = true) {
-  if (unlock) {
+function closePopUp(popUp) {
       popUp.classList.remove('open');
-      if(doUnlock) {
-          bodyUnlock();
-      }
-  }    
+      bodyUnlock();
+      isPopUp = false;
+
 }
 
 
 function  bodyLock() {
   body.style.paddingRight = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
   body.classList.add('body-overflow');
+
 }
 
 function  bodyUnlock() {
@@ -288,12 +287,18 @@ loader.addEventListener ('click', event => {
   isLoader = true;
 });
 
-window.onresize = function(event) {
-    resizeProduct();
-}; 
-
 window.addEventListener('load', () => {
   getCurrentProduts();
   showMenuList(currentProducts); 
 });
+
+window.addEventListener('resize', (event) =>{
+
+  if (!isPopUp) {
+      if (window.innerWidth > 768) {
+        document.querySelector('.header').classList.remove('open');
+        document.querySelector('body').classList.remove('body-overflow');
+      }
+  }  
+})
 
