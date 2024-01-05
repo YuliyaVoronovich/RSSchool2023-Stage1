@@ -1,14 +1,16 @@
 import CreateElement from './createElement.js';
 import CreateSvg from './createSvg.js';
+import Game from './game.js';
 
 import questions from "./questions.json" assert { type: "json" };
 
-const incorrectAnswer = 0;
 const totalAnswer = 6;
 const logoHtml = 'Hangman Game';
 const resultTextHtml = 'Incorrect Guesses: ';
-const lengthWorld = 10;
-const questionTextHtml = 'Hint: A human-powered vehicle with two wheels man-powered vehicle';
+const questionTextHtml = '';
+
+const result = questions[Math.floor(Math.random() * questions.length)];
+const game = new Game(result.answer, result.question);
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -73,7 +75,7 @@ results.element.append(resultText.element);
 const resultNumber = new CreateElement('span', ['result-number']);
 resultText.element.append(resultNumber.element);
 
-const resultNumberIncorrect = new CreateElement('span', ['result-number__incorrect'], incorrectAnswer);
+export const resultNumberIncorrect = new CreateElement('span', ['result-number__incorrect'], 0);
 resultNumber.element.append(resultNumberIncorrect.element);
 
 const resultNumberTotal = new CreateElement('span', ['result-number__total'], ` / ${totalAnswer}`);
@@ -83,27 +85,22 @@ const rigthSection = new CreateElement('div', ['rigth-section']);
 main.element.append(rigthSection.element);
 
 // ========= INPUT WORLD
-const inputWorlds = new CreateElement('div', ['input-world', 'section-border__bottom']);
+export const inputWorlds = new CreateElement('div', ['input-world', 'section-border__bottom']);
 rigthSection.element.append(inputWorlds.element);
-
-for (let i = 0; i < lengthWorld; i++) {
-  const worldLetter = new CreateElement('span', ['input-world-letter']);
-  inputWorlds.element.append(worldLetter.element);
-}
+game.showWorld();
 
 // ========= QUESTION
-const question = new CreateElement('div', ['question', 'section-border__bottom']);
+export const question = new CreateElement('div', ['question', 'section-border__bottom']);
 rigthSection.element.append(question.element);
-
-const questionText = new CreateElement('div', ['question-text'], questionTextHtml);
-question.element.append(questionText.element);
+game.showQuestion();
 
 // ========= KEYBOARD
 const keyboard = new CreateElement('div', ['keyboard']);
 rigthSection.element.append(keyboard.element);
 
-for (let i = 'A'.charCodeAt(); i <= 'Z'.charCodeAt(); i++) {
-    const keyboardLetter = new CreateElement('span', ['keyboard-letter'], String.fromCharCode(i));
+for (let i = 65; i < 91; i++) {
+    const letter = String.fromCharCode(i);
+    const keyboardLetter = new CreateElement('span', ['keyboard-letter'], letter);
+    keyboardLetter.element.addEventListener('click', (e) => game.checkKey(e.target, letter));
     keyboard.element.append(keyboardLetter.element);
 }
-export { questions, inputWorlds, keyboard , incorrectAnswer};
