@@ -1,6 +1,8 @@
 import CreateElement from './createElement.js';
 import CreateSvg from './createSvg.js';
 
+import questions from "./questions.json" assert { type: "json" };
+
 const incorrectAnswer = 0;
 const totalAnswer = 6;
 const logoHtml = 'Hangman Game';
@@ -104,3 +106,4 @@ for (let i = 'A'.charCodeAt(); i <= 'Z'.charCodeAt(); i++) {
     const keyboardLetter = new CreateElement('span', ['keyboard-letter'], String.fromCharCode(i));
     keyboard.element.append(keyboardLetter.element);
 }
+export { questions, inputWorlds, keyboard , incorrectAnswer};
