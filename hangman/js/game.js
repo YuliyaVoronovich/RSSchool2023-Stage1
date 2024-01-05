@@ -25,17 +25,28 @@ class Game {
   showQuestion () {        
       const questionText = new CreateElement('div', ['question-text'], this.question);
       question.element.append(questionText.element);
-    }
+  }
 
   checkKey (e, letter) {
     if (this.world.includes(letter)) {
         e.classList.add('correct');
+        this.openLetter(letter);
     } else {
         this.incorrectAnswer += 1;
         e.classList.add('wrong');
         resultNumberIncorrect.element.innerHTML = this.incorrectAnswer;
         console.log(this.incorrectAnswer);
     }
+  }
+
+  openLetter (letter = '') {
+    const inputWorldLetters = document.querySelectorAll('.input-world-letter');
+    inputWorldLetters.forEach(item => {
+      const el = item.querySelector('.input-world-letter__element');
+      if (letter === el.innerHTML) {
+        item.classList.add('show');
+      }    
+    });
   }
 }
 
