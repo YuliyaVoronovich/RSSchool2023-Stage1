@@ -35,7 +35,10 @@ class Game {
         this.incorrectAnswer += 1;
         e.classList.add('wrong');
         resultNumberIncorrect.element.innerHTML = this.incorrectAnswer;
-        console.log(this.incorrectAnswer);
+        //open MAN
+        const partMan = document.querySelector(`.hangman-img__${this.incorrectAnswer}`);
+        partMan.classList.remove('hide');
+        if (this.incorrectAnswer === 6) this.gameOver();
     }
   }
 
@@ -47,6 +50,10 @@ class Game {
         item.classList.add('show');
       }    
     });
+  }
+
+  gameOver() {
+    console.log('modal');
   }
 }
 
