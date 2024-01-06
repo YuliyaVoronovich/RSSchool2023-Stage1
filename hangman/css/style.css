@@ -346,6 +346,7 @@ body {
 
 .question {
   width: 100%;
+  min-height: 180px;
   padding: 35px 40px;
 }
 
