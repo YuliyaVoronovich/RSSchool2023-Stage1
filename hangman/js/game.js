@@ -1,6 +1,8 @@
-import { inputWorlds, question, resultNumberIncorrect} from './main.js';
+import { inputWorlds, question, resultNumberIncorrect, modalWorld} from './main.js';
 import CreateElement from './createElement.js';
 import PopUp from './popUp.js';
+
+import questions from "./questions.json" assert { type: "json" };
 
 class Game {
 
@@ -8,11 +10,36 @@ class Game {
     this.world = world.toUpperCase();
     this.question = question;
     this.incorrectAnswer = 0;
+    this.popUp;
   }
 
-  startGame () {
+  restartGame () {
+    const result = questions[Math.floor(Math.random() * questions.length)];
+    this.world = result.answer.toUpperCase();
+    this.question = result.question;
+    // clean input world
+    document.querySelector(`.input-world`).innerHTML = '';
     this.showWorld();
+    // clean question
+    document.querySelector(`.question`).innerHTML = '';
     this.showQuestion();
+    // clean keyboard
+    const letters = document.querySelectorAll(`.keyboard-letter`);
+    letters.forEach(item => {
+      item.classList.remove('wrong'); 
+      item.classList.remove('correct'); 
+    });
+    // clean MAN
+    const hangmanImgs = document.querySelectorAll(`.hangman-img`);
+    hangmanImgs.forEach(item => {
+      item.classList.add('hide'); 
+    });
+    // clean incorrect answer
+    this.incorrectAnswer = 0;
+    document.querySelector(`.result-number__incorrect`).innerHTML = this.incorrectAnswer;;
+    //close popUp
+    const currentPopUp = document.querySelector('.modal-wrapper');
+    this.popUp.closePopUp(currentPopUp);
   }
 
   showWorld () { 
@@ -62,27 +89,9 @@ class Game {
   }
 
   gameOver(result) {
-    // ========= MODAL
-    const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
-    document.querySelector('body').append(modalWrapper.element);
 
-    const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
-    modalWrapper.element.append(modalResult.element);
-
-    const modalHeading = new CreateElement('h3', ['heading'], '', {'id': 'modal-result__text'});
-    modalResult.element.append(modalHeading.element);
-
-    const modalWorldText = new CreateElement('div', ['modal-world__text'], 'Your world is ');
-    modalResult.element.append(modalWorldText.element);
-
-    const modalWorld = new CreateElement('span', ['modal-world'], this.world);
-    modalWorldText.element.append(modalWorld.element);
-
-    const modalButton = new CreateElement('button', ['modal-button'], 'PLAY AGAIN');
-    modalResult.element.append(modalButton.element);
-
-    const currentPopUp = modalWrapper.element;
-    const popUp = new PopUp(currentPopUp);
+    const currentPopUp =  document.querySelector('.modal-wrapper');
+    this.popUp = new PopUp(currentPopUp);
     
     if (result === 'win') {
        document.getElementById('modal-result__text').innerHTML = 'You win! Congratulations 🎉';
@@ -90,7 +99,10 @@ class Game {
     if (result === 'loser') {
       document.getElementById('modal-result__text').innerHTML = 'Game over! ;(';
     }   
-    popUp.openPopUp(); 
+    const world = document.querySelector('.modal-world');
+    world.innerHTML = '';
+    world.innerHTML = this.world;
+    this.popUp.openPopUp(); 
   } 
 
 }

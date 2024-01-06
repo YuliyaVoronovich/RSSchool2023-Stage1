@@ -105,6 +105,26 @@ for (let i = 65; i < 91; i++) {
   keyboard.element.append(keyboardLetter.element);
 }
 
+// ========= MODAL
+const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
+document.querySelector('body').append(modalWrapper.element);
+
+const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
+modalWrapper.element.append(modalResult.element);
+
+const modalHeading = new CreateElement('h3', ['heading'], '', {'id': 'modal-result__text'});
+modalResult.element.append(modalHeading.element);
+
+const modalWorldText = new CreateElement('div', ['modal-world__text'], 'Your world is ');
+modalResult.element.append(modalWorldText.element);
+
+export const modalWorld = new CreateElement('span', ['modal-world'], result.answer.toUpperCase());
+modalWorldText.element.append(modalWorld.element);
+
+const modalButton = new CreateElement('button', ['modal-button'], 'PLAY AGAIN');
+modalButton.element.addEventListener('click', (event) => game.restartGame());
+modalResult.element.append(modalButton.element);
+
 document.addEventListener('keydown', (event) => {
  
   if (event.keyCode >= 65 && event.keyCode < 91) {

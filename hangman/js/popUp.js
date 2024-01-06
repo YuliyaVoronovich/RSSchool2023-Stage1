@@ -12,9 +12,9 @@ class PopUp {
     }
   }
 
-  closePopUp(popUp) {
+  closePopUp() {
     if (this.unlock) {
-      popUp.classList.remove('open');
+      this.popUp.classList.remove('open');
     }    
   }
     
