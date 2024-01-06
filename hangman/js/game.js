@@ -1,5 +1,6 @@
 import { inputWorlds, question, resultNumberIncorrect} from './main.js';
 import CreateElement from './createElement.js';
+
 class Game {
 
   constructor (world, question) {
@@ -27,18 +28,24 @@ class Game {
       question.element.append(questionText.element);
   }
 
-  checkKey (e, letter) {
-    if (this.world.includes(letter)) {
-        e.classList.add('correct');
-        this.openLetter(letter);
+  checkLetter (event, letter) {
+    if (this.world.includes(letter)) {     
+      event.classList.add('correct');
+      this.openLetter(letter);
+      const count = document.querySelectorAll(`.input-world-letter.show`).length;
+      if (count === this.world.length) {
+        this.gameOver('win');
+      }
     } else {
-        this.incorrectAnswer += 1;
-        e.classList.add('wrong');
-        resultNumberIncorrect.element.innerHTML = this.incorrectAnswer;
-        //open MAN
-        const partMan = document.querySelector(`.hangman-img__${this.incorrectAnswer}`);
-        partMan.classList.remove('hide');
-        if (this.incorrectAnswer === 6) this.gameOver();
+      this.incorrectAnswer += 1;
+      event.classList.add('wrong');
+      resultNumberIncorrect.element.innerHTML = this.incorrectAnswer;
+      //open MAN
+      const partMan = document.querySelector(`.hangman-img__${this.incorrectAnswer}`);
+      partMan.classList.remove('hide');
+      if (this.incorrectAnswer === 6) {
+        this.gameOver('loser');
+      }          
     }
   }
 
@@ -52,8 +59,8 @@ class Game {
     });
   }
 
-  gameOver() {
-    console.log('modal');
+  gameOver(result) {
+    console.log(result);
   }
 }
 

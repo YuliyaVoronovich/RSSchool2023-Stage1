@@ -101,6 +101,6 @@ rigthSection.element.append(keyboard.element);
 for (let i = 65; i < 91; i++) {
     const letter = String.fromCharCode(i);
     const keyboardLetter = new CreateElement('span', ['keyboard-letter'], letter);
-    keyboardLetter.element.addEventListener('click', (e) => game.checkKey(e.target, letter));
+    keyboardLetter.element.addEventListener('click', (event) => game.checkLetter(event.target, letter));
     keyboard.element.append(keyboardLetter.element);
 }
