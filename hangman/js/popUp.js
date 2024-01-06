@@ -15,6 +15,7 @@ class PopUp {
   closePopUp() {
     if (this.unlock) {
       this.popUp.classList.remove('open');
+      this.bodyUnlock();
     }    
   }
     
