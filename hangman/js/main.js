@@ -126,13 +126,15 @@ modalButton.element.addEventListener('click', (event) => game.restartGame());
 modalResult.element.append(modalButton.element);
 
 document.addEventListener('keydown', (event) => {
+
+  if (event.keyCode === 13) game.restartGame();
  
   if (event.keyCode >= 65 && event.keyCode < 91) {
     const letter = String.fromCharCode(event.keyCode);
     const keys = document.querySelectorAll(`.keyboard-letter`);
       keys.forEach(item => {
         if (letter === item.innerHTML) {
-          game.checkLetter(item, letter);
+            game.checkLetter(item, letter);        
         }    
       });
   }
