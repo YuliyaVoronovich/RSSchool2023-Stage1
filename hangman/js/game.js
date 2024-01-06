@@ -58,6 +58,9 @@ class Game {
   }
 
   checkLetter (event, letter) {
+    if (this.incorrectAnswer === 6) {
+      return;
+    }
     if (this.world.includes(letter)) {     
       event.classList.add('correct');
       this.openLetter(letter);
