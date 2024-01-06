@@ -71,7 +71,9 @@ body {
   .main {
     max-width: 738px;
     width: 100%;
+    min-height: 100vh;
     height: auto;
+    margin: 20px auto;
     flex-direction: column;
   }
 
@@ -83,6 +85,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     border-right: none;
+  }
+
+  .rigth-section {
+    height: 650px;
   }
 }
 
@@ -102,6 +108,10 @@ body {
     width: 100%;
     height: auto;
     flex-direction: column;
+  }
+
+  .rigth-section {
+    height: 550px;
   }
 }
 
