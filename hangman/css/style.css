@@ -388,9 +388,11 @@ body {
   }
 }
 
-.keyboard-letter:hover {
-  background: #2a4b9f;
-  color: #f1efe1;
+@media (hover: hover) {
+  .keyboard-letter:hover {
+    background: #2a4b9f;
+    color: #f1efe1;
+  }
 }
 
 .keyboard-letter.wrong {
@@ -471,7 +473,20 @@ body {
   cursor: pointer;
 }
 
-.modal-button:hover {
-  background: #2a4b9f;
-  color: #f1efe1;
+@media (hover: hover) {
+  .modal-button:hover {
+    background: #2a4b9f;
+    color: #f1efe1;
+  }
+}
+
+@media (max-width: 610px) {
+  .modal-content  {
+    max-width: 340px;
+  }
+
+  .modal-button {
+    margin-top: 20px;
+    padding: 14px 30px
+  }
 }
