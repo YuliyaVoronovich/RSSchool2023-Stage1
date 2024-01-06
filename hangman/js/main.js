@@ -99,8 +99,21 @@ const keyboard = new CreateElement('div', ['keyboard']);
 rigthSection.element.append(keyboard.element);
 
 for (let i = 65; i < 91; i++) {
-    const letter = String.fromCharCode(i);
-    const keyboardLetter = new CreateElement('span', ['keyboard-letter'], letter);
-    keyboardLetter.element.addEventListener('click', (event) => game.checkLetter(event.target, letter));
-    keyboard.element.append(keyboardLetter.element);
+  const letter = String.fromCharCode(i);
+  const keyboardLetter = new CreateElement('span', ['keyboard-letter'], letter);
+  keyboardLetter.element.addEventListener('click', (event) => game.checkLetter(event.target, letter));
+  keyboard.element.append(keyboardLetter.element);
 }
+
+document.addEventListener('keydown', (event) => {
+ 
+  if (event.keyCode >= 65 && event.keyCode < 91) {
+    const letter = String.fromCharCode(event.keyCode);
+    const keys = document.querySelectorAll(`.keyboard-letter`);
+      keys.forEach(item => {
+        if (letter === item.innerHTML) {
+          game.checkLetter(item, letter);
+        }    
+      });
+  }
+});
