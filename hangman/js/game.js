@@ -1,5 +1,6 @@
 import { inputWorlds, question, resultNumberIncorrect} from './main.js';
 import CreateElement from './createElement.js';
+import PopUp from './popUp.js';
 
 class Game {
 
@@ -8,6 +9,7 @@ class Game {
     this.question = question;
     this.incorrectAnswer = 0;
   }
+
   startGame () {
     this.showWorld();
     this.showQuestion();
@@ -60,8 +62,37 @@ class Game {
   }
 
   gameOver(result) {
-    console.log(result);
-  }
+    // ========= MODAL
+    const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
+    document.querySelector('body').append(modalWrapper.element);
+
+    const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
+    modalWrapper.element.append(modalResult.element);
+
+    const modalHeading = new CreateElement('h3', ['heading'], '', {'id': 'modal-result__text'});
+    modalResult.element.append(modalHeading.element);
+
+    const modalWorldText = new CreateElement('div', ['modal-world__text'], 'Your world is ');
+    modalResult.element.append(modalWorldText.element);
+
+    const modalWorld = new CreateElement('span', ['modal-world'], this.world);
+    modalWorldText.element.append(modalWorld.element);
+
+    const modalButton = new CreateElement('button', ['modal-button'], 'PLAY AGAIN');
+    modalResult.element.append(modalButton.element);
+
+    const currentPopUp = modalWrapper.element;
+    const popUp = new PopUp(currentPopUp);
+    
+    if (result === 'win') {
+       document.getElementById('modal-result__text').innerHTML = 'You win! Congratulations 🎉';
+    }
+    if (result === 'loser') {
+      document.getElementById('modal-result__text').innerHTML = 'Game over! ;(';
+    }   
+    popUp.openPopUp(); 
+  } 
+
 }
 
 export default Game;
