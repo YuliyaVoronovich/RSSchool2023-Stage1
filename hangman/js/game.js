@@ -13,30 +13,39 @@ class Game {
     this.popUp;
   }
 
+  randomQiestion () {
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+
   restartGame () {
-    const result = questions[Math.floor(Math.random() * questions.length)];
-    this.world = result.answer.toUpperCase();
-    this.question = result.question;
-    // clean input world
-    document.querySelector(`.input-world`).innerHTML = '';
-    this.showWorld();
-    // clean question
-    document.querySelector(`.question`).innerHTML = '';
-    this.showQuestion();
-    // clean keyboard
-    const letters = document.querySelectorAll(`.keyboard-letter`);
-    letters.forEach(item => {
-      item.classList.remove('wrong'); 
-      item.classList.remove('correct'); 
-    });
-    // clean MAN
-    const hangmanImgs = document.querySelectorAll(`.hangman-img`);
-    hangmanImgs.forEach(item => {
-      item.classList.add('hide'); 
-    });
-    // clean incorrect answer
-    this.incorrectAnswer = 0;
-    document.querySelector(`.result-number__incorrect`).innerHTML = this.incorrectAnswer;;
+    const result = this.randomQiestion();
+    if (this.question === result.question) {
+      console.log('same question');
+      this.restartGame();
+    } else {
+      this.world = result.answer.toUpperCase();
+      this.question = result.question;
+      // clean input world
+      document.querySelector(`.input-world`).innerHTML = '';
+      this.showWorld();
+      // clean question
+      document.querySelector(`.question`).innerHTML = '';
+      this.showQuestion();
+      // clean keyboard
+      const letters = document.querySelectorAll(`.keyboard-letter`);
+      letters.forEach(item => {
+        item.classList.remove('wrong'); 
+        item.classList.remove('correct'); 
+      });
+      // clean MAN
+      const hangmanImgs = document.querySelectorAll(`.hangman-img`);
+      hangmanImgs.forEach(item => {
+        item.classList.add('hide'); 
+      });
+      // clean incorrect answer
+      this.incorrectAnswer = 0;
+      document.querySelector(`.result-number__incorrect`).innerHTML = this.incorrectAnswer;
+    }    
     //close popUp
     const currentPopUp = document.querySelector('.modal-wrapper');
     this.popUp.closePopUp(currentPopUp);
