@@ -1,4 +1,5 @@
-import { inputWorlds, question, resultNumberIncorrect, modalWorld} from './main.js';
+import { inputWorlds, question, resultNumberIncorrect, 
+  modalWorld, modalWrapper, modalHeading} from './main.js';
 import CreateElement from './createElement.js';
 import PopUp from './popUp.js';
 
@@ -26,10 +27,10 @@ class Game {
       this.world = result.answer.toUpperCase();
       this.question = result.question;
       // clean input world
-      document.querySelector(`.input-world`).innerHTML = '';
+      inputWorlds.element.textContent = '';
       this.showWorld();
       // clean question
-      document.querySelector(`.question`).innerHTML = '';
+      question.element.textContent = '';
       this.showQuestion();
       // clean keyboard
       const letters = document.querySelectorAll(`.keyboard-letter`);
@@ -44,11 +45,10 @@ class Game {
       });
       // clean incorrect answer
       this.incorrectAnswer = 0;
-      document.querySelector(`.result-number__incorrect`).innerHTML = this.incorrectAnswer;
+      resultNumberIncorrect.element.textContent = this.incorrectAnswer;
     }    
     //close popUp
-    const currentPopUp = document.querySelector('.modal-wrapper');
-    this.popUp.closePopUp(currentPopUp);
+    this.popUp.closePopUp(modalWrapper.element);
   }
 
   showWorld () { 
@@ -80,7 +80,7 @@ class Game {
     } else {
       this.incorrectAnswer += 1;
       event.classList.add('wrong');
-      resultNumberIncorrect.element.innerHTML = this.incorrectAnswer;
+      resultNumberIncorrect.element.textContent = this.incorrectAnswer;
       //open MAN
       const partMan = document.querySelector(`.hangman-img__${this.incorrectAnswer}`);
       partMan.classList.remove('hide');
@@ -94,7 +94,7 @@ class Game {
     const inputWorldLetters = document.querySelectorAll('.input-world-letter');
     inputWorldLetters.forEach(item => {
       const el = item.querySelector('.input-world-letter__element');
-      if (letter === el.innerHTML) {
+      if (letter === el.textContent) {
         item.classList.add('show');
       }    
     });
@@ -102,18 +102,18 @@ class Game {
 
   gameOver(result) {
 
-    const currentPopUp =  document.querySelector('.modal-wrapper');
+    const currentPopUp =  modalWrapper.element;
     this.popUp = new PopUp(currentPopUp);
     
     if (result === 'win') {
-       document.getElementById('modal-result__text').innerHTML = 'You win! Congratulations 🎉';
+      modalHeading.element.textContent = 'You win! Congratulations 🎉';
     }
     if (result === 'loser') {
-      document.getElementById('modal-result__text').innerHTML = 'Game over! ;(';
+      modalHeading.element.textContent = 'Game over! ;(';
     }   
     const world = document.querySelector('.modal-world');
-    world.innerHTML = '';
-    world.innerHTML = this.world;
+    world.textContent = '';
+    world.textContent = this.world;
     this.popUp.openPopUp(); 
   } 
 

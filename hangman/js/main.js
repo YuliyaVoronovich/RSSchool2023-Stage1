@@ -106,13 +106,13 @@ for (let i = 65; i < 91; i++) {
 }
 
 // ========= MODAL
-const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
+export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
 document.querySelector('body').append(modalWrapper.element);
 
 const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
 modalWrapper.element.append(modalResult.element);
 
-const modalHeading = new CreateElement('h3', ['heading'], '', {'id': 'modal-result__text'});
+export const modalHeading = new CreateElement('h3', ['heading'], '', {'id': 'modal-result__text'});
 modalResult.element.append(modalHeading.element);
 
 const modalWorldText = new CreateElement('div', ['modal-world__text'], 'Your world is ');
@@ -133,7 +133,7 @@ document.addEventListener('keydown', (event) => {
     const letter = String.fromCharCode(event.keyCode);
     const keys = document.querySelectorAll(`.keyboard-letter`);
       keys.forEach(item => {
-        if (letter === item.innerHTML) {
+        if (letter === item.textContent) {
             game.checkLetter(item, letter);        
         }    
       });

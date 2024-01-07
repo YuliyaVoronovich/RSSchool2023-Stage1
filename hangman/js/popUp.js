@@ -20,7 +20,7 @@ class PopUp {
   }
     
   bodyLock() {
-    document.querySelector('body').style.paddingRight = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
+    document.querySelector('body').style.paddingRight = window.textContent - document.querySelector('body').offsetWidth + 'px';
     document.querySelector('body').classList.add('body-overflow');
   }
    
