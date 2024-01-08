@@ -78,7 +78,10 @@ class Game {
         this.gameOver('win');
       }
     } else {
-      this.incorrectAnswer += 1;
+      
+      if (!event.classList.contains('wrong')) {
+        this.incorrectAnswer += 1;
+      }
       event.classList.add('wrong');
       resultNumberIncorrect.element.textContent = this.incorrectAnswer;
       //open MAN
