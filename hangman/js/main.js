@@ -7,7 +7,6 @@ import questions from "./questions.json" assert { type: "json" };
 const totalAnswer = 6;
 const logoHtml = 'Hangman Game';
 const resultTextHtml = 'Incorrect Guesses: ';
-const questionTextHtml = '';
 
 const result = questions[Math.floor(Math.random() * questions.length)];
 const game = new Game(result.answer, result.question);
