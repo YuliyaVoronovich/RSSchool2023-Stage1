@@ -114,9 +114,8 @@ class Game {
     if (result === 'loser') {
       modalHeading.element.textContent = 'Game over! ;(';
     }   
-    const world = document.querySelector('.modal-world');
-    world.textContent = '';
-    world.textContent = this.world;
+    modalWorld.element.textContent = '';
+    modalWorld.element.textContent = this.world;
     this.popUp.openPopUp(); 
   } 
 
