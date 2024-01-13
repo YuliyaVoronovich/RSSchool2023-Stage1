@@ -36,7 +36,10 @@ body {
   align-items: center;
   text-align: center;
   margin: 60px auto;  
-  background: #f1efe1;
+  background-image: url(../assets/img/main.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   backdrop-filter: blur(2px);
 }
 
