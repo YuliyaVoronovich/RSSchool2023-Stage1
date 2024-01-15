@@ -19,7 +19,9 @@ class Game {
   }
 
   restartGame () {
+    if (!this.popUp) return;
     const result = this.randomQiestion();
+   
     if (this.question === result.question) {
       console.log('same question');
       this.restartGame();
@@ -49,6 +51,7 @@ class Game {
     }    
     //close popUp
     this.popUp.closePopUp(modalWrapper.element);
+    this.popUp = null;
   }
 
   showWorld () { 
