@@ -126,7 +126,7 @@ modalResult.element.append(modalButton.element);
 
 document.addEventListener('keydown', (event) => {
 
-  if (event.keyCode === 13) game.restartGame();
+  if (event.keyCode === 13) game.restartGame();  
  
   if (event.keyCode >= 65 && event.keyCode < 91) {
     const letter = String.fromCharCode(event.keyCode);

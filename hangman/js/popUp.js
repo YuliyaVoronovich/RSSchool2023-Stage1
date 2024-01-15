@@ -4,6 +4,9 @@ class PopUp {
     this.popUp = popUp;
     this.unlock = unlock;
   }
+  isOpen() {
+    true;
+  }
 
   openPopUp() {
   if (this.popUp && this.unlock) {
