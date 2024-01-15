@@ -74,7 +74,6 @@ body {
   .main {
     max-width: 738px;
     width: 100%;
-    min-height: 100vh;
     height: auto;
     margin: 20px auto;
     flex-direction: column;
@@ -111,6 +110,10 @@ body {
     width: 100%;
     height: auto;
     flex-direction: column;
+  }
+  
+  .left-section {
+    height: 460px;
   }
 
   .rigth-section {
@@ -275,19 +278,21 @@ body {
 
 @media (max-width: 610px) {
   .logo {
+    height: auto;
     padding: 15px 5px;
   }
 
   .result {
+    height: auto;
     padding: 15px 5px;
   }
 
   .logo-text {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .result-text {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
