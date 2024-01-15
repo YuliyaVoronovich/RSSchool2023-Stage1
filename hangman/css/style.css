@@ -231,7 +231,7 @@ body {
   .hangman {
     order: 3;
     width: 262px;
-    padding: 10px 0px;
+    padding: 45px 0px 10px 0;
   }
 
   .hangman-img__head {
