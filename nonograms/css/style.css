@@ -18,10 +18,37 @@ body {
   font-weight: 700;
   line-height: normal;
   font-size: 26px;
-  background: #6879a3;
-  color: #202530;
+  background: #4f5d75;
+  color: #2d3142;
 }
 
 .body-overflow {
   overflow: hidden;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.table {
+
+}
+.table th,
+.table td {
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+.head,
+.line {
+  background: #bfc0c0;
+}
+td {
+  background: #ffffff;
 }
