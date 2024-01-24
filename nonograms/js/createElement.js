@@ -1,9 +1,9 @@
 class CreateElement {
-  constructor (name, classes = [], text = '', atributes = {}) {
+  constructor (name, classes = [], innerHTML = '', atributes = {}) {
     this.name = name;
     this.classes = classes;
     this.atributes = atributes;
-    this.text = text;
+    this.innerHTML = innerHTML;
 
     this.element = this.create();
   }
@@ -14,7 +14,8 @@ class CreateElement {
     for (let key in this.atributes){
       result.setAttribute(key, this.atributes[key]);
     }
-    result.innerText =  this.text;
+    if (this.innerHTML) result.innerHTML = this.innerHTML;
+
     return result;
   }
 }

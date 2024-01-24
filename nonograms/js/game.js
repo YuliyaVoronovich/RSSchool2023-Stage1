@@ -44,7 +44,7 @@ class Game {
           count = 0;          
         }
       }
-      result[i] = array.join('');     
+      result[i] = array;     
     }   
     return result;
   }
@@ -66,7 +66,7 @@ class Game {
           count = 0;          
         }
       }
-      result[i] = array.join('');     
+      result[i] = array;     
     }   
     return result;
   }

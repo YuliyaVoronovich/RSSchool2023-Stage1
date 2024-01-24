@@ -35,11 +35,7 @@ body {
   margin-top: 60px;
 }
 
-.table {
-
-}
-.table th,
-.table td {
+.line {
   width: 40px;
   height: 40px;
   vertical-align: bottom;
@@ -49,6 +45,26 @@ body {
 .line {
   background: #bfc0c0;
 }
-td {
+
+.left-line {
+  width: 60px;
+  height: 40px;
+  padding-right: 5px;
+  text-align: right;
+}
+
+.white {
   background: #ffffff;
+  text-align: center;
+}
+
+.black {
+  background: #0d0d0d;
+}
+
+.cross {
+  background-image: url(../img/cross.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

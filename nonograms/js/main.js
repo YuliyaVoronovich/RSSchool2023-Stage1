@@ -7,8 +7,6 @@ const card = new Game();
 card.getCard();
 card.getCurrentMatrix();
 console.log(card.matrix);
-console.log(card.getLeftLines());
-console.log(card.getTopLines());
 
 
  // ========= TABLE
@@ -29,7 +27,7 @@ const theadTh = new CreateElement('th', ['head']);
 theadTr.element.append(theadTh.element);
 
 for (let i = 0; i < card.getLengthMatrix(); i++) {
-  const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i]);
+  const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i].map(item => `<span>${item}<br></span>`).join(''));
   theadTr.element.append(theadTh.element);
 }
 const tbody = new CreateElement('tbody');
@@ -39,11 +37,22 @@ for (let i = 0; i < card.getLengthMatrix(); i++) {
   const tbodyTr = new CreateElement('tr');
   tbody.element.append(tbodyTr.element); 
 
-  const tbodyTd = new CreateElement('th', ['line'], card.getLeftLines()[i]);
+  const tbodyTd = new CreateElement('th', ['line', 'left-line'], card.getLeftLines()[i].map(item => `<span>${item} </span>`).join(''));
   tbodyTr.element.append(tbodyTd.element);
 
   for (let j = 0; j < card.getLengthMatrix(); j++) {
-    const tbodyTd = new CreateElement('td', '', card.matrix[i][j]);
+    const tbodyTd = new CreateElement('td', ['white'], '', {id: `${i}_${j}`});
     tbodyTr.element.append(tbodyTd.element);
   }
 }
+
+tbody.element.addEventListener('click', (event) => {
+  event.target.classList.toggle('black');
+  event.target.classList.remove('cross');
+});
+
+tbody.element.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
+  event.target.classList.toggle('cross');
+  event.target.classList.remove('black');
+});
