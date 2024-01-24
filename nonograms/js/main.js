@@ -7,6 +7,8 @@ const card = new Game();
 card.getCard();
 card.getCurrentMatrix();
 console.log(card.matrix);
+console.log(card.getLeftLines());
+console.log(card.getTopLines());
 
 
  // ========= TABLE
@@ -27,7 +29,7 @@ const theadTh = new CreateElement('th', ['head']);
 theadTr.element.append(theadTh.element);
 
 for (let i = 0; i < card.getLengthMatrix(); i++) {
-  const theadTh = new CreateElement('th', ['line']);
+  const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i]);
   theadTr.element.append(theadTh.element);
 }
 const tbody = new CreateElement('tbody');
@@ -37,11 +39,11 @@ for (let i = 0; i < card.getLengthMatrix(); i++) {
   const tbodyTr = new CreateElement('tr');
   tbody.element.append(tbodyTr.element); 
 
-  const tbodyTd = new CreateElement('th', ['line']);
+  const tbodyTd = new CreateElement('th', ['line'], card.getLeftLines()[i]);
   tbodyTr.element.append(tbodyTd.element);
 
   for (let j = 0; j < card.getLengthMatrix(); j++) {
-    const tbodyTd = new CreateElement('td');
+    const tbodyTd = new CreateElement('td', '', card.matrix[i][j]);
     tbodyTr.element.append(tbodyTd.element);
   }
 }
