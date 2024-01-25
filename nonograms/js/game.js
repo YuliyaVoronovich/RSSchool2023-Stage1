@@ -2,7 +2,7 @@ import cards from "./matrix.json" assert { type: "json" };
 
 class Game {
 
-  constructor(level = 'basic', name = 'Name2') {
+  constructor(level = 'basic', name = 'Name1') {
     this.card;
     this.level = level;
     this.name = name;
