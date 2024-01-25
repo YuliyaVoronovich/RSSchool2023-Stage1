@@ -1,4 +1,5 @@
 import cards from "./matrix.json" assert { type: "json" };
+import {timerInner, clearTimer, resetTimer, setTimer} from './aside.js';
 
 class Game {
 
@@ -85,6 +86,10 @@ class Game {
       tbodyTd[i].classList.remove('cross');
       tbodyTd[i].classList.remove('black');
     }
+    timerInner.element.innerHTML = '00:00';
+    clearTimer();
+    resetTimer();
+    setTimer();
   }
 }
 
