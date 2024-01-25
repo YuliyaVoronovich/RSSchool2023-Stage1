@@ -3,7 +3,7 @@ import {timerInner, clearTimer, resetTimer, setTimer} from './aside.js';
 
 class Game {
 
-  constructor(level = 'basic', name = 'Name1') {
+  constructor(level = 'basic', name = 'Name2') {
     this.card;
     this.level = level;
     this.name = name;
