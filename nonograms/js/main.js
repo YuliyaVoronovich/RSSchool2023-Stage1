@@ -1,11 +1,9 @@
 import CreateElement from './createElement.js';
-import Game from './game.js';
-import tableWrap from './table.js';
+import { tableWrap, card}  from './table.js';
+import aside from './aside.js';
 
 import cards from "./matrix.json" assert { type: "json" };
-
-const card = new Game();
-card.getCard();
+console.log(card);
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -21,7 +19,7 @@ header.element.append(title.element);
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
 
-const aside = new CreateElement('aside', ['aside']);
+ // ========= ASIDE
 main.element.append(aside.element);
 
 const gameField = new CreateElement('div', ['game-field']);
@@ -43,6 +41,9 @@ buttonsGame.element.append(buttonContinue.element);
 const buttonReset = new CreateElement('button', ['button'], 'Reset');
 buttonsGame.element.append(buttonReset.element);
 
+buttonReset.element.addEventListener('click', (event) => {
+  card.resetGame();
+});
 
  // ========= TABLE
 gameField.element.append(tableWrap.element);

@@ -2,7 +2,7 @@ import CreateElement from './createElement.js';
 import Game from './game.js';
 import cards from "./matrix.json" assert { type: "json" };
 
-const card = new Game();
+export const card = new Game();
 card.getCard();
 card.getCurrentMatrix();
 console.log(card.matrix);
@@ -52,4 +52,4 @@ console.log(card.matrix);
    event.target.classList.remove('black');
  });
 
- export default tableWrap;
+ export {tableWrap};

@@ -11,7 +11,7 @@ class Game {
 
   getCard() {
     return this.card = cards.filter((item) => item.level === this.level)
-                            .filter((item) => item.name === this.name)[0];
+      .filter((item) => item.name === this.name)[0];
   };
 
   getArrayFromMatrix() {
@@ -21,7 +21,7 @@ class Game {
       result[i] = [];
       array[i] = array[i].slice(1, -1);
       for (let j = 0; j < array[i].length; j++) {
-        result[i][j]=+array[i][j];
+        result[i][j] = +array[i][j];
       }
     }
     return result;
@@ -38,14 +38,14 @@ class Game {
           if (j === this.matrix.length - 1) {
             array.push(count);
           }
-        }       
+        }
         else if (count > 0) {
-          array.push(count);     
-          count = 0;          
+          array.push(count);
+          count = 0;
         }
       }
-      result[i] = array;     
-    }   
+      result[i] = array;
+    }
     return result;
   }
 
@@ -60,14 +60,14 @@ class Game {
           if (j === this.matrix.length - 1) {
             array.push(count);
           }
-        }       
+        }
         else if (count > 0) {
-          array.push(count);     
-          count = 0;          
+          array.push(count);
+          count = 0;
         }
       }
-      result[i] = array;     
-    }   
+      result[i] = array;
+    }
     return result;
   }
 
@@ -78,6 +78,14 @@ class Game {
   getLengthMatrix() {
     return this.matrix.length;
   };
+
+  resetGame() {
+    const tbodyTd = document.querySelectorAll('.white');
+    for (let i = 0; i < tbodyTd.length; i++) {
+      tbodyTd[i].classList.remove('cross');
+      tbodyTd[i].classList.remove('black');
+    }
+  }
 }
 
 export default Game;

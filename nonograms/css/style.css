@@ -51,9 +51,9 @@ body {
   margin: 0;
   padding: 0 40px;
   font-size: 36px;
-  color: #ef8354;
+  color: #e8936f;
 }
-
+/* Боковая*/
 .aside {
   max-width: 300px;
   width: 100%;
@@ -67,6 +67,23 @@ body {
   box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+.timer-wrap {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(79, 93, 117, 0.3);
+  border-radius: 5px;
+  box-shadow: inset 0px 0 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.timer {
+  font-size: 24px;
+  color: #e8936f;
+}
+
+/*Центр*/
 .main {
   display: flex;
   justify-content: space-between;
@@ -99,7 +116,7 @@ body {
   border: none;
   border-radius: 3px;
   background-color: #4f5d75;
-  color: #ef8354;
+  color: #e8936f;
   cursor: pointer;
   outline: none;
   transition: 0.3s ease;
