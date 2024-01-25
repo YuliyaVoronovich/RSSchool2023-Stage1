@@ -15,6 +15,9 @@ body.append(container.element);
 const header = new CreateElement('header', ['header']);
 container.element.append(header.element);
 
+const title = new CreateElement('h1', ['title'], 'NONOGRAMM');
+header.element.append(title.element);
+
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
 
