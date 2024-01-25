@@ -1,4 +1,4 @@
-class Timer {
+class TimerComponent {
 
   constructor() {
     this.time = 1000;
@@ -16,4 +16,4 @@ class Timer {
     return (minute + ':' + second);
   }
 }
-export default Timer;
+export default TimerComponent;

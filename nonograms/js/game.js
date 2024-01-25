@@ -1,5 +1,5 @@
 import cards from "./matrix.json" assert { type: "json" };
-import {timerInner, clearTimer, resetTimer, setTimer} from './aside.js';
+import { timerInner, clearTimer, resetTimer, setTimer } from './timer/timer.js';
 
 class Game {
 
@@ -92,5 +92,9 @@ class Game {
     setTimer();
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimer();
+});
 
 export default Game;

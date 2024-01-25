@@ -1,6 +1,6 @@
 import CreateElement from './createElement.js';
 import { tableWrap, card}  from './table.js';
-import aside from './aside.js';
+import timerWrap from './timer/timer.js';
 
 import cards from "./matrix.json" assert { type: "json" };
 console.log(card);
@@ -20,7 +20,10 @@ const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
 
  // ========= ASIDE
+const aside = new CreateElement('aside', ['aside']);
 main.element.append(aside.element);
+
+aside.element.append(timerWrap.element);
 
 const gameField = new CreateElement('div', ['game-field']);
 main.element.append(gameField.element);
