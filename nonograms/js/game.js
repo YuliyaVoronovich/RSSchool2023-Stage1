@@ -9,6 +9,7 @@ class Game {
     this.matrix = null;
     this.level = 'basic';
     this.name = 'flower';
+    this.isTimer = false;
   }
 
   setLevel(level) {
@@ -20,7 +21,6 @@ class Game {
   }
 
   getCard() {
-    console.log(this.name);
     const conditions = {};
     if (this.level) conditions.level = this.level;
     if (this.name) conditions.name = this.name;
@@ -29,7 +29,7 @@ class Game {
         return conditions[key] === item[key];
       });
     });
-
+    console.log(this.card);
     this.card = this.card[0];
     return this.card;
   };
@@ -113,6 +113,7 @@ class Game {
   };
 
   resetGame() {
+    event.preventDefault();
     const tbodyTd = document.querySelectorAll('.white');
     for (let i = 0; i < tbodyTd.length; i++) {
       tbodyTd[i].classList.remove('cross');
@@ -121,12 +122,23 @@ class Game {
     timerInner.element.innerHTML = '00:00';
     clearTimer();
     resetTimer();
+    this.removeTimerFlag();
+  }
+
+  removeTimerFlag () {
+    return this.isTimer = false;
+  }
+
+  startTime () {
     setTimer();
+  }
+
+  stoptTime () {
+    clearTimer();
+    resetTimer();
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimer();
-});
+
 
 export default Game;

@@ -50,8 +50,12 @@ function createSelect() {
   const selectElement = new CreateElement('select', ['select'], '', { name: 'cardName' });
   selectElementWrap.element.append(selectElement.element);
  
+  const option = new CreateElement('option', ['name-card-option'], '');
+  selectElement.element.append(option.element);
+
   for (let i = 0; i < cardsLevel.length; i++) {
-    const option = new CreateElement('option', ['name-card-option'], `${cardsLevel[i].name} ` + `★`.repeat(cardsLevel[i].grade));
+    //const option = new CreateElement('option', ['name-card-option'], `${cardsLevel[i].name} ` + `★`.repeat(cardsLevel[i].grade));
+    const option = new CreateElement('option', ['name-card-option'], cardsLevel[i].name);
     selectElement.element.append(option.element);
   }
 
@@ -63,6 +67,7 @@ function createSelect() {
     card.getCurrentMatrix();
     //new draw
     tableWrap.element.innerHTML = '';
+    card.resetGame();
     loadTable();
   });
 }

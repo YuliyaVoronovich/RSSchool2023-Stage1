@@ -42,8 +42,12 @@ export function loadTable() {
   }
 
   tbody.element.addEventListener('click', (event) => {
-    event.preventDefault();
+    event.preventDefault();   
     if (event.target.classList.contains('cell')) {
+      if (!card.isTimer) {
+        card.startTime();
+        card.isTimer = true;
+      }
       event.target.classList.toggle('black');
       event.target.classList.remove('cross');
     }

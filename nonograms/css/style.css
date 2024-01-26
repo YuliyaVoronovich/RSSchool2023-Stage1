@@ -80,6 +80,7 @@ body {
 }
 
 .timer {
+  width: 50px;
   font-size: 24px;
   color: #e8936f;
 }
