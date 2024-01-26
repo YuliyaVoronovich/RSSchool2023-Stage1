@@ -2,9 +2,6 @@ import CreateElement from './createElement.js';
 import { tableWrap, card}  from './table.js';
 import timerWrap from './timer/timer.js';
 
-import cards from "./matrix.json" assert { type: "json" };
-console.log(card);
-
  // ========= LAYOUT
 const body = document.querySelector('body');
 const container = new CreateElement('div', ['container']);

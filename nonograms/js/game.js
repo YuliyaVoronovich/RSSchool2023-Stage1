@@ -3,21 +3,42 @@ import { timerInner, clearTimer, resetTimer, setTimer } from './timer/timer.js';
 
 class Game {
 
-  constructor(level = 'basic', name = 'Name2') {
-    this.card;
-    this.level = level;
-    this.name = name;
-    this.matrix;
+  constructor() {
+    this.card = null;
+
+    this.grade = null;
+    this.matrix = null;
   }
 
-  getCard() {
-    return this.card = cards.filter((item) => item.level === this.level)
-      .filter((item) => item.name === this.name)[0];
+  getCard(level, name) {
+    const conditions = { };
+    if (level) conditions.level = level;
+    if (name) conditions.name = name;
+    this.card = cards.filter((item) => {
+      return Object.keys(conditions).every(key => {
+        return conditions[key] === item[key];
+      });
+    });
+
+    this.card = this.card[0];
+    return this.card;
+  };
+
+  getCards(level, name) {
+    const conditions = { };
+    if (level) conditions.level = level;
+    if (name) conditions.name = name;
+
+    return cards.filter((item) => {
+      return Object.keys(conditions).every(key => {
+        return conditions[key] === item[key];
+      });
+    });
   };
 
   getArrayFromMatrix() {
     let result = [];
-    const array = this.card.matrix.split(',');
+    const array = (this.card) ? this.card.matrix.split(',') : [];
     for (let i = 0; i < array.length; i++) {
       result[i] = [];
       array[i] = array[i].slice(1, -1);

@@ -3,7 +3,7 @@ import Game from './game.js';
 import cards from "./matrix.json" assert { type: "json" };
 
 export const card = new Game();
-card.getCard();
+card.getCard('basic', 'snowflake');
 card.getCurrentMatrix();
 console.log(card.matrix);
 
