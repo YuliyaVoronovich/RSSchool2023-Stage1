@@ -1,6 +1,7 @@
 import CreateElement from './createElement.js';
 import { tableWrap, card}  from './table.js';
 import timerWrap from './timer/timer.js';
+import formWrap from './form/form.js';
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -21,6 +22,7 @@ const aside = new CreateElement('aside', ['aside']);
 main.element.append(aside.element);
 
 aside.element.append(timerWrap.element);
+aside.element.append(formWrap.element);
 
 const gameField = new CreateElement('div', ['game-field']);
 main.element.append(gameField.element);

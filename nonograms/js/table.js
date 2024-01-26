@@ -1,64 +1,64 @@
 import CreateElement from './createElement.js';
 import Game from './game.js';
-import cards from "./matrix.json" assert { type: "json" };
 
 export const card = new Game();
-card.getCard('basic', 'snowflake');
+card.getCard();
 card.getCurrentMatrix();
-console.log(card.matrix);
-
 const tableWrap = new CreateElement('div', ['table-wrap']);
+loadTable();
 
-const table = new CreateElement('table', ['table']);
-tableWrap.element.append(table.element);
+export function loadTable() {
 
-const thead = new CreateElement('thead');
-table.element.append(thead.element);
+  const table = new CreateElement('table', ['table']);
+  tableWrap.element.append(table.element);
 
-const theadTr = new CreateElement('tr');
-thead.element.append(theadTr.element);
+  const thead = new CreateElement('thead');
+  table.element.append(thead.element);
 
-const theadTh = new CreateElement('th', ['head']);
-theadTr.element.append(theadTh.element);
+  const theadTr = new CreateElement('tr');
+  thead.element.append(theadTr.element);
 
-for (let i = 0; i < card.getLengthMatrix(); i++) {
-  const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i].map(item => `<span>${item}<br></span>`).join(''));
+  const theadTh = new CreateElement('th', ['head']);
   theadTr.element.append(theadTh.element);
-}
-const tbody = new CreateElement('tbody');
-table.element.append(tbody.element);
 
-for (let i = 0; i < card.getLengthMatrix(); i++) {
-  const tbodyTr = new CreateElement('tr');
-  tbody.element.append(tbodyTr.element);
+  for (let i = 0; i < card.getLengthMatrix(); i++) {
+    const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i].map(item => `<span>${item}<br></span>`).join(''));
+    theadTr.element.append(theadTh.element);
+  }
+  const tbody = new CreateElement('tbody');
+  table.element.append(tbody.element);
 
-  const tbodyTd = new CreateElement('th', ['line', 'left-line'], card.getLeftLines()[i].map(item => `<span>${item} </span>`).join(''));
-  tbodyTr.element.append(tbodyTd.element);
+  for (let i = 0; i < card.getLengthMatrix(); i++) {
+    const tbodyTr = new CreateElement('tr');
+    tbody.element.append(tbodyTr.element);
 
-  for (let j = 0; j < card.getLengthMatrix(); j++) {
-    const tbodyTd = new CreateElement('td', ['cell', 'white'], '', { id: `${i}_${j}` });
+    const tbodyTd = new CreateElement('th', ['line', 'left-line'], card.getLeftLines()[i].map(item => `<span>${item} </span>`).join(''));
     tbodyTr.element.append(tbodyTd.element);
+
+    for (let j = 0; j < card.getLengthMatrix(); j++) {
+      const tbodyTd = new CreateElement('td', ['cell', 'white'], '', { id: `${i}_${j}` });
+      tbodyTr.element.append(tbodyTd.element);
+    }
   }
+
+  tbody.element.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('cell')) {
+      event.target.classList.toggle('black');
+      event.target.classList.remove('cross');
+    }
+  });
+
+  thead.element.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+  });
+
+  tbody.element.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('cell')) {
+      event.target.classList.toggle('cross');
+      event.target.classList.remove('black');
+    }
+  });
 }
-
-tbody.element.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (event.target.classList.contains('cell')) {
-    event.target.classList.toggle('black');
-    event.target.classList.remove('cross');
-  }
-});
-
-thead.element.addEventListener('contextmenu', (event) => {
-  event.preventDefault();
-});
-
-tbody.element.addEventListener('contextmenu', (event) => {
-  event.preventDefault();
-  if (event.target.classList.contains('cell')) {
-    event.target.classList.toggle('cross');
-    event.target.classList.remove('black');
-  }
-});
-
 export { tableWrap };

@@ -53,6 +53,7 @@ body {
   font-size: 36px;
   color: #e8936f;
 }
+
 /* Боковая*/
 .aside {
   max-width: 300px;
@@ -184,8 +185,100 @@ tbody td:nth-child(5n+1):not(:last-child) {
 }
 
 .head,
-thead .line ,
+thead .line,
 tbody tr:nth-child(5n):not(:last-child) th,
 tbody tr:nth-child(5n):not(:last-child) td {
   border-bottom: 2px solid #0d0d0d;
+}
+
+/*Form*/
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-radio-btn {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.input-radio {
+  display: none;
+}
+
+.label-radio {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px 15px;
+  line-height: 34px;
+  border: 1px solid #4f5d75;
+  border-radius: 6px;
+  user-select: none;
+  background-color: #4f5d75;
+  color: #e8936f;
+}
+
+/* Checked */
+.input-radio:checked+.label-radio {
+  background: #e8936f;
+  color: #2d3142;
+}
+
+/* Hover */
+.label-radio:hover {
+  background: #2d3142;
+}
+
+.form-group+.form-group {
+  margin-top: 10px;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* *******************
+Select
+******************* */
+
+.select {
+  display: block;
+  padding-left: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 6px;
+  background-color: #bfc0c0;
+  padding: 10px;
+  color: #2d3142;
+  outline: none;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 1px #2d3142, 0px 0px 1px #2d3142;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10.4px 6px 0 6px;
+  border-color: rgba(191, 192, 192, 0.3) transparent transparent transparent;
+  pointer-events: none;
 }

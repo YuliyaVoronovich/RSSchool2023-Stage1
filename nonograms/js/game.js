@@ -5,15 +5,25 @@ class Game {
 
   constructor() {
     this.card = null;
-
     this.grade = null;
     this.matrix = null;
+    this.level = 'basic';
+    this.name = 'flower';
   }
 
-  getCard(level, name) {
-    const conditions = { };
-    if (level) conditions.level = level;
-    if (name) conditions.name = name;
+  setLevel(level) {
+    this.level = level;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  getCard() {
+    console.log(this.name);
+    const conditions = {};
+    if (this.level) conditions.level = this.level;
+    if (this.name) conditions.name = this.name;
     this.card = cards.filter((item) => {
       return Object.keys(conditions).every(key => {
         return conditions[key] === item[key];
@@ -24,8 +34,8 @@ class Game {
     return this.card;
   };
 
-  getCards(level, name) {
-    const conditions = { };
+  getCards(level = 'basic', name) {
+    const conditions = {};
     if (level) conditions.level = level;
     if (name) conditions.name = name;
 
@@ -46,6 +56,7 @@ class Game {
         result[i][j] = +array[i][j];
       }
     }
+
     return result;
   }
 
