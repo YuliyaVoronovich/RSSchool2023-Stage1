@@ -20,6 +20,12 @@ class Game {
     this.name = name;
   }
 
+  setRandomCard() {
+    const random = cards[Math.floor(Math.random() * cards.length)];
+    this.level = random.level;
+    this.name = random.name;
+  }
+
   getCard() {
     const conditions = {};
     if (this.level) conditions.level = this.level;

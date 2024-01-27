@@ -11,10 +11,8 @@ const formComponent = new FormComponent();
 formComponent.setForm(form.element);
 formWrap.element.append(form.element);
 
-const buttonRandom = new CreateElement('input', ['input-radio'], '', { id: 'random', name: 'random', value: 'random', type: 'checkbox' });
+const buttonRandom = new CreateElement('button', ['button', 'button-random'], 'Random', { name: 'random', type: 'button'});
 form.element.append(buttonRandom.element);
-const labelRandom = new CreateElement('label', ['label-radio'], 'RANDOM', { for: 'random' });
-form.element.append(labelRandom.element);
 
 const radioButtonsWrap = new CreateElement('div', ['form-radio-buttons']);
 form.element.append(radioButtonsWrap.element);
@@ -86,4 +84,12 @@ radioButtonsWrap.element.addEventListener('click', (event) => {
   createSelect();
 });
 
+buttonRandom.element.addEventListener('click', (event) => {
+  card.setRandomCard();
+  card.getCard();
+  card.getCurrentMatrix();
+  tableWrap.element.innerHTML = '';
+  card.resetGame();
+  loadTable();
+});
 export default formWrap;
