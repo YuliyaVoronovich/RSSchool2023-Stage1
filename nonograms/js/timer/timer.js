@@ -3,7 +3,7 @@ import TimerComponent from './timerComponent.js';
 
 //Timer
 let timerId = null;
-const timerWrap = new CreateElement('div', ['timer-wrap']);
+export const timerWrap = new CreateElement('div', ['timer-wrap']);
 
 export const timerInner = new CreateElement('div', ['timer'], '00:00');
 timerWrap.element.append(timerInner.element);
@@ -22,5 +22,3 @@ export function resetTimer() {
 export function clearTimer () {
   clearInterval(timerId);
 }
-
-export default timerWrap;

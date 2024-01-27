@@ -5,9 +5,9 @@ class LocalStorage {
     this.state = null;
   }
 
-  saveState(card) {
-    console.log(card);
-   // localStorage.setItem('currentStateMatrix_yuliyavoronovich-JSFE2023Q4', JSON.stringify(card));
+  saveState(card, time) {
+    const currentStateCard = {"card": card, "time": time};
+    localStorage.setItem('currentStateMatrix_yuliyavoronovich-JSFE2023Q4', JSON.stringify(currentStateCard));
   }
 }
 

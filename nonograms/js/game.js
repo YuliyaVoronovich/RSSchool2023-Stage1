@@ -5,7 +5,6 @@ class Game {
 
   constructor() {
     this.card = null;
-    this.grade = null;
     this.matrix = null;
     this.level = 'basic';
     this.name = 'flower';

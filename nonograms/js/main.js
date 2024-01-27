@@ -1,7 +1,7 @@
 import CreateElement from './createElement.js';
 import LocalStorage from './localStorage.js';
 import { tableWrap, card}  from './table.js';
-import timerWrap from './timer/timer.js';
+import {timerWrap, timerInner} from './timer/timer.js';
 import formWrap from './form/form.js';
 
 export const localStor = new LocalStorage();
@@ -51,7 +51,8 @@ buttonReset.element.addEventListener('click', (event) => {
 });
 
 buttonSave.element.addEventListener('click', (event) => {
-  localStor.saveState(card);
+  const currentTime = timerInner.element.innerHTML;
+  localStor.saveState(card, currentTime);
 });
 
  // ========= TABLE
