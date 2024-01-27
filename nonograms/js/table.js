@@ -56,12 +56,15 @@ export function loadTable(matrixState = null) {
     }
   });
 
-  thead.element.addEventListener('contextmenu', (event) => {
+  thead.element.oncontextmenu = function(event) {
     event.preventDefault();
-  });
+    event.stopPropagation();
+    return false;
+  };
 
   tbody.element.addEventListener('contextmenu', (event) => {
     event.preventDefault();
+    event.stopPropagation();
     if (event.target.classList.contains('cell')) {
       event.target.classList.toggle('cross');
       event.target.classList.remove('black');

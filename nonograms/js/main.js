@@ -5,7 +5,7 @@ import {timerWrap, timerInner} from './timer/timer.js';
 import formWrap from './form/form.js';
 
 export const localStor = new LocalStorage();
-console.log(card.matrix);
+console.log(localStor.state);
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -41,7 +41,10 @@ buttonsGame.element.append(buttonSolution.element);
 const buttonSave = new CreateElement('button', ['button'], 'Save');
 buttonsGame.element.append(buttonSave.element);
 
-const buttonContinue = new CreateElement('button', ['button'], 'Continue');
+const buttonContinue = new CreateElement('button', ['button','button-continue'], 'Continue');
+if (!localStor.isStateLs()) {
+  buttonContinue.element.classList.add('disabled');
+}
 buttonsGame.element.append(buttonContinue.element);
 
 const buttonReset = new CreateElement('button', ['button'], 'Reset');
