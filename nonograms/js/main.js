@@ -1,10 +1,11 @@
 import CreateElement from './createElement.js';
 import LocalStorage from './localStorage.js';
-import { tableWrap, card}  from './table.js';
+import { tableWrap, card, loadTable}  from './table.js';
 import {timerWrap, timerInner} from './timer/timer.js';
 import formWrap from './form/form.js';
 
 export const localStor = new LocalStorage();
+console.log(card.matrix);
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -53,6 +54,15 @@ buttonReset.element.addEventListener('click', (event) => {
 buttonSave.element.addEventListener('click', (event) => {
   const currentTime = timerInner.element.innerHTML;
   localStor.saveState(card, currentTime);
+});
+
+buttonContinue.element.addEventListener('click', (event) => {
+
+  const ls = localStor.loadState();
+  card.matrix = ls.card.matrix;
+  card.matrixState = ls.card.matrixState;
+  tableWrap.element.innerHTML = '';
+  loadTable(ls.card.matrixState);
 });
 
  // ========= TABLE
