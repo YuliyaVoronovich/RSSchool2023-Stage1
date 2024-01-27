@@ -7,6 +7,7 @@ class LocalStorage {
 
   saveState(card) {
     console.log(card);
+   // localStorage.setItem('currentStateMatrix_yuliyavoronovich-JSFE2023Q4', JSON.stringify(card));
   }
 }
 

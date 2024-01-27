@@ -65,20 +65,6 @@ class Game {
     });
   };
 
-  getArrayFromMatrix() {
-    let result = [];
-    const array = (this.card) ? this.card.matrix.split(',') : [];
-    for (let i = 0; i < array.length; i++) {
-      result[i] = [];
-      array[i] = array[i].slice(1, -1);
-      for (let j = 0; j < array[i].length; j++) {
-        result[i][j] = +array[i][j];
-      }
-    }
-
-    return result;
-  }
-
   getLeftLines() {
     let result = {};
     for (let i = 0; i < this.matrix.length; i++) {
@@ -124,7 +110,7 @@ class Game {
   }
 
   getCurrentMatrix() {
-    this.matrix = this.getArrayFromMatrix();
+    this.matrix = this.card.matrix;
     this.matrixState = this.setMatrixState();
   };
 
