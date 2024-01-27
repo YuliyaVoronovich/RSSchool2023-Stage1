@@ -75,7 +75,6 @@ function createSelect() {
   });
 }
 
-
 radioButtonsWrap.element.addEventListener('click', (event) => {
   const level = formComponent.changeLevel();
   card.setLevel(level);
@@ -92,4 +91,5 @@ buttonRandom.element.addEventListener('click', (event) => {
   card.resetGame();
   loadTable();
 });
+
 export default formWrap;

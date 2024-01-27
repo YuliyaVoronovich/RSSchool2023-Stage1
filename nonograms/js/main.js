@@ -1,7 +1,10 @@
 import CreateElement from './createElement.js';
+import LocalStorage from './localStorage.js';
 import { tableWrap, card}  from './table.js';
 import timerWrap from './timer/timer.js';
 import formWrap from './form/form.js';
+
+export const localStor = new LocalStorage();
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -45,6 +48,10 @@ buttonsGame.element.append(buttonReset.element);
 
 buttonReset.element.addEventListener('click', (event) => {
   card.resetGame();
+});
+
+buttonSave.element.addEventListener('click', (event) => {
+  localStor.saveState(card);
 });
 
  // ========= TABLE

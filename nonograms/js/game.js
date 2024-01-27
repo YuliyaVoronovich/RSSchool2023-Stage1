@@ -10,6 +10,7 @@ class Game {
     this.level = 'basic';
     this.name = 'flower';
     this.isTimer = false;
+    this.matrixState = null;
   }
 
   setLevel(level) {
@@ -18,6 +19,17 @@ class Game {
 
   setName(name) {
     this.name = name;
+  }
+
+  setMatrixState() {
+    let arrayWithZero = [];
+    for (let i = 0; i < this.matrix.length; i++) {
+      arrayWithZero[i] = [];
+      for (let j = 0; j < this.matrix.length; j++) {
+        arrayWithZero[i][j] = 0;
+      }
+    }
+    return arrayWithZero;
   }
 
   setRandomCard() {
@@ -37,6 +49,7 @@ class Game {
     });
     console.log(this.card);
     this.card = this.card[0];
+    this.getCurrentMatrix();
     return this.card;
   };
 
@@ -112,7 +125,17 @@ class Game {
 
   getCurrentMatrix() {
     this.matrix = this.getArrayFromMatrix();
+    this.matrixState = this.setMatrixState();
   };
+
+  pushMatrixState(event) {
+    const array = event.target.getAttribute('id').split('_');
+    const row = array[0];
+    const col = array[1];
+    if (event.target.classList.contains('black')) {
+      this.matrixState[row][col] = 1;
+    } else this.matrixState[row][col] = 0;
+  }
 
   getLengthMatrix() {
     return this.matrix.length;
@@ -131,15 +154,15 @@ class Game {
     this.removeTimerFlag();
   }
 
-  removeTimerFlag () {
+  removeTimerFlag() {
     return this.isTimer = false;
   }
 
-  startTime () {
+  startTime() {
     setTimer();
   }
 
-  stoptTime () {
+  stoptTime() {
     clearTimer();
     resetTimer();
   }

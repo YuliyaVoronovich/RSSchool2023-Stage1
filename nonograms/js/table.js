@@ -3,7 +3,6 @@ import Game from './game.js';
 
 export const card = new Game();
 card.getCard();
-card.getCurrentMatrix();
 const tableWrap = new CreateElement('div', ['table-wrap']);
 loadTable();
 
@@ -50,6 +49,7 @@ export function loadTable() {
       }
       event.target.classList.toggle('black');
       event.target.classList.remove('cross');
+      card.pushMatrixState(event);
     }
   });
 
