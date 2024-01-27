@@ -97,7 +97,6 @@ body {
   width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 20px 0;
   background-color: rgba(191, 192, 192, 0.3);
   border-radius: 5px;
@@ -199,9 +198,9 @@ tbody tr:nth-child(5n):not(:last-child) td {
   gap: 20px;
 }
 
-.form-radio-btn {
-  display: inline-block;
-  margin-right: 10px;
+.form-radio-buttons {
+  display: flex;
+  gap: 10px;
 }
 
 .input-radio {
@@ -218,6 +217,7 @@ tbody tr:nth-child(5n):not(:last-child) td {
   user-select: none;
   background-color: #4f5d75;
   color: #e8936f;
+  text-align: center;
 }
 
 /* Checked */
@@ -280,6 +280,10 @@ Select
   height: 0;
   border-style: solid;
   border-width: 10.4px 6px 0 6px;
-  border-color: rgba(191, 192, 192, 0.3) transparent transparent transparent;
+  border-color: #4f5d75 transparent transparent transparent;
   pointer-events: none;
+}
+
+.first-option {
+  color: rgb(232, 147, 111, 0.5);
 }

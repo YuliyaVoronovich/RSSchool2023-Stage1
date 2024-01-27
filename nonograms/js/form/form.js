@@ -11,6 +11,11 @@ const formComponent = new FormComponent();
 formComponent.setForm(form.element);
 formWrap.element.append(form.element);
 
+const buttonRandom = new CreateElement('input', ['input-radio'], '', { id: 'random', name: 'random', value: 'random', type: 'checkbox' });
+form.element.append(buttonRandom.element);
+const labelRandom = new CreateElement('label', ['label-radio'], 'RANDOM', { for: 'random' });
+form.element.append(labelRandom.element);
+
 const radioButtonsWrap = new CreateElement('div', ['form-radio-buttons']);
 form.element.append(radioButtonsWrap.element);
 
@@ -50,7 +55,7 @@ function createSelect() {
   const selectElement = new CreateElement('select', ['select'], '', { name: 'cardName' });
   selectElementWrap.element.append(selectElement.element);
  
-  const option = new CreateElement('option', ['name-card-option'], '');
+  const option = new CreateElement('option', ['name-card-option', 'first-option'], 'Select card', {disabled: 'disabled', selected: 'selected'});
   selectElement.element.append(option.element);
 
   for (let i = 0; i < cardsLevel.length; i++) {
