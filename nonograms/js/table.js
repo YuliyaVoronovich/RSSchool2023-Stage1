@@ -1,5 +1,6 @@
 import CreateElement from './createElement.js';
 import Game from './game.js';
+import { timerInner } from './timer/timer.js';
 
 export const card = new Game();
 card.getCard();
@@ -7,7 +8,6 @@ const tableWrap = new CreateElement('div', ['table-wrap']);
 loadTable();
 
 export function loadTable(matrixState = null, isSolution = false) {
-  console.log(isSolution);
 
   const table = new CreateElement('table', ['table']);
   tableWrap.element.append(table.element);
@@ -45,6 +45,7 @@ export function loadTable(matrixState = null, isSolution = false) {
   }
 
   tbody.element.addEventListener('click', (event) => {
+    if (card.isSolution) return false;
     event.preventDefault();   
     if (event.target.classList.contains('cell')) {
       if (!card.isTimer) {
@@ -54,6 +55,12 @@ export function loadTable(matrixState = null, isSolution = false) {
       event.target.classList.toggle('black');
       event.target.classList.remove('cross');
       card.pushMatrixState(event);
+      if(card.checkSolution()) {
+        console.log('ура');
+        const currentTime = timerInner.element.innerHTML;
+        console.log(currentTime);
+        card.stoptTime();
+      }
     }
   });
 
@@ -63,9 +70,10 @@ export function loadTable(matrixState = null, isSolution = false) {
     return false;
   };
 
-  tbody.element.addEventListener('contextmenu', (event) => {
+  tbody.element.addEventListener('contextmenu', (event) => { 
     event.preventDefault();
     event.stopPropagation();
+    if (card.isSolution) return false;
     if (event.target.classList.contains('cell')) {
       event.target.classList.toggle('cross');
       event.target.classList.remove('black');

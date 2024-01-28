@@ -47,7 +47,6 @@ class Game {
         return conditions[key] === item[key];
       });
     });
-    console.log(this.card);
     this.card = this.card[0];
     this.getCurrentMatrix();
     return this.card;
@@ -126,6 +125,10 @@ class Game {
   getLengthMatrix() {
     return this.matrix.length;
   };
+
+  checkSolution() {
+    return this.matrix.every((v,i) => this.matrix[i].every((v,j) => v === this.matrixState[i][j]));
+  }
 
   resetGame() {
     event.preventDefault();
