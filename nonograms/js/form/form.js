@@ -56,6 +56,9 @@ function createSelect() {
   const option = new CreateElement('option', ['name-card-option', 'first-option'], 'Select card', {disabled: 'disabled', selected: 'selected'});
   selectElement.element.append(option.element);
 
+  const option2 = new CreateElement('option', ['name-card-option', 'first-option'], '', {disabled: 'disabled'});
+  selectElement.element.append(option2.element);
+
   for (let i = 0; i < cardsLevel.length; i++) {
     //const option = new CreateElement('option', ['name-card-option'], `${cardsLevel[i].name} ` + `★`.repeat(cardsLevel[i].grade));
     const option = new CreateElement('option', ['name-card-option'], cardsLevel[i].name);

@@ -9,6 +9,7 @@ class Game {
     this.level = 'basic';
     this.name = 'flower';
     this.isTimer = false;
+    this.isSolution = false;
     this.matrixState = null;
   }
 
@@ -134,6 +135,7 @@ class Game {
       tbodyTd[i].classList.remove('black');
     }
     timerInner.element.innerHTML = '00:00';
+    this.matrixState = this.setMatrixState();
     clearTimer();
     resetTimer();
     this.removeTimerFlag();

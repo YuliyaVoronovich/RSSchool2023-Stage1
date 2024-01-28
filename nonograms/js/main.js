@@ -5,7 +5,6 @@ import {timerWrap, timerInner} from './timer/timer.js';
 import formWrap from './form/form.js';
 
 export const localStor = new LocalStorage();
-console.log(localStor.state);
 
  // ========= LAYOUT
 const body = document.querySelector('body');
@@ -50,8 +49,11 @@ buttonsGame.element.append(buttonContinue.element);
 const buttonReset = new CreateElement('button', ['button'], 'Reset');
 buttonsGame.element.append(buttonReset.element);
 
-buttonReset.element.addEventListener('click', (event) => {
-  card.resetGame();
+buttonSolution.element.addEventListener('click', (event) => {
+  card.isSolution = true;
+  tableWrap.element.innerHTML = '';
+  loadTable('', card.isSolution);
+  buttonSave.element.classList.add('disabled');
 });
 
 buttonSave.element.addEventListener('click', (event) => {
@@ -60,12 +62,16 @@ buttonSave.element.addEventListener('click', (event) => {
 });
 
 buttonContinue.element.addEventListener('click', (event) => {
-
   const ls = localStor.loadState();
   card.matrix = ls.card.matrix;
   card.matrixState = ls.card.matrixState;
   tableWrap.element.innerHTML = '';
   loadTable(ls.card.matrixState);
+});
+
+buttonReset.element.addEventListener('click', (event) => {
+  card.resetGame();
+  buttonSave.element.classList.remove('disabled');
 });
 
  // ========= TABLE

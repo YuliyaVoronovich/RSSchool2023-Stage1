@@ -6,7 +6,8 @@ card.getCard();
 const tableWrap = new CreateElement('div', ['table-wrap']);
 loadTable();
 
-export function loadTable(matrixState = null) {
+export function loadTable(matrixState = null, isSolution = false) {
+  console.log(isSolution);
 
   const table = new CreateElement('table', ['table']);
   tableWrap.element.append(table.element);
@@ -36,7 +37,7 @@ export function loadTable(matrixState = null) {
 
     for (let j = 0; j < card.matrix.length; j++) {     
       const tbodyTd = new CreateElement('td', ['cell', 'white'], '', { id: `${i}_${j}` });
-      if (matrixState && matrixState[i][j] === 1) {
+      if (matrixState && matrixState[i][j] === 1 || isSolution && card.matrix[i][j] === 1) {
         tbodyTd.element.classList.add('black');
       }      
       tbodyTr.element.append(tbodyTd.element);
