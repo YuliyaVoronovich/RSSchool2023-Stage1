@@ -14,7 +14,7 @@ body.append(container.element);
 const header = new CreateElement('header', ['header']);
 container.element.append(header.element);
 
-const title = new CreateElement('h1', ['title'], 'NONOGRAMM');
+const title = new CreateElement('h1', ['title'], 'NONOGRAMS');
 header.element.append(title.element);
 
 const main = new CreateElement('main', ['main']);
@@ -37,7 +37,7 @@ gameField.element.append(buttonsGame.element);
 const buttonSolution = new CreateElement('button', ['button'], 'Solution');
 buttonsGame.element.append(buttonSolution.element);
 
-const buttonSave = new CreateElement('button', ['button'], 'Save');
+const buttonSave = new CreateElement('button', ['button','button-save'], 'Save');
 buttonsGame.element.append(buttonSave.element);
 
 const buttonContinue = new CreateElement('button', ['button','button-continue'], 'Continue');
@@ -66,6 +66,7 @@ buttonContinue.element.addEventListener('click', (event) => {
   card.matrix = ls.card.matrix;
   card.matrixState = ls.card.matrixState;
   tableWrap.element.innerHTML = '';
+  card.isSolution = false;
   loadTable(ls.card.matrixState);
 });
 

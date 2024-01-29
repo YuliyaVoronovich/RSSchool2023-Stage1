@@ -73,6 +73,7 @@ function createSelect() {
     card.getCurrentMatrix();
     //new draw
     tableWrap.element.innerHTML = '';
+    document.querySelector('.button-save').classList.remove('disabled');
     card.resetGame();
     loadTable();
   });

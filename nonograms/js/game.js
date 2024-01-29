@@ -49,6 +49,7 @@ class Game {
     });
     this.card = this.card[0];
     this.getCurrentMatrix();
+    this.isSolution = false;
     return this.card;
   };
 
@@ -141,6 +142,7 @@ class Game {
     this.matrixState = this.setMatrixState();
     clearTimer();
     resetTimer();
+    this.isSolution = false;
     this.removeTimerFlag();
   }
 
