@@ -1,7 +1,10 @@
 import CreateElement from './createElement.js';
 import Game from './game.js';
+import PopUp from './popUp.js';
 import { timerInner } from './timer/timer.js';
+import { localStor, modalWrapper, modalWorldText, modalImg } from './main.js';
 
+let popUp = null;
 export const card = new Game();
 card.getCard();
 const tableWrap = new CreateElement('div', ['table-wrap']);
@@ -35,18 +38,18 @@ export function loadTable(matrixState = null, isSolution = false) {
     const tbodyTd = new CreateElement('th', ['line', 'left-line'], card.getLeftLines()[i].map(item => `<span>${item} </span>`).join(''));
     tbodyTr.element.append(tbodyTd.element);
 
-    for (let j = 0; j < card.matrix.length; j++) {     
+    for (let j = 0; j < card.matrix.length; j++) {
       const tbodyTd = new CreateElement('td', ['cell', 'white'], '', { id: `${i}_${j}` });
       if (matrixState && matrixState[i][j] === 1 || isSolution && card.matrix[i][j] === 1) {
         tbodyTd.element.classList.add('black');
-      }      
+      }
       tbodyTr.element.append(tbodyTd.element);
     }
   }
 
   tbody.element.addEventListener('click', (event) => {
     if (card.isSolution) return false;
-    event.preventDefault();   
+    event.preventDefault();
     if (event.target.classList.contains('cell')) {
       if (!card.isTimer) {
         card.startTime();
@@ -55,22 +58,37 @@ export function loadTable(matrixState = null, isSolution = false) {
       event.target.classList.toggle('black');
       event.target.classList.remove('cross');
       card.pushMatrixState(event);
-      if(card.checkSolution()) {
-        console.log('ура');
+
+      if (card.checkSolution()) {
+        card.isSolution = true;
         const currentTime = timerInner.element.innerHTML;
-        console.log(currentTime);
+        localStor.saveWin(card, currentTime);
+        //open popup
+        const currentPopUp = modalWrapper.element;
+        console.log(currentPopUp);
+        popUp = new PopUp(currentPopUp);
+
+        const array = currentTime.split(':');
+        const seconds = +array[0] * 60 + +array[1];
+        modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
+        popUp.openPopUp();
         card.stoptTime();
+
+        modalImg.element.addEventListener('click', event => {
+          popUp.closePopUp(event.target.closest('.modal-wrapper'));
+          event.preventDefault();
+        });
       }
     }
   });
 
-  thead.element.oncontextmenu = function(event) {
+  thead.element.oncontextmenu = function (event) {
     event.preventDefault();
     event.stopPropagation();
     return false;
   };
 
-  tbody.element.addEventListener('contextmenu', (event) => { 
+  tbody.element.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     event.stopPropagation();
     if (card.isSolution) return false;
@@ -79,5 +97,7 @@ export function loadTable(matrixState = null, isSolution = false) {
       event.target.classList.remove('black');
     }
   });
+
+
 }
 export { tableWrap };

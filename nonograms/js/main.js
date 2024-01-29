@@ -77,3 +77,19 @@ buttonReset.element.addEventListener('click', (event) => {
 
  // ========= TABLE
 gameField.element.append(tableWrap.element);
+
+// ========= MODAL
+export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
+document.querySelector('body').append(modalWrapper.element);
+
+const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
+modalWrapper.element.append(modalResult.element);
+
+export const modalImg = new CreateElement('img', ['img-delete'], '', {'src': './img/cross.png', 'alt': 'delete'});
+modalResult.element.append(modalImg.element);
+
+const modalHeading = new CreateElement('h3', ['heading'], '');
+modalResult.element.append(modalHeading.element);
+
+export const modalWorldText = new CreateElement('div', ['modal-world__text']);
+modalResult.element.append(modalWorldText.element);
