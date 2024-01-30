@@ -7,7 +7,7 @@ import { localStor, modalWrapper, modalWorldText, modalImg } from './main.js';
 let popUp = null;
 export const card = new Game();
 card.getCard();
-const audio = new Audio();
+export const audio = new Audio();
 audio.currentTime = 0;
 
 const tableWrap = new CreateElement('div', ['table-wrap']);

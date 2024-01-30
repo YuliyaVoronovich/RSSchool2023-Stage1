@@ -1,6 +1,6 @@
 import CreateElement from './createElement.js';
 import LocalStorage from './localStorage.js';
-import { tableWrap, card, loadTable } from './table.js';
+import { tableWrap, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
 import formWrap from './form/form.js';
 
@@ -17,8 +17,14 @@ container.element.append(header.element);
 const title = new CreateElement('h1', ['title'], 'NONOGRAMS');
 header.element.append(title.element);
 
+const buttonWrapper = new CreateElement('div', ['button-wrapper']);
+header.element.append(buttonWrapper.element);
+
 const buttonTheme = new CreateElement('button', ['button-theme']);
-header.element.append(buttonTheme.element);
+buttonWrapper.element.append(buttonTheme.element);
+
+const buttonSound = new CreateElement('button', ['button-sound']);
+buttonWrapper.element.append(buttonSound.element);
 
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
@@ -98,6 +104,15 @@ buttonReset.element.addEventListener('click', (event) => {
 
 buttonTheme.element.addEventListener('click', (event) => {
   body.classList.toggle('dark');
+});
+
+buttonSound.element.addEventListener('click', (event) => {
+  event.target.classList.toggle('button-sound-off');
+  if (audio.muted) {
+    audio.muted = false;
+  } else {
+    audio.muted = true;
+  }
 });
 
 // ========= TABLE
