@@ -17,6 +17,9 @@ container.element.append(header.element);
 const title = new CreateElement('h1', ['title'], 'NONOGRAMS');
 header.element.append(title.element);
 
+const buttonTheme = new CreateElement('button', ['button-theme']);
+header.element.append(buttonTheme.element);
+
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
 
@@ -90,6 +93,10 @@ buttonContinue.element.addEventListener('click', (event) => {
 buttonReset.element.addEventListener('click', (event) => {
   card.resetGame();
   buttonSave.element.classList.remove('disabled');
+});
+
+buttonTheme.element.addEventListener('click', (event) => {
+  body.classList.toggle('dark');
 });
 
 // ========= TABLE
