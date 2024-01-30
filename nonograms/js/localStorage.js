@@ -21,13 +21,12 @@ class LocalStorage {
 
   loadState() {
     const card = localStorage.getItem(this.key);
-    console.log(card);
-    return JSON.parse(card);
+    return (card)? JSON.parse(card) : [];
   }
 
   loadResults() {
     const card = localStorage.getItem(this.resultKey);
-    return  JSON.parse(card).reverse().slice(0,5);
+    return (card)? JSON.parse(card).reverse().slice(0,5) : [];
   }
 
   isStateLs() {
