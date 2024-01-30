@@ -7,6 +7,7 @@ class LocalStorage {
   }
 
   saveState(card, time) {
+
     const currentStateCard = {"card": card, "time": time};
     localStorage.setItem(this.key, JSON.stringify(currentStateCard));
     document.querySelector('.button-continue').classList.remove('disabled');

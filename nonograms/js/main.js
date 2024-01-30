@@ -87,6 +87,7 @@ buttonContinue.element.addEventListener('click', (event) => {
   card.matrixState = ls.card.matrixState;
   tableWrap.element.innerHTML = '';
   card.isSolution = false;
+  buttonSave.element.classList.remove('disabled');
   loadTable(ls.card.matrixState);
 });
 

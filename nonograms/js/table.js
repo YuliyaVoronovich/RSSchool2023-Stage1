@@ -7,6 +7,9 @@ import { localStor, modalWrapper, modalWorldText, modalImg } from './main.js';
 let popUp = null;
 export const card = new Game();
 card.getCard();
+const audio = new Audio();
+audio.currentTime = 0;
+
 const tableWrap = new CreateElement('div', ['table-wrap']);
 loadTable();
 
@@ -58,6 +61,9 @@ export function loadTable(matrixState = null, isSolution = false) {
       event.target.classList.toggle('black');
       event.target.classList.remove('cross');
       card.pushMatrixState(event);
+      //audio
+      audio.src = `./audio/up.wav`;
+      audio.play();
 
       if (card.checkSolution()) {
         card.isSolution = true;
@@ -73,6 +79,9 @@ export function loadTable(matrixState = null, isSolution = false) {
         modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
         popUp.openPopUp();
         card.stoptTime();
+        //audio
+        audio.src = `./audio/win.mp3`;
+        audio.play();
 
         modalImg.element.addEventListener('click', event => {
           popUp.closePopUp(event.target.closest('.modal-wrapper'));
@@ -95,6 +104,9 @@ export function loadTable(matrixState = null, isSolution = false) {
     if (event.target.classList.contains('cell')) {
       event.target.classList.toggle('cross');
       event.target.classList.remove('black');
+      //audio
+      audio.src = `./audio/cross.wav`;
+      audio.play();
     }
   });
 
