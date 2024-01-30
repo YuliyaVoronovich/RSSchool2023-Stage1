@@ -104,6 +104,7 @@ export function loadTable(matrixState = null, isSolution = false) {
     if (event.target.classList.contains('cell')) {
       event.target.classList.toggle('cross');
       event.target.classList.remove('black');
+      card.pushMatrixState(event);
       //audio
       audio.src = `./audio/cross.wav`;
       audio.play();
