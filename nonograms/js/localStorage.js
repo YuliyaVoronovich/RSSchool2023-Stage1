@@ -25,6 +25,11 @@ class LocalStorage {
     return JSON.parse(card);
   }
 
+  loadResults() {
+    const card = localStorage.getItem(this.resultKey);
+    return  JSON.parse(card).reverse().slice(0,5);
+  }
+
   isStateLs() {
     return this.state = (localStorage.getItem(this.key))? true : false;
   }

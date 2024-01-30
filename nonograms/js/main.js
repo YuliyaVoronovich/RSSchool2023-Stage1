@@ -1,12 +1,12 @@
 import CreateElement from './createElement.js';
 import LocalStorage from './localStorage.js';
-import { tableWrap, card, loadTable}  from './table.js';
-import {timerWrap, timerInner} from './timer/timer.js';
+import { tableWrap, card, loadTable } from './table.js';
+import { timerWrap, timerInner } from './timer/timer.js';
 import formWrap from './form/form.js';
 
 export const localStor = new LocalStorage();
 
- // ========= LAYOUT
+// ========= LAYOUT
 const body = document.querySelector('body');
 const container = new CreateElement('div', ['container']);
 body.append(container.element);
@@ -20,27 +20,44 @@ header.element.append(title.element);
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
 
- // ========= ASIDE
+// ========= ASIDE
 const aside = new CreateElement('aside', ['aside']);
 main.element.append(aside.element);
 
 aside.element.append(timerWrap.element);
 aside.element.append(formWrap.element);
 
+const resultWrap = new CreateElement('div', ['result']);
+aside.element.append(resultWrap.element);
+
+const resultTitle = new CreateElement('h3', ['result-title'], 'RESULTS');
+resultWrap.element.append(resultTitle.element);
+
+const ulResult = new CreateElement('ul', ['list'], '');
+resultWrap.element.append(ulResult.element);
+
+const results = localStor.loadResults();
+if (results) {
+  for (let i = 0; i < results.length; i++) {
+    const li = new CreateElement('li', ['item'], `${results[i].card.name} (${results[i].card.level}) - ${results[i].time}`);
+    ulResult.element.append(li.element);
+  }
+}
+
 const gameField = new CreateElement('div', ['game-field']);
 main.element.append(gameField.element);
 
- // ========= BUTTONS
+// ========= BUTTONS
 const buttonsGame = new CreateElement('div', ['buttons-field']);
 gameField.element.append(buttonsGame.element);
 
 const buttonSolution = new CreateElement('button', ['button'], 'Solution');
 buttonsGame.element.append(buttonSolution.element);
 
-const buttonSave = new CreateElement('button', ['button','button-save'], 'Save');
+const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save');
 buttonsGame.element.append(buttonSave.element);
 
-const buttonContinue = new CreateElement('button', ['button','button-continue'], 'Continue');
+const buttonContinue = new CreateElement('button', ['button', 'button-continue'], 'Continue');
 if (!localStor.isStateLs()) {
   buttonContinue.element.classList.add('disabled');
 }
@@ -75,17 +92,17 @@ buttonReset.element.addEventListener('click', (event) => {
   buttonSave.element.classList.remove('disabled');
 });
 
- // ========= TABLE
+// ========= TABLE
 gameField.element.append(tableWrap.element);
 
 // ========= MODAL
-export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', {'id': 'modal-result'});
+export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', { 'id': 'modal-result' });
 document.querySelector('body').append(modalWrapper.element);
 
 const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
 modalWrapper.element.append(modalResult.element);
 
-export const modalImg = new CreateElement('img', ['img-delete'], '', {'src': './img/cross.png', 'alt': 'delete'});
+export const modalImg = new CreateElement('img', ['img-delete'], '', { 'src': './img/cross.png', 'alt': 'delete' });
 modalResult.element.append(modalImg.element);
 
 const modalHeading = new CreateElement('h3', ['heading'], '');
