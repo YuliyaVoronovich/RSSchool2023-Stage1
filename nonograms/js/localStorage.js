@@ -13,8 +13,12 @@ class LocalStorage {
   }
 
   saveWin(card, time) {
-    const currentStateCard = {"card": card, "time": time};
+    const arrayTimeFromString = time.split(':');
+    const seconds = +arrayTimeFromString[0] * 60 + +arrayTimeFromString[1];
+
+    const currentStateCard = {"card": card, "time": seconds};
     let cardsArray = localStorage.getItem(this.resultKey)? JSON.parse(localStorage.getItem(this.resultKey)): [];
+    if (cardsArray.length >= 5) cardsArray.shift();
     cardsArray.push(currentStateCard);
     localStorage.setItem(this.resultKey, JSON.stringify(cardsArray));
   }
@@ -26,7 +30,8 @@ class LocalStorage {
 
   loadResults() {
     const card = localStorage.getItem(this.resultKey);
-    return (card)? JSON.parse(card).reverse().slice(0,5) : [];
+    const arrayCards = JSON.parse(card);
+    return (card)? JSON.parse(card).sort((a, b) => a.time - b.time) : [];
   }
 
   isStateLs() {
