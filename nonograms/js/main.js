@@ -48,7 +48,10 @@ resultWrap.element.append(ulResult.element);
 const results = localStor.loadResults();
 if (results) {
   for (let i = 0; i < results.length; i++) {
-    const time = (+results[i].time >= 60)? `${+Math.round(results[i].time / 60)} : ${results[i].time % 60} s`: `${+results[i].time} s`;
+    const minute = (+Math.round(results[i].time / 60) < 10) ? `0${+Math.round(results[i].time / 60)}`: +Math.round(results[i].time / 60);
+    const second = (+results[i].time % 60 < 10) ? `0${+results[i].time % 60}`: +results[i].time % 60;
+
+    const time = `${minute} : ${second}`;
     const li = new CreateElement('li', ['item'], `${results[i].card.name} (${results[i].card.level}) - ${time}`);
     ulResult.element.append(li.element);
   }
