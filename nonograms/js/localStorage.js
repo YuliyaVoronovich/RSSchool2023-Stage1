@@ -46,7 +46,7 @@ class LocalStorage {
 
   getTheme() {
     const theme = localStorage.getItem(this.themeKey);
-    return (theme)? JSON.parse(theme) : null;
+    return (theme)? JSON.parse(theme) : 'light';
   }
 }
 
