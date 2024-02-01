@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  height: 100vh;
+  min-height: 100dvh;
   font-family: 'Lora', serif;
   font-weight: 700;
   line-height: normal;
