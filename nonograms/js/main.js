@@ -1,4 +1,5 @@
 import CreateElement from './createElement.js';
+import {  header, buttonTheme, buttonSound} from './header/header.js';
 import LocalStorage from './localStorage.js';
 import { tableWrap, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
@@ -10,21 +11,8 @@ export const localStor = new LocalStorage();
 const body = document.querySelector('body');
 const container = new CreateElement('div', ['container']);
 body.append(container.element);
-
-const header = new CreateElement('header', ['header']);
+// ========= HEADER
 container.element.append(header.element);
-
-const title = new CreateElement('h1', ['title'], 'NONOGRAMS');
-header.element.append(title.element);
-
-const buttonWrapper = new CreateElement('div', ['button-wrapper']);
-header.element.append(buttonWrapper.element);
-
-const buttonTheme = new CreateElement('button', ['button-theme']);
-buttonWrapper.element.append(buttonTheme.element);
-
-const buttonSound = new CreateElement('button', ['button-sound']);
-buttonWrapper.element.append(buttonSound.element);
 
 const main = new CreateElement('main', ['main']);
 container.element.append(main.element);
@@ -112,11 +100,7 @@ buttonTheme.element.addEventListener('click', (event) => {
 
 buttonSound.element.addEventListener('click', (event) => {
   event.target.classList.toggle('button-sound-off');
-  if (audio.muted) {
-    audio.muted = false;
-  } else {
-    audio.muted = true;
-  }
+  audio.muted = !audio.muted;
 });
 
 // ========= TABLE
