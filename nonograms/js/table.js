@@ -2,7 +2,7 @@ import CreateElement from './createElement.js';
 import Game from './game.js';
 import PopUp from './popUp.js';
 import { timerInner } from './timer/timer.js';
-import { localStor, modalWrapper, modalWorldText, modalImg, buttonSave } from './main.js';
+import { localStor, modalWrapper, modalWorldText, modalImg, buttonSave, ulResult, showResults } from './main.js';
 
 let popUp = null;
 export const card = new Game();
@@ -68,8 +68,9 @@ table.element.addEventListener('click', (event) => {
     if (event.target.classList.contains('black')) {
       audio.src = `./audio/draw.mp3`;
     } else {
-      audio.src = `./audio/remove.mp3`;    }
-    
+      audio.src = `./audio/remove.mp3`;
+    }
+
     audio.play();
 
     if (card.checkSolution()) {
@@ -123,6 +124,9 @@ function solution() {
     popUp.closePopUp(event.target.closest('.modal-wrapper'));
     event.preventDefault();
   });
+  // таблица результатов
+  ulResult.element.innerHTML = '';
+  showResults();
 }
 
 export { tableWrap, table };
