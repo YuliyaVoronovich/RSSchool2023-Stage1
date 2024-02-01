@@ -9,6 +9,10 @@ export const localStor = new LocalStorage();
 
 // ========= LAYOUT
 const body = document.querySelector('body');
+const bodyThemeClass = localStor.getTheme().theme;
+body.classList.add(bodyThemeClass);
+
+
 const container = new CreateElement('div', ['container']);
 body.append(container.element);
 // ========= HEADER
@@ -96,6 +100,8 @@ buttonReset.element.addEventListener('click', (event) => {
 
 buttonTheme.element.addEventListener('click', (event) => {
   body.classList.toggle('dark');
+  const theme = (body.classList.contains('dark'))? 'dark': 'light';
+  localStor.setTheme(theme);
 });
 
 buttonSound.element.addEventListener('click', (event) => {
