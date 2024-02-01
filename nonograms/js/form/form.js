@@ -4,7 +4,6 @@ import { table, card, loadTable } from '../table.js';
 
 //Form
 const formWrap = new CreateElement('div', ['form-wrap']);
-
 const form = new CreateElement('form', ['form'], '', { name: 'cardForm' });
 //Class
 const formComponent = new FormComponent();
@@ -20,13 +19,12 @@ form.element.append(radioButtonsWrap.element);
 const selectElementWrap = new CreateElement('div', ['select-wrapper'], '');
 form.element.append(selectElementWrap.element);
 
-/*Загрузка карточек в select*/
+/*Загрузка карточек*/
 let cardsLevel = card.getCards();
 createCheckboxButtons();
 createSelect();
 
 function createCheckboxButtons() {
-
   const radioButtonWrap = new CreateElement('div', ['form-radio-btn']);
   radioButtonsWrap.element.append(radioButtonWrap.element);
 
@@ -53,18 +51,9 @@ function createCheckboxButtons() {
   radioButtonWrapThree.element.append(radioButtonThird.element);
   const labelButtonThird = new CreateElement('label', ['label-radio'], '15x15', { for: 'radio3' });
   radioButtonWrapThree.element.append(labelButtonThird.element);
-
-  radioButtonsWrap.element.addEventListener('click', (event) => {
-    const level = formComponent.changeLevel();
-    card.setLevel(level);
-    cardsLevel = card.getCards(level);
-    selectElementWrap.element.innerHTML = '';
-    createSelect();
-  });
 }
 
 function createSelect() {
-
   const selectElement = new CreateElement('select', ['select'], '', { name: 'cardName' });
   selectElementWrap.element.append(selectElement.element);
 
@@ -79,21 +68,29 @@ function createSelect() {
     const option = new CreateElement('option', ['name-card-option'], cardsLevel[i].name);
     if (cardsLevel[i].name === card.name) option.element.selected = true;
     selectElement.element.append(option.element);
-  }
-
-  selectElement.element.addEventListener('change', (event) => {
-    formComponent.changeName();
-    const name = formComponent.changeName();
-    card.setName(name);
-    card.getCard();
-    card.getCurrentMatrix();
-    //new draw
-    table.element.innerHTML = '';
-    document.querySelector('.button-save').classList.remove('disabled');
-    card.resetGame();
-    loadTable();
-  });
+  }  
 }
+/*listeners*/
+radioButtonsWrap.element.addEventListener('click', (event) => {
+  const level = formComponent.changeLevel();
+  card.setLevel(level);
+  cardsLevel = card.getCards(level);
+  selectElementWrap.element.innerHTML = '';
+  createSelect();
+});
+
+selectElementWrap.element.addEventListener('change', (event) => {
+  formComponent.changeName();
+  const name = formComponent.changeName();
+  card.setName(name);
+  card.getCard();
+  card.getCurrentMatrix();
+  //new draw
+  table.element.innerHTML = '';
+  document.querySelector('.button-save').classList.remove('disabled');
+  card.resetGame();
+  loadTable();
+});
 
 buttonRandom.element.addEventListener('click', (event) => {
   card.setRandomCard();
