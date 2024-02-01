@@ -101,6 +101,10 @@ table.element.addEventListener('contextmenu', (event) => {
   event.stopPropagation();
   if (card.isSolution) return false;
   if (event.target.classList.contains('cell')) {
+    if (!card.isTimer) {
+      card.startTime();
+      card.isTimer = true;
+    }
     event.target.classList.toggle('cross');
     event.target.classList.remove('black');
     card.pushMatrixState(event);
