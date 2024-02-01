@@ -120,6 +120,8 @@ class Game {
     const col = array[1];
     if (event.target.classList.contains('black')) {
       this.matrixState[row][col] = 1;
+    } else if (event.target.classList.contains('cross')) {
+      this.matrixState[row][col] = 2;
     } else this.matrixState[row][col] = 0;
   }
 
