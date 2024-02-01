@@ -17,7 +17,6 @@ tableWrap.element.append(table.element);
 loadTable();
 
 export function loadTable(matrixState = null, isSolution = false) {
-
   const thead = new CreateElement('thead');
   table.element.append(thead.element);
 
