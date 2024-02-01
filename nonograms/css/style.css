@@ -44,13 +44,14 @@ html {
 }
 
 body {
+  height: 100vh;
   font-family: 'Lora', serif;
   font-weight: 700;
   line-height: normal;
   font-size: 14px;
   background: var(--bg-img);
-  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   color: var(--text-color);
 }
 
