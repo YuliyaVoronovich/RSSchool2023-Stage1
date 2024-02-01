@@ -1,7 +1,7 @@
 import CreateElement from './createElement.js';
 import {  header, buttonTheme, buttonSound} from './header/header.js';
 import LocalStorage from './localStorage.js';
-import { tableWrap, card, loadTable, audio } from './table.js';
+import { tableWrap, table, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
 import formWrap from './form/form.js';
 
@@ -69,7 +69,7 @@ buttonsGame.element.append(buttonReset.element);
 
 buttonSolution.element.addEventListener('click', (event) => {
   card.isSolution = true;
-  tableWrap.element.innerHTML = '';
+  table.element.innerHTML = '';
   loadTable('', card.isSolution);
   buttonSave.element.classList.add('disabled');
 });
@@ -83,7 +83,7 @@ buttonContinue.element.addEventListener('click', (event) => {
   const ls = localStor.loadState();
   card.matrix = ls.card.matrix;
   card.matrixState = ls.card.matrixState;
-  tableWrap.element.innerHTML = '';
+  table.element.innerHTML = '';
   card.isSolution = false;
   buttonSave.element.classList.remove('disabled');
   loadTable(ls.card.matrixState);

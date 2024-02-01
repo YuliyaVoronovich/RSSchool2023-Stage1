@@ -1,6 +1,6 @@
 import CreateElement from '../createElement.js';
 import FormComponent from './formComponent.js';
-import { tableWrap, card, loadTable } from '../table.js';
+import { table, card, loadTable } from '../table.js';
 
 //Form
 const formWrap = new CreateElement('div', ['form-wrap']);
@@ -88,7 +88,7 @@ function createSelect() {
     card.getCard();
     card.getCurrentMatrix();
     //new draw
-    tableWrap.element.innerHTML = '';
+    table.element.innerHTML = '';
     document.querySelector('.button-save').classList.remove('disabled');
     card.resetGame();
     loadTable();
@@ -101,7 +101,7 @@ buttonRandom.element.addEventListener('click', (event) => {
   card.getCurrentMatrix();
   card.setLevel(card.level);
   cardsLevel = card.getCards(card.level);
-  tableWrap.element.innerHTML = '';
+  table.element.innerHTML = '';
   card.resetGame();
   radioButtonsWrap.element.innerHTML = '';
   selectElementWrap.element.innerHTML = '';
