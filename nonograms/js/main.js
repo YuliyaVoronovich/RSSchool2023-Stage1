@@ -34,18 +34,22 @@ aside.element.append(resultWrap.element);
 const resultTitle = new CreateElement('h3', ['result-title'], 'RESULTS');
 resultWrap.element.append(resultTitle.element);
 
-const ulResult = new CreateElement('ul', ['list'], '');
+export const ulResult = new CreateElement('ul', ['list'], '');
 resultWrap.element.append(ulResult.element);
 
-const results = localStor.loadResults();
-if (results) {
-  for (let i = 0; i < results.length; i++) {
-    const minute = (+Math.round(results[i].time / 60) < 10) ? `0${+Math.round(results[i].time / 60)}`: +Math.round(results[i].time / 60);
-    const second = (+results[i].time % 60 < 10) ? `0${+results[i].time % 60}`: +results[i].time % 60;
+showResults();
 
-    const time = `${minute} : ${second}`;
-    const li = new CreateElement('li', ['item'], `${results[i].card.name} (${results[i].card.level}) - ${time}`);
-    ulResult.element.append(li.element);
+export function showResults() {
+  const results = localStor.loadResults();
+  if (results) {
+    for (let i = 0; i < results.length; i++) {
+      const minute = (+Math.round(results[i].time / 60) < 10) ? `0${+Math.round(results[i].time / 60)}`: +Math.round(results[i].time / 60);
+      const second = (+results[i].time % 60 < 10) ? `0${+results[i].time % 60}`: +results[i].time % 60;
+  
+      const time = `${minute} : ${second}`;
+      const li = new CreateElement('li', ['item'], `${results[i].card.name} (${results[i].card.level}) - ${time}`);
+      ulResult.element.append(li.element);
+    }
   }
 }
 
