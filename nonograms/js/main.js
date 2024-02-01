@@ -112,11 +112,7 @@ buttonTheme.element.addEventListener('click', (event) => {
 
 buttonSound.element.addEventListener('click', (event) => {
   event.target.classList.toggle('button-sound-off');
-  if (audio.muted) {
-    audio.muted = false;
-  } else {
-    audio.muted = true;
-  }
+  audio.muted = !audio.muted;
 });
 
 // ========= TABLE
