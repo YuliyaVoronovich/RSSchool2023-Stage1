@@ -129,7 +129,18 @@ class Game {
     return this.matrix.length;
   };
 
+  transformMatrix() {
+    for (let i = 0; i < this.matrixState.length; i++) {
+      for (let j = 0; j < this.matrix.length; j++) {
+        if (this.matrixState[i][j] === 2) {
+          this.matrixState[i][j] = 0;
+        }
+      }
+    }
+  };
+
   checkSolution() {
+    this.transformMatrix();
     return this.matrix.every((v,i) => this.matrix[i].every((v,j) => v === this.matrixState[i][j]));
   }
 
