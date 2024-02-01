@@ -4,6 +4,7 @@ class LocalStorage {
     this.state = false;
     this.key = 'currentStateMatrix_yuliyavoronovich-JSFE2023Q4';
     this.resultKey = 'results_yuliyavoronovich-JSFE2023Q4';
+    this.themeKey = 'theme_yuliyavoronovich-JSFE2023Q4';
   }
 
   saveState(card, time) {
@@ -36,6 +37,16 @@ class LocalStorage {
 
   isStateLs() {
     return this.state = (localStorage.getItem(this.key))? true : false;
+  }
+
+  setTheme(theme) {
+    const themeObject = {"theme": theme};
+    localStorage.setItem(this.themeKey, JSON.stringify(themeObject));
+  }
+
+  getTheme() {
+    const theme = localStorage.getItem(this.themeKey);
+    return (theme)? JSON.parse(theme) : null;
   }
 }
 
