@@ -65,7 +65,11 @@ table.element.addEventListener('click', (event) => {
     event.target.classList.remove('cross');
     card.pushMatrixState(event);
     //audio
-    audio.src = `./audio/up.wav`;
+    if (event.target.classList.contains('black')) {
+      audio.src = `./audio/draw.mp3`;
+    } else {
+      audio.src = `./audio/remove.mp3`;    }
+    
     audio.play();
 
     if (card.checkSolution()) {
@@ -87,9 +91,9 @@ table.element.addEventListener('contextmenu', (event) => {
     event.target.classList.remove('black');
     card.pushMatrixState(event);
     //audio
-    audio.src = `./audio/cross.wav`;
+    audio.src = `./audio/cross.mp3`;
     audio.play();
-    
+
     if (card.checkSolution()) {
       solution();
     }
