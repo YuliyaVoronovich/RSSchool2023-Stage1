@@ -11,12 +11,12 @@ export const audio = new Audio();
 audio.currentTime = 0;
 
 const tableWrap = new CreateElement('div', ['table-wrap']);
+const table = new CreateElement('table', ['table']);
+tableWrap.element.append(table.element);
+
 loadTable();
 
 export function loadTable(matrixState = null, isSolution = false) {
-
-  const table = new CreateElement('table', ['table']);
-  tableWrap.element.append(table.element);
 
   const thead = new CreateElement('thead');
   table.element.append(thead.element);
@@ -51,69 +51,62 @@ export function loadTable(matrixState = null, isSolution = false) {
       }
       tbodyTr.element.append(tbodyTd.element);
     }
-  }
-
-  tbody.element.addEventListener('click', (event) => {
-    if (card.isSolution) return false;
-    event.preventDefault();
-    if (event.target.classList.contains('cell')) {
-      if (!card.isTimer) {
-        card.startTime();
-        card.isTimer = true;
-      }
-      event.target.classList.toggle('black');
-      event.target.classList.remove('cross');
-      card.pushMatrixState(event);
-      //audio
-      audio.src = `./audio/up.wav`;
-      audio.play();
-
-      if (card.checkSolution()) {
-        card.isSolution = true;
-        const currentTime = timerInner.element.innerHTML;
-        localStor.saveWin(card, currentTime);
-        //open popup
-        const currentPopUp = modalWrapper.element;
-        console.log(currentPopUp);
-        popUp = new PopUp(currentPopUp);
-
-        const array = currentTime.split(':');
-        const seconds = +array[0] * 60 + +array[1];
-        modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
-        popUp.openPopUp();
-        card.stoptTime();
-        //audio
-        audio.src = `./audio/win.mp3`;
-        audio.play();
-
-        modalImg.element.addEventListener('click', event => {
-          popUp.closePopUp(event.target.closest('.modal-wrapper'));
-          event.preventDefault();
-        });
-      }
-    }
-  });
-
-  thead.element.oncontextmenu = function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-  };
-
-  tbody.element.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (card.isSolution) return false;
-    if (event.target.classList.contains('cell')) {
-      event.target.classList.toggle('cross');
-      event.target.classList.remove('black');
-      card.pushMatrixState(event);
-      //audio
-      audio.src = `./audio/cross.wav`;
-      audio.play();
-    }
-  });
-
-
+  }  
 }
-export { tableWrap };
+
+table.element.addEventListener('click', (event) => {
+  if (card.isSolution) return false;
+  event.preventDefault();
+  if (event.target.classList.contains('cell')) {
+    if (!card.isTimer) {
+      card.startTime();
+      card.isTimer = true;
+    }
+    event.target.classList.toggle('black');
+    event.target.classList.remove('cross');
+    card.pushMatrixState(event);
+    //audio
+    audio.src = `./audio/up.wav`;
+    audio.play();
+
+    if (card.checkSolution()) {
+      card.isSolution = true;
+      const currentTime = timerInner.element.innerHTML;
+      localStor.saveWin(card, currentTime);
+      //open popup
+      const currentPopUp = modalWrapper.element;
+      console.log(currentPopUp);
+      popUp = new PopUp(currentPopUp);
+
+      const array = currentTime.split(':');
+      const seconds = +array[0] * 60 + +array[1];
+      modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
+      popUp.openPopUp();
+      card.stoptTime();
+      //audio
+      audio.src = `./audio/win.mp3`;
+      audio.play();
+
+      modalImg.element.addEventListener('click', event => {
+        popUp.closePopUp(event.target.closest('.modal-wrapper'));
+        event.preventDefault();
+      });
+    }
+  }
+});
+
+table.element.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  if (card.isSolution) return false;
+  if (event.target.classList.contains('cell')) {
+    event.target.classList.toggle('cross');
+    event.target.classList.remove('black');
+    card.pushMatrixState(event);
+    //audio
+    audio.src = `./audio/cross.wav`;
+    audio.play();
+  }
+});
+
+export { tableWrap, table };
