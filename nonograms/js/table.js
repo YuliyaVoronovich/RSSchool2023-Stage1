@@ -50,7 +50,7 @@ export function loadTable(matrixState = null, isSolution = false) {
       }
       tbodyTr.element.append(tbodyTd.element);
     }
-  }  
+  }
 }
 
 table.element.addEventListener('click', (event) => {
@@ -69,28 +69,7 @@ table.element.addEventListener('click', (event) => {
     audio.play();
 
     if (card.checkSolution()) {
-      card.isSolution = true;
-      const currentTime = timerInner.element.innerHTML;
-      localStor.saveWin(card, currentTime);
-      buttonSave.element.classList.add('disabled');
-      //open popup
-      const currentPopUp = modalWrapper.element;
-      console.log(currentPopUp);
-      popUp = new PopUp(currentPopUp);
-
-      const array = currentTime.split(':');
-      const seconds = +array[0] * 60 + +array[1];
-      modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
-      popUp.openPopUp();
-      card.stoptTime();
-      //audio
-      audio.src = `./audio/win.mp3`;
-      audio.play();
-
-      modalImg.element.addEventListener('click', event => {
-        popUp.closePopUp(event.target.closest('.modal-wrapper'));
-        event.preventDefault();
-      });
+      solution();
     }
   }
 });
@@ -110,7 +89,36 @@ table.element.addEventListener('contextmenu', (event) => {
     //audio
     audio.src = `./audio/cross.wav`;
     audio.play();
+    
+    if (card.checkSolution()) {
+      solution();
+    }
   }
 });
+
+function solution() {
+  card.isSolution = true;
+  const currentTime = timerInner.element.innerHTML;
+  localStor.saveWin(card, currentTime);
+  buttonSave.element.classList.add('disabled');
+  //open popup
+  const currentPopUp = modalWrapper.element;
+  console.log(currentPopUp);
+  popUp = new PopUp(currentPopUp);
+
+  const array = currentTime.split(':');
+  const seconds = +array[0] * 60 + +array[1];
+  modalWorldText.element.textContent = `Great! You have solved the nonogram in ${seconds} seconds!`;
+  popUp.openPopUp();
+  card.stoptTime();
+  //audio
+  audio.src = `./audio/win.mp3`;
+  audio.play();
+
+  modalImg.element.addEventListener('click', event => {
+    popUp.closePopUp(event.target.closest('.modal-wrapper'));
+    event.preventDefault();
+  });
+}
 
 export { tableWrap, table };
