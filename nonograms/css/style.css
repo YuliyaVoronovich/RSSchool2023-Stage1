@@ -133,6 +133,13 @@ body {
   color: var(--text-accent);
 }
 
+@media (max-width: 480px) {
+  .title {
+    font-size: 26px;
+    padding: 0 5px;
+  }
+}
+
 /* Боковая*/
 .aside {
   max-width: 300px;
@@ -295,6 +302,12 @@ body {
 .button.disabled {
   background-color: var(--bg-color-inner);
   pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 5px;
+  }
 }
 
 @media (hover:hover) {
