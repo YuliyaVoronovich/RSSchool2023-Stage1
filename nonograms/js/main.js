@@ -55,7 +55,7 @@ gameField.element.append(buttonsGame.element);
 const buttonSolution = new CreateElement('button', ['button'], 'Solution');
 buttonsGame.element.append(buttonSolution.element);
 
-const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save');
+export const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save');
 buttonsGame.element.append(buttonSave.element);
 
 const buttonContinue = new CreateElement('button', ['button', 'button-continue'], 'Continue');

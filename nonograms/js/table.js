@@ -2,7 +2,7 @@ import CreateElement from './createElement.js';
 import Game from './game.js';
 import PopUp from './popUp.js';
 import { timerInner } from './timer/timer.js';
-import { localStor, modalWrapper, modalWorldText, modalImg } from './main.js';
+import { localStor, modalWrapper, modalWorldText, modalImg, buttonSave } from './main.js';
 
 let popUp = null;
 export const card = new Game();
@@ -73,6 +73,7 @@ table.element.addEventListener('click', (event) => {
       card.isSolution = true;
       const currentTime = timerInner.element.innerHTML;
       localStor.saveWin(card, currentTime);
+      buttonSave.element.classList.add('disabled');
       //open popup
       const currentPopUp = modalWrapper.element;
       console.log(currentPopUp);
