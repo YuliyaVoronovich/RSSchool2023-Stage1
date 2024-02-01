@@ -46,6 +46,9 @@ export function loadTable(matrixState = null, isSolution = false) {
       if (matrixState && matrixState[i][j] === 1 || isSolution && card.matrix[i][j] === 1) {
         tbodyTd.element.classList.add('black');
       }
+      if (matrixState && matrixState[i][j] === 2) {
+        tbodyTd.element.classList.add('cross');
+      }
       tbodyTr.element.append(tbodyTd.element);
     }
   }
