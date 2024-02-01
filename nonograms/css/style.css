@@ -1,31 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&display=swap');
 
 :root {
-  --bg-color: #4f5d75;
-  --bg-color-dark: #2d3142;
-  --bg-color-ligth: #bfc0c0;
+  --bg-color: #426970;
+  --bg-color-dark: #518492;
+  --bg-color-ligth: #c6e7e7;
   --bg-color-white: #ffffff;
-  --bg-color-blur: rgba(191, 192, 192, 0.3);
-  --bg-color-inner: rgba(79, 93, 117, 0.4);
+  --bg-color-blur: rgba(191, 192, 192, 0.8);
+  --bg-color-inner: rgba(126, 162, 175, 0.7);
   --text-color: rgb(45, 49, 66, 0.8);
-  --text-accent: #e8936f;
+  --text-accent: #dde248;
   --text-list: rgb(45, 49, 66, 0.8);
   --bg-shadow: rgba(64, 63, 61, 0.80);
   --border: #0d0d0d;
+  --bg-img: url(/img/main.jpg);
 }
 
 :root body.dark {
-  --bg-color: #22333b;
-  --bg-color-dark: #0a0908;
-  --bg-color-ligth: #c6ac8f;
-  --bg-color-white: #cfdbd5;
-  --bg-color-blur: rgba(198, 172, 143, 0.2);
-  --bg-color-inner: rgba(34, 51, 59, 0.8);
+  --bg-color: #272a2b;
+  --bg-color-dark: #47433f;
+  --bg-color-ligth: #9b774e;
+  --bg-color-white: #a5aaa8;
+  --bg-color-blur: rgba(141, 120, 95, 0.8);
+  --bg-color-inner: rgba(68, 73, 75, 0.7);
   --text-color: #0d0d0d;
-  --text-accent: #c6ac8f;
+  --text-accent: #e7b598;
   --text-list: #cfdbd5;
   --bg-shadow: rgba(64, 63, 61, 0.80);
   --border: #0d0d0d;
+  --bg-img: url(/img/main_dark.jpg);
 }
 
 html {
@@ -46,7 +48,10 @@ body {
   font-weight: 700;
   line-height: normal;
   font-size: 14px;
-  background: var(--bg-color);
+  background: var(--bg-img);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--text-color);
 }
 
