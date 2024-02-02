@@ -7,6 +7,7 @@
   --bg-color-white: #ffffff;
   --bg-color-blur: rgba(191, 192, 192, 0.8);
   --bg-color-inner: rgba(126, 162, 175, 0.7);
+  --bg-color-inner-table: rgba(126, 162, 175, 0.5);
   --text-color: rgb(45, 49, 66, 0.8);
   --text-accent: #dde248;
   --text-list: rgb(45, 49, 66, 0.8);
@@ -22,6 +23,7 @@
   --bg-color-white: #a5aaa8;
   --bg-color-blur: rgba(141, 120, 95, 0.9);
   --bg-color-inner: rgba(68, 73, 75, 0.7);
+  --bg-color-inner-table: rgba(68, 73, 75, 0.3);
   --text-color: #0d0d0d;
   --text-accent: #e7b598;
   --text-list: #cfdbd5;
@@ -91,7 +93,7 @@ body {
 
 .button-theme {
   width: 35px;
-  height: 35px;  
+  height: 35px;
   background: url('../img/theme.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,7 +105,7 @@ body {
 
 .button-sound {
   width: 35px;
-  height: 35px;  
+  height: 35px;
   background: url('../img/sound.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -160,7 +162,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: var( --bg-color-inner);
+  background-color: var(--bg-color-inner);
   border-radius: 5px;
   box-shadow: inset 0px 0 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -176,7 +178,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color:  var( --bg-color-inner);
+  background-color: var(--bg-color-inner);
   border-radius: 5px;
   box-shadow: inset 0px 0 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -260,6 +262,7 @@ body {
   width: 60%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   padding: 20px 0;
   background-color: var(--bg-color-blur);
@@ -267,8 +270,24 @@ body {
   box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+.game-wrapper {
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color-inner-table);
+}
+
 @media (max-width: 1080px) {
   .game-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-wrapper {
+    max-width: 300px;
     width: 100%;
   }
 }
@@ -280,8 +299,9 @@ body {
   gap: 15px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .buttons-field {
+    flex-wrap: wrap;
     gap: 2px;
   }
 }
@@ -306,7 +326,7 @@ body {
 
 @media (max-width: 480px) {
   .button {
-    padding: 5px;
+    width: auto;
   }
 }
 
