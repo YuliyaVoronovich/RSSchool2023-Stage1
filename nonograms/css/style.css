@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&display=swap');
 
 :root {
-  --bg-color: #426970;
-  --bg-color-dark: #518492;
+  --bg-color: #5e827c;
+  --bg-color-dark: #81a0a8;
   --bg-color-ligth: #c6e7e7;
   --bg-color-white: #ffffff;
-  --bg-color-blur: rgba(191, 192, 192, 0.8);
-  --bg-color-inner: rgba(126, 162, 175, 0.7);
-  --bg-color-inner-table: rgba(126, 162, 175, 0.5);
+  --bg-color-blur: rgba(193, 193, 193, 0.9);
+  --bg-color-inner: rgba(138, 162, 171, 0.7);
+  --bg-color-inner-table: rgba(126, 162, 175, 0.4);
   --text-color: rgb(45, 49, 66, 0.8);
-  --text-accent: #dde248;
+  --text-accent: #f6fa7d;
   --text-list: rgb(45, 49, 66, 0.8);
   --bg-shadow: rgba(64, 63, 61, 0.80);
   --border: #0d0d0d;
-  --bg-img: url(../img/main.jpg);
+  --bg-img: url(../img/main_light.jpg);
 }
 
 :root body.dark {
