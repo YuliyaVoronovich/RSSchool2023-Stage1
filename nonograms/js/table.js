@@ -72,8 +72,8 @@ table.element.addEventListener('click', (event) => {
     }
 
     audio.play();
-
     if (card.checkSolution()) {
+      card.transformMatrix();
       solution();
     }
   }
@@ -94,8 +94,8 @@ table.element.addEventListener('contextmenu', (event) => {
     //audio
     audio.src = `./audio/cross.mp3`;
     audio.play();
-
     if (card.checkSolution()) {
+      card.transformMatrix();
       solution();
     }
   }
