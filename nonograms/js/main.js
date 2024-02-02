@@ -114,7 +114,10 @@ buttonSound.element.addEventListener('click', (event) => {
 });
 
 // ========= TABLE
-gameField.element.append(tableWrap.element);
+export const gameWrapTable = new CreateElement('div', ['game-wrapper']);
+gameField.element.append(gameWrapTable.element);
+
+gameWrapTable.element.append(tableWrap.element);
 
 // ========= MODAL
 export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', { 'id': 'modal-result' });
