@@ -122,26 +122,24 @@ class Game {
       this.matrixState[row][col] = 1;
     } else if (event.target.classList.contains('cross')) {
       this.matrixState[row][col] = 2;
-    } 
-   
+    } else this.matrixState[row][col] = 0;
   }
 
   getLengthMatrix() {
     return this.matrix.length;
   };
 
-  transformMatrix() {
-    for (let i = 0; i < this.matrixState.length; i++) {
-      for (let j = 0; j < this.matrix.length; j++) {
-        if (this.matrixState[i][j] === 2) {
-          this.matrixState[i][j] = 0;
+  checkSolution() {
+    const oneCount = this.matrix.flat().filter(item =>item === 1).length;
+    const twoCount = this.matrixState.flat().filter(item =>item === 1).length;
+    for (let i = 0; i < this.matrix.length; i++) {
+      for (let j = 0; j < this.matrix[0].length; j++) {
+        if (this.matrix[i][j] === 1 && this.matrixState[i][j] != 1) {
+          return false; // Черная клетка не заполнена в решении
         }
       }
     }
-  };
-
-  checkSolution() {
-    return this.matrix.every((v,i) => this.matrix[i].every((v,j) => v === this.matrixState[i][j]));
+    if (oneCount === twoCount) return true;
   }
 
   resetGame() {

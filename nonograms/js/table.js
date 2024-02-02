@@ -73,7 +73,6 @@ table.element.addEventListener('click', (event) => {
 
     audio.play();
     if (card.checkSolution()) {
-      card.transformMatrix();
       solution();
     }
   }
@@ -95,7 +94,6 @@ table.element.addEventListener('contextmenu', (event) => {
     audio.src = `./audio/cross.mp3`;
     audio.play();
     if (card.checkSolution()) {
-      card.transformMatrix();
       solution();
     }
   }
@@ -103,6 +101,7 @@ table.element.addEventListener('contextmenu', (event) => {
 
 function solution() {
   card.isSolution = true;
+ // card.transformMatrix();
   const currentTime = timerInner.element.innerHTML;
   localStor.saveWin(card, currentTime);
   buttonSave.element.classList.add('disabled');
