@@ -60,7 +60,7 @@ main.element.append(gameField.element);
 const buttonsGame = new CreateElement('div', ['buttons-field']);
 gameField.element.append(buttonsGame.element);
 
-const buttonSolution = new CreateElement('button', ['button'], 'Show Solution');
+const buttonSolution = new CreateElement('button', ['button'], 'Solution');
 buttonsGame.element.append(buttonSolution.element);
 
 export const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save game');
@@ -72,7 +72,7 @@ if (!localStor.isStateLs()) {
 }
 buttonsGame.element.append(buttonContinue.element);
 
-const buttonReset = new CreateElement('button', ['button'], 'Reset');
+const buttonReset = new CreateElement('button', ['button'], 'Reset game');
 buttonsGame.element.append(buttonReset.element);
 
 buttonSolution.element.addEventListener('click', (event) => {
