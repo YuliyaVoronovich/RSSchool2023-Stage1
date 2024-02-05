@@ -10,7 +10,7 @@ const formComponent = new FormComponent();
 formComponent.setForm(form.element);
 formWrap.element.append(form.element);
 
-const buttonRandom = new CreateElement('button', ['button', 'button-random'], 'Random', { name: 'random', type: 'button' });
+const buttonRandom = new CreateElement('button', ['button', 'button-random'], 'Random game', { name: 'random', type: 'button' });
 form.element.append(buttonRandom.element);
 
 const radioButtonsWrap = new CreateElement('div', ['form-radio-buttons']);
