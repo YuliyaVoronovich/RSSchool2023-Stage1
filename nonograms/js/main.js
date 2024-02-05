@@ -60,13 +60,13 @@ main.element.append(gameField.element);
 const buttonsGame = new CreateElement('div', ['buttons-field']);
 gameField.element.append(buttonsGame.element);
 
-const buttonSolution = new CreateElement('button', ['button'], 'Solution');
+const buttonSolution = new CreateElement('button', ['button'], 'Show Solution');
 buttonsGame.element.append(buttonSolution.element);
 
-export const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save');
+export const buttonSave = new CreateElement('button', ['button', 'button-save'], 'Save game');
 buttonsGame.element.append(buttonSave.element);
 
-const buttonContinue = new CreateElement('button', ['button', 'button-continue'], 'Continue');
+const buttonContinue = new CreateElement('button', ['button', 'button-continue'], 'Continue last game');
 if (!localStor.isStateLs()) {
   buttonContinue.element.classList.add('disabled');
 }

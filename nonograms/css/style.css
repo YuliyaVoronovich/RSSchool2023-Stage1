@@ -50,7 +50,7 @@ body {
   font-family: 'Lora', serif;
   font-weight: 700;
   line-height: normal;
-  font-size: 14px;
+  font-size: 18px;
   background: var(--bg-img);
   background-repeat: no-repeat;
   background-size: cover;
@@ -299,17 +299,10 @@ body {
   gap: 15px;
 }
 
-@media (max-width: 600px) {
-  .buttons-field {
-    flex-wrap: wrap;
-    gap: 2px;
-  }
-}
-
 .button {
-  width: 100px;
+  width: 130px;
   margin-right: 4px;
-  padding: 5px 15px;
+  padding: 5px 10px;
   border: none;
   border-radius: 3px;
   background: var(--bg-color);
@@ -317,6 +310,13 @@ body {
   cursor: pointer;
   outline: none;
   transition: 0.3s ease;
+}
+
+@media (max-width: 680px) {
+  .buttons-field {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
 }
 
 .button.disabled {
