@@ -76,7 +76,7 @@ radioButtonsWrap.element.addEventListener('click', (event) => {
   card.setLevel(level);
   cardsLevel = card.getCards(level);
   selectElementWrap.element.innerHTML = '';
-  createSelect();
+  createSelect(cardsLevel);
 });
 
 selectElementWrap.element.addEventListener('change', (event) => {
