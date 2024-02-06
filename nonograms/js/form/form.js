@@ -22,9 +22,9 @@ form.element.append(selectElementWrap.element);
 /*Загрузка карточек*/
 let cardsLevel = card.getCards();
 createCheckboxButtons();
-createSelect();
+createSelect(cardsLevel);
 
-function createCheckboxButtons() {
+export function createCheckboxButtons() {
   const radioButtonWrap = new CreateElement('div', ['form-radio-btn']);
   radioButtonsWrap.element.append(radioButtonWrap.element);
 
@@ -53,7 +53,7 @@ function createCheckboxButtons() {
   radioButtonWrapThree.element.append(labelButtonThird.element);
 }
 
-function createSelect() {
+export function createSelect(cardsLevel) {
   const selectElement = new CreateElement('select', ['select'], '', { name: 'cardName' });
   selectElementWrap.element.append(selectElement.element);
 
@@ -103,8 +103,8 @@ buttonRandom.element.addEventListener('click', (event) => {
   radioButtonsWrap.element.innerHTML = '';
   selectElementWrap.element.innerHTML = '';
   createCheckboxButtons();
-  createSelect();
+  createSelect(cardsLevel);
   loadTable();
 });
 
-export default formWrap;
+export {formWrap, radioButtonsWrap, selectElementWrap};
