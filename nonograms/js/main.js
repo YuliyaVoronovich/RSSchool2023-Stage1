@@ -3,7 +3,7 @@ import {  header, buttonTheme, buttonSound} from './header/header.js';
 import LocalStorage from './localStorage.js';
 import { tableWrap, table, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
-import formWrap from './form/form.js';
+import {formWrap, radioButtonsWrap, selectElementWrap, createCheckboxButtons, createSelect} from './form/form.js';
 
 export const localStor = new LocalStorage();
 
@@ -89,11 +89,18 @@ buttonSave.element.addEventListener('click', (event) => {
 
 buttonContinue.element.addEventListener('click', (event) => {
   const ls = localStor.loadState();
+  card.name = ls.card.name;
   card.matrix = ls.card.matrix;
   card.matrixState = ls.card.matrixState;
   table.element.innerHTML = '';
   card.isSolution = false;
   buttonSave.element.classList.remove('disabled');
+  card.setLevel(ls.card.level);
+  const cardsLevel = card.getCards(ls.card.level);
+  radioButtonsWrap.element.innerHTML = '';
+  selectElementWrap.element.innerHTML = '';
+  createCheckboxButtons();
+  createSelect(cardsLevel);
   loadTable(ls.card.matrixState);
 });
 
