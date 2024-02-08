@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "babelOptions": {
+      "plugins": ["@babel/plugin-syntax-import-assertions"]
+    }
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "no-var": "error",
+    "prettier/prettier": "error", // Подсвечивает ошибки из Prettier.
+    "react/prop-types": 0 // Отключаем правило проверки передаваемых типов.
+  }
+}

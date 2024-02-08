@@ -1,9 +1,9 @@
 import CreateElement from './createElement.js';
-import {  header, buttonTheme, buttonSound} from './header/header.js';
+import { header, buttonTheme, buttonSound } from './header/header.js';
 import LocalStorage from './localStorage.js';
 import { tableWrap, table, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
-import {formWrap, radioButtonsWrap, selectElementWrap, createCheckboxButtons, createSelect} from './form/form.js';
+import { formWrap, radioButtonsWrap, selectElementWrap, createCheckboxButtons, createSelect } from './form/form.js';
 
 export const localStor = new LocalStorage();
 
@@ -11,7 +11,6 @@ export const localStor = new LocalStorage();
 const body = document.querySelector('body');
 const bodyThemeClass = localStor.getTheme().theme;
 body.classList.add(bodyThemeClass);
-
 
 const container = new CreateElement('div', ['container']);
 body.append(container.element);
@@ -43,9 +42,12 @@ export function showResults() {
   const results = localStor.loadResults();
   if (results) {
     for (let i = 0; i < results.length; i++) {
-      const minute = (+Math.round(results[i].time / 60) < 10) ? `0${+Math.round(results[i].time / 60)}`: +Math.round(results[i].time / 60);
-      const second = (+results[i].time % 60 < 10) ? `0${+results[i].time % 60}`: +results[i].time % 60;
-  
+      const minute =
+        +Math.round(results[i].time / 60) < 10
+          ? `0${+Math.round(results[i].time / 60)}`
+          : +Math.round(results[i].time / 60);
+      const second = +results[i].time % 60 < 10 ? `0${+results[i].time % 60}` : +results[i].time % 60;
+
       const time = `${minute} : ${second}`;
       const li = new CreateElement('li', ['item'], `${results[i].card.name} (${results[i].card.level}) - ${time}`);
       ulResult.element.append(li.element);
@@ -75,19 +77,19 @@ buttonsGame.element.append(buttonContinue.element);
 const buttonReset = new CreateElement('button', ['button'], 'Reset game');
 buttonsGame.element.append(buttonReset.element);
 
-buttonSolution.element.addEventListener('click', (event) => {
+buttonSolution.element.addEventListener('click', () => {
   card.isSolution = true;
   table.element.innerHTML = '';
   loadTable('', card.isSolution);
   buttonSave.element.classList.add('disabled');
 });
 
-buttonSave.element.addEventListener('click', (event) => {
+buttonSave.element.addEventListener('click', () => {
   const currentTime = timerInner.element.innerHTML;
   localStor.saveState(card, currentTime);
 });
 
-buttonContinue.element.addEventListener('click', (event) => {
+buttonContinue.element.addEventListener('click', () => {
   const ls = localStor.loadState();
   card.name = ls.card.name;
   card.matrix = ls.card.matrix;
@@ -104,18 +106,18 @@ buttonContinue.element.addEventListener('click', (event) => {
   loadTable(ls.card.matrixState);
 });
 
-buttonReset.element.addEventListener('click', (event) => {
+buttonReset.element.addEventListener('click', () => {
   card.resetGame();
   buttonSave.element.classList.remove('disabled');
 });
 
-buttonTheme.element.addEventListener('click', (event) => {
+buttonTheme.element.addEventListener('click', () => {
   body.classList.toggle('dark');
-  const theme = (body.classList.contains('dark'))? 'dark': 'light';
+  const theme = body.classList.contains('dark') ? 'dark' : 'light';
   localStor.setTheme(theme);
 });
 
-buttonSound.element.addEventListener('click', (event) => {
+buttonSound.element.addEventListener('click', event => {
   event.target.classList.toggle('button-sound-off');
   audio.muted = !audio.muted;
 });
@@ -127,13 +129,13 @@ gameField.element.append(gameWrapTable.element);
 gameWrapTable.element.append(tableWrap.element);
 
 // ========= MODAL
-export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', { 'id': 'modal-result' });
+export const modalWrapper = new CreateElement('div', ['modal-wrapper'], '', { id: 'modal-result' });
 document.querySelector('body').append(modalWrapper.element);
 
 const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
 modalWrapper.element.append(modalResult.element);
 
-export const modalImg = new CreateElement('img', ['img-delete'], '', { 'src': './img/cross.png', 'alt': 'delete' });
+export const modalImg = new CreateElement('img', ['img-delete'], '', { src: './img/cross.png', alt: 'delete' });
 modalResult.element.append(modalImg.element);
 
 const modalHeading = new CreateElement('h3', ['heading'], '');

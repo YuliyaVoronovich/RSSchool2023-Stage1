@@ -1,5 +1,4 @@
 class LocalStorage {
-
   constructor() {
     this.state = false;
     this.key = 'currentStateMatrix_yuliyavoronovich-JSFE2023Q4';
@@ -8,7 +7,7 @@ class LocalStorage {
   }
 
   saveState(card, time) {
-    const currentStateCard = {"card": card, "time": time};
+    const currentStateCard = { card: card, time: time };
     localStorage.setItem(this.key, JSON.stringify(currentStateCard));
     document.querySelector('.button-continue').classList.remove('disabled');
   }
@@ -17,8 +16,8 @@ class LocalStorage {
     const arrayTimeFromString = time.split(':');
     const seconds = +arrayTimeFromString[0] * 60 + +arrayTimeFromString[1];
 
-    const currentStateCard = {"card": card, "time": seconds};
-    let cardsArray = localStorage.getItem(this.resultKey)? JSON.parse(localStorage.getItem(this.resultKey)): [];
+    const currentStateCard = { card: card, time: seconds };
+    let cardsArray = localStorage.getItem(this.resultKey) ? JSON.parse(localStorage.getItem(this.resultKey)) : [];
     if (cardsArray.length >= 5) cardsArray.shift();
     cardsArray.push(currentStateCard);
     localStorage.setItem(this.resultKey, JSON.stringify(cardsArray));
@@ -26,27 +25,26 @@ class LocalStorage {
 
   loadState() {
     const card = localStorage.getItem(this.key);
-    return (card)? JSON.parse(card) : [];
+    return card ? JSON.parse(card) : [];
   }
 
   loadResults() {
     const card = localStorage.getItem(this.resultKey);
-    const arrayCards = JSON.parse(card);
-    return (card)? JSON.parse(card).sort((a, b) => a.time - b.time) : [];
+    return card ? JSON.parse(card).sort((a, b) => a.time - b.time) : [];
   }
 
   isStateLs() {
-    return this.state = (localStorage.getItem(this.key))? true : false;
+    return (this.state = localStorage.getItem(this.key) ? true : false);
   }
 
   setTheme(theme) {
-    const themeObject = {"theme": theme};
+    const themeObject = { theme: theme };
     localStorage.setItem(this.themeKey, JSON.stringify(themeObject));
   }
 
   getTheme() {
     const theme = localStorage.getItem(this.themeKey);
-    return (theme)? JSON.parse(theme) : 'light';
+    return theme ? JSON.parse(theme) : 'light';
   }
 }
 

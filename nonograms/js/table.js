@@ -27,7 +27,14 @@ export function loadTable(matrixState = null, isSolution = false) {
   theadTr.element.append(theadTh.element);
 
   for (let i = 0; i < card.matrix.length; i++) {
-    const theadTh = new CreateElement('th', ['line'], card.getTopLines()[i].map(item => `<span>${item}<br></span>`).join(''));
+    const theadTh = new CreateElement(
+      'th',
+      ['line'],
+      card
+        .getTopLines()
+        [i].map(item => `<span>${item}<br></span>`)
+        .join(''),
+    );
     theadTr.element.append(theadTh.element);
   }
   const tbody = new CreateElement('tbody');
@@ -37,12 +44,19 @@ export function loadTable(matrixState = null, isSolution = false) {
     const tbodyTr = new CreateElement('tr');
     tbody.element.append(tbodyTr.element);
 
-    const tbodyTd = new CreateElement('th', ['line', 'left-line'], card.getLeftLines()[i].map(item => `<span>${item} </span>`).join(''));
+    const tbodyTd = new CreateElement(
+      'th',
+      ['line', 'left-line'],
+      card
+        .getLeftLines()
+        [i].map(item => `<span>${item} </span>`)
+        .join(''),
+    );
     tbodyTr.element.append(tbodyTd.element);
 
     for (let j = 0; j < card.matrix.length; j++) {
       const tbodyTd = new CreateElement('td', ['cell', 'white'], '', { id: `${i}_${j}` });
-      if (matrixState && matrixState[i][j] === 1 || isSolution && card.matrix[i][j] === 1) {
+      if ((matrixState && matrixState[i][j] === 1) || (isSolution && card.matrix[i][j] === 1)) {
         tbodyTd.element.classList.add('black');
       }
       if (matrixState && matrixState[i][j] === 2) {
@@ -53,7 +67,7 @@ export function loadTable(matrixState = null, isSolution = false) {
   }
 }
 
-table.element.addEventListener('click', (event) => {
+table.element.addEventListener('click', event => {
   if (card.isSolution) return false;
   event.preventDefault();
   if (event.target.classList.contains('cell')) {
@@ -78,7 +92,7 @@ table.element.addEventListener('click', (event) => {
   }
 });
 
-table.element.addEventListener('contextmenu', (event) => {
+table.element.addEventListener('contextmenu', event => {
   event.preventDefault();
   event.stopPropagation();
   if (card.isSolution) return false;
@@ -101,7 +115,7 @@ table.element.addEventListener('contextmenu', (event) => {
 
 function solution() {
   card.isSolution = true;
- // card.transformMatrix();
+  // card.transformMatrix();
   const currentTime = timerInner.element.innerHTML;
   localStor.saveWin(card, currentTime);
   buttonSave.element.classList.add('disabled');

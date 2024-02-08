@@ -8,7 +8,7 @@ export const timerWrap = new CreateElement('div', ['timer-wrap']);
 export const timerInner = new CreateElement('div', ['timer'], '00:00');
 timerWrap.element.append(timerInner.element);
 
-export function setTimer () {
+export function setTimer() {
   const timer = new TimerComponent();
   timerId = setInterval(function () {
     timerInner.element.innerHTML = timer.currentTime();
@@ -16,9 +16,9 @@ export function setTimer () {
 }
 
 export function resetTimer() {
-  return timerId = null;//текущее время игры
+  return (timerId = null); //текущее время игры
 }
 
-export function clearTimer () {
+export function clearTimer() {
   clearInterval(timerId);
 }
