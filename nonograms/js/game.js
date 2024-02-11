@@ -1,8 +1,7 @@
-import cards from "./matrix.json" assert { type: "json" };
+import cards from './matrix.json' assert { type: 'json' };
 import { timerInner, clearTimer, resetTimer, setTimer } from './timer/timer.js';
 
 class Game {
-
   constructor() {
     this.card = null;
     this.matrix = null;
@@ -42,7 +41,7 @@ class Game {
     const conditions = {};
     if (this.level) conditions.level = this.level;
     if (this.name) conditions.name = this.name;
-    this.card = cards.filter((item) => {
+    this.card = cards.filter(item => {
       return Object.keys(conditions).every(key => {
         return conditions[key] === item[key];
       });
@@ -51,19 +50,19 @@ class Game {
     this.getCurrentMatrix();
     this.isSolution = false;
     return this.card;
-  };
+  }
 
   getCards(level = 'basic', name) {
     const conditions = {};
     if (level) conditions.level = level;
     if (name) conditions.name = name;
 
-    return cards.filter((item) => {
+    return cards.filter(item => {
       return Object.keys(conditions).every(key => {
         return conditions[key] === item[key];
       });
     });
-  };
+  }
 
   getLeftLines() {
     let result = {};
@@ -76,8 +75,7 @@ class Game {
           if (j === this.matrix.length - 1) {
             array.push(count);
           }
-        }
-        else if (count > 0) {
+        } else if (count > 0) {
           array.push(count);
           count = 0;
         }
@@ -98,8 +96,7 @@ class Game {
           if (j === this.matrix.length - 1) {
             array.push(count);
           }
-        }
-        else if (count > 0) {
+        } else if (count > 0) {
           array.push(count);
           count = 0;
         }
@@ -112,7 +109,7 @@ class Game {
   getCurrentMatrix() {
     this.matrix = this.card.matrix;
     this.matrixState = this.setMatrixState();
-  };
+  }
 
   pushMatrixState(event) {
     const array = event.target.getAttribute('id').split('_');
@@ -127,11 +124,11 @@ class Game {
 
   getLengthMatrix() {
     return this.matrix.length;
-  };
+  }
 
   checkSolution() {
-    const oneCount = this.matrix.flat().filter(item =>item === 1).length;
-    const twoCount = this.matrixState.flat().filter(item =>item === 1).length;
+    const oneCount = this.matrix.flat().filter(item => item === 1).length;
+    const twoCount = this.matrixState.flat().filter(item => item === 1).length;
     for (let i = 0; i < this.matrix.length; i++) {
       for (let j = 0; j < this.matrix[0].length; j++) {
         if (this.matrix[i][j] === 1 && this.matrixState[i][j] != 1) {
@@ -158,7 +155,7 @@ class Game {
   }
 
   removeTimerFlag() {
-    return this.isTimer = false;
+    return (this.isTimer = false);
   }
 
   startTime() {
