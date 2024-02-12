@@ -1,8 +1,7 @@
 # My self-introduction
 
 
-- **Link to my video**: [self-introduction](https://youtu.be/9fNrkZRRWfo)
-
+- **Link to my video**: [self-introduction](https://youtu.be/nwmmSBbVSe4)
 
 - **Transcript  my video**
 
