@@ -3,6 +3,7 @@
 
 - **Link to my video**: [self-introduction](https://youtu.be/9fNrkZRRWfo)
 
+
 - **Transcript  my video**
 
 Hi, my name is Julia. I am 34 and I am from Minsk. A many years ago, 12 years I successfully graduated from the Belarusian State University of Informatics and Electronics. And I have a specialty of engineer in information technology. Still in the 5th year of study I got a job, in a small company specializing in real estate, in the IT department.
