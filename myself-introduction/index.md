@@ -1,7 +1,7 @@
 # My self-introduction
 
 
-- **Link to my video**: [self-introduction](https://youtu.be/nwmmSBbVSe4)
+- **Link to my video**: [self-introduction](https://youtu.be/ZDYZEu4QF2I)
 
 - **Transcript  my video**
 
@@ -19,6 +19,7 @@ I knew about RS School courses for a long time and a year ago I registered, firs
 All the years of my work there was a big drawback, I think. I didn't have a smart example, a mentor from whom I could learn good practices, good code and beautiful architecture of the project and application. I hope that the smartest, the most beautiful and the most caring mentor will choose me here and help me on my hard way
 
 At this stage of the course I have already received a huge baggage of new and relevant, up-to-date knowledge. And I want to get even more and become a good Frontend, and maybe in the future, full stack developer.
+
 I am a good, responsible and committed team player and can be part of some great company as a developer.
 
 You can find my CV and Linkedln link below.
