@@ -10,3 +10,4 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 - **Declare and Instantiate Classes in TypeScript**: [Badge](https://learn.microsoft.com/en-us/users/yuliyavoronovich/achievements/uf5npba3)
 - **Generics in TypeScript**: [Badge](https://learn.microsoft.com/en-us/users/yuliyavoronovich/achievements/8r6ysjew)
 - **Work with External Libraries in TypeScript**: [Badge](https://learn.microsoft.com/en-us/users/yuliyavoronovich/achievements/fzuzrmvx)
+- **Organize Code with Namespaces in TypeScript**: [Badge](https://learn.microsoft.com/en-us/users/yuliyavoronovich/achievements/wacayv6n)
