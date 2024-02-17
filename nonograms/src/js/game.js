@@ -1,4 +1,4 @@
-import cards from './matrix.json' assert { type: 'json' };
+import cards from './matrix.json' with { type: 'json' };
 import { timerInner, clearTimer, resetTimer, setTimer } from './timer/timer.js';
 
 class Game {

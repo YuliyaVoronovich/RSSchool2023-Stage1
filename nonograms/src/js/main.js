@@ -5,6 +5,8 @@ import { tableWrap, table, card, loadTable, audio } from './table.js';
 import { timerWrap, timerInner } from './timer/timer.js';
 import { formWrap, radioButtonsWrap, selectElementWrap, createCheckboxButtons, createSelect } from './form/form.js';
 
+import imgDelete from '../img/cross.png';
+
 export const localStor = new LocalStorage();
 
 // ========= LAYOUT
@@ -135,7 +137,7 @@ document.querySelector('body').append(modalWrapper.element);
 const modalResult = new CreateElement('div', ['modal-result-wrap', 'modal-content']);
 modalWrapper.element.append(modalResult.element);
 
-export const modalImg = new CreateElement('img', ['img-delete'], '', { src: './img/cross.png', alt: 'delete' });
+export const modalImg = new CreateElement('img', ['img-delete'], '', { src: imgDelete, alt: 'delete' });
 modalResult.element.append(modalImg.element);
 
 const modalHeading = new CreateElement('h3', ['heading'], '');

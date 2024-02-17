@@ -4,13 +4,19 @@ import PopUp from './popUp.js';
 import { timerInner } from './timer/timer.js';
 import { localStor, modalWrapper, modalWorldText, modalImg, buttonSave, ulResult, showResults } from './main.js';
 
+import soundDraw from '../audio/draw.mp3';
+import soundRemove from '../audio/remove.mp3';
+import soundCross from '../audio/cross.mp3';
+import soundWin from '../audio/win.mp3';
+
+export const audio = new Audio(soundDraw);
+audio.currentTime = 0;
+
 let popUp = null;
 export const card = new Game();
 card.getCard();
-export const audio = new Audio();
-audio.currentTime = 0;
 
-const tableWrap = new CreateElement('div', ['table-wrap']);
+let tableWrap = new CreateElement('div', ['table-wrap']);
 const table = new CreateElement('table', ['table']);
 tableWrap.element.append(table.element);
 
@@ -80,9 +86,11 @@ table.element.addEventListener('click', event => {
     card.pushMatrixState(event);
     //audio
     if (event.target.classList.contains('black')) {
-      audio.src = `./audio/draw.mp3`;
+      audio.src = soundDraw;
+      audio.play();
     } else {
-      audio.src = `./audio/remove.mp3`;
+      audio.src = soundRemove;
+      audio.play();
     }
 
     audio.play();
@@ -105,7 +113,7 @@ table.element.addEventListener('contextmenu', event => {
     event.target.classList.remove('black');
     card.pushMatrixState(event);
     //audio
-    audio.src = `./audio/cross.mp3`;
+    audio.src = soundCross;
     audio.play();
     if (card.checkSolution()) {
       solution();
@@ -130,7 +138,8 @@ function solution() {
   popUp.openPopUp();
   card.stoptTime();
   //audio
-  audio.src = `./audio/win.mp3`;
+  const audio = new Audio(soundWin);
+  audio.currentTime = 0;
   audio.play();
 
   modalImg.element.addEventListener('click', event => {

@@ -86,7 +86,6 @@ export function createSelect(cardsLevel) {
   selectElement.element.append(option2.element);
 
   for (let i = 0; i < cardsLevel.length; i++) {
-    //const option = new CreateElement('option', ['name-card-option'], `${cardsLevel[i].name} ` + `★`.repeat(cardsLevel[i].grade));
     const option = new CreateElement('option', ['name-card-option'], cardsLevel[i].name);
     if (cardsLevel[i].name === card.name) option.element.selected = true;
     selectElement.element.append(option.element);

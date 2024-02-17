@@ -13,7 +13,7 @@
   --text-list: rgb(45, 49, 66, 0.8);
   --bg-shadow: rgba(64, 63, 61, 0.80);
   --border: #0d0d0d;
-  --bg-img: url(../img/main.jpg);
+  --bg-img: url(../img/main_light.jpg);
 }
 
 :root body.dark {
