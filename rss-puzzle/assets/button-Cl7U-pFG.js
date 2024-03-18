@@ -1,0 +1,1 @@
+import{B as o}from"./index-Dp6e7791.js";class n extends o{constructor({className:s,textContent:e,onClick:t}){super({tagName:"button",className:s,textContent:e}),t&&this.addListener("click",t)}}export{n as B};
