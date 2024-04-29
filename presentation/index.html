@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>reveal.js</title>
+    <script type="module" crossorigin src="./assets/index-6ZlDdbTF.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DR1ytNMc.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- <section data-background-color="aquamarine">
+          <p>Slide 1</p>
+          <img src="/cat.webp" alt="funny cat" />
+        </section> -->
+        <section data-markdown data-background-video="/video.mp4"
+        data-background-video-loop data-background-video-muted>
+          <textarea data-template>
+            ## SVG
+            Modes, Coordinates, Basic Shapes, Accessibility, Animations
+          </textarea>
+        </section>
+
+        <section class="thesis">
+          <p class="visible">1. What is SVG</p>
+          <p class="fragment blur">2. Using SVG</p>
+          <p class="fragment blur">3. Adding SVG to the site</p>
+          <p class="fragment blur">4. Basic shapes SVG</p>
+          <p class="fragment blur">5. Animations</p>
+          <p class="fragment blur">6. Working with svg (path, fill, use, gradients, filters, mask and etc)</p>
+          <p class="fragment blur">7. Advantages SVG</p>
+        </section>
+
+        <section>
+          <p>What is SVG</p>
+        </section>
+
+        <section class="about">
+          The <span>SVG</span> format is a markup language for creating images and text in scalable vector graphics. Unlike the raster format, it allows you to “stretch” objects to any size without loss of quality. This is an XML specification and file format for describing two-dimensional vector graphics.
+          <img src="./what-is-svg.png" alt="about svg" />
+        </section>
+
+        <section class="using">
+          <div class="icons-wrapper">
+            <p class="fragment fade-up"><span>Logos and icons</span><img src="./icons.png"/></p>
+            <p class="fragment fade-up"><span>Maps and infographics</span><img src="./infografics.png" /></p>
+            <p class="fragment fade-up"><span>Visual effects</span><img src="./visuals.png"/></p>
+          </div>
+          <p class="using-title visible">Using SVG</p>
+          <div class="icons-wrapper">
+            <p class="fragment fade-up"><span>Illustrations and drawings</span><img src="./illustrations.png" /></p>
+            <p class="fragment fade-up"><span>Animation</span><img src="./animation.svg"/></p>
+          </div>
+        </section>
+
+        <section class="adding">
+          <p>Adding SVG to the site</p>
+          <section>
+            <p>Tag Img</p>
+            <pre><code data-trim>
+            <img src="circle.svg" alt="a red circle" height="100px" width="100px"/></code></pre>
+          </section>
+          <section>background-image property
+            <pre>
+              <code data-trim data-noescape>
+              .element { background-image: url(/images/image.svg) }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <p>Inline SVG to HTML</p>
+            <pre><code data-trim>
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40"
+                stroke="black"
+                fill="red"/>
+              </svg>
+          </code></pre>
+          </section>
+        </section>
+
+        <section class="adding">
+          <p>Basic shapes SVG</p>
+          <section>
+          <p class="fragment fade-up using-title visible">Rectangle</p>
+            <div class="shapes-wrapper">
+              <div class="fragment fade-up">
+                <div class="shapes-block">
+                   <svg width="130" height="80">
+                    <rect x="5" y="5" width="120" height="70"
+                      fill="skyblue" stroke="steelblue" stroke-width="5"
+                    />
+                  </svg>
+                  <pre><code class="shapes-block-code white-space" data-trim>
+                    <svg width="130" height="80">
+                    <circle cx="50" cy="50" r="40"
+                    stroke="black"
+                    fill="red"/>
+                  </svg>
+                  </code></pre>
+                </div>
+              </div>
+                <div class="fragment fade-up">
+                  <div class="shapes-block">
+                    <svg width="130" height="80">
+                      <rect x="5" y="5" width="120" height="70" rx="20"
+                        fill="yellowgreen" stroke="green" stroke-width="5"
+                      />
+                    </svg>
+                    <pre><code class="shapes-block-code white-space" data-trim>
+                      <svg width="130" height="80">
+                        <rect x="5" y="5" width="120" height="70" rx="20"
+                          fill="yellowgreen" stroke="green" stroke-width="5"
+                        />
+                      </svg>
+                    </code></pre>
+                  </div>
+                </div>
+                  <div class="fragment fade-up">
+                    <div class="shapes-block">
+                       <svg width="130" height="80">
+                        <rect x="5" y="5" width="120" height="70" rx="10" ry="50"
+                          fill="khaki" stroke="darkkhaki" stroke-width="5"
+                        />
+                      </svg>
+                      <pre><code class="shapes-block-code white-space" data-trim>
+                        <svg width="130" height="80">
+                          <rect x="5" y="5" width="120" height="70" rx="10" ry="50"
+                            fill="khaki" stroke="darkkhaki" stroke-width="5"
+                          />
+                        </svg>
+                      </code></pre>
+                    </div>
+                  </div>
+            </div>
+            <p class="fragment fade-up text"><span>x,y</span> — coordinates of the upper left corner of the figure; <span>width, height</span> — width and height of the rectangle.</p>
+        </section>
+
+        <section>
+          <p class="using-title visible">Circle</p>
+          <div class="shapes-wrapper">
+            <div class="fragment fade-up">
+              <div class="shapes-block">
+                <svg width="140" height="140">
+                  <circle r="65" cx="70" cy="70"
+                    fill="orangered" stroke="crimson" stroke-width="5"
+                  />
+                </svg>
+                <pre><code class="shapes-block-code white-space" data-trim>
+                  <svg width="140" height="140">
+                    <circle r="65" cx="70" cy="70"
+                      fill="orangered" stroke="crimson" stroke-width="5"
+                    />
+                  </svg>
+                </code></pre>
+              </div>
+            </div>
+              <div class="fragment fade-up">
+                <div class="shapes-block">
+                  <svg width="230" height="140">
+                    <ellipse rx="110" ry="60" cx="115" cy="70"
+                      fill="gold" stroke="orange" stroke-width="5"
+                    />
+                  </svg>
+                  <pre><code class="shapes-block-code white-space" data-trim>
+                    <svg width="230" height="140">
+                      <ellipse rx="110" ry="60" cx="115" cy="70"
+                        fill="gold" stroke="orange" stroke-width="5"
+                      />
+                    </svg>
+                  </code></pre>
+                </div>
+              </div>
+                <div class="fragment fade-up">
+                  <div class="shapes-block">
+                    <svg width="200" height="140">
+                      <g fill="#000">
+                        <ellipse rx="35" ry="27" cx="55" cy="30" transform="rotate(-45, 55, 55)"/>
+                        <ellipse rx="35" ry="27" cx="155" cy="65" transform="rotate(45, 190, 55)"/>
+                        <circle r="60" cx="100" cy="70"/>
+                      </g>
+                    </svg>
+                    <pre><code class="shapes-block-code white-space" data-trim>
+                      <svg width="200" height="140">
+                        <g fill="#000">
+                          <ellipse rx="35" ry="27" cx="55" cy="30" transform="rotate(-45, 55, 55)"/>
+                          <ellipse rx="35" ry="27" cx="155" cy="65" transform="rotate(45, 190, 55)"/>
+                          <circle r="60" cx="100" cy="70"/>
+                        </g>
+                      </svg>
+                    </code></pre>
+                  </div>
+                </div>
+            </div>
+          <p class="fragment fade-up text"><span>r</span> — circle radius; <span>cx, cy</span> — coordinates of the circle center.</p>
+          <p class="fragment fade-up text"><span>rx, ry</span> — horizontal and vertical radii of the ellipse; <span>cx, cy</span> — coordinates of the ellipse center</p>
+        </section>
+
+        <section>
+          <p class="using-title visible">Poligon</p>
+          <div class="shapes-wrapper">
+            <div class="fragment fade-up">
+              <div class="shapes-block">
+                <svg width="230" height="140">
+                  <polygon points="5,135 115,5 225,135"
+                    fill="violet" stroke="purple" stroke-width="5"
+                  />
+                </svg>
+                <pre><code class="shapes-block-code white-space" data-trim>
+                  <svg width="230" height="140">
+                    <polygon points="5,135 115,5 225,135"
+                      fill="violet" stroke="purple" stroke-width="5"
+                    />
+                  </svg>
+                </code></pre>
+              </div>
+            </div>
+              <div class="fragment fade-up">
+                <div class="shapes-block">
+                  <svg width="140" height="130">
+                    <polygon
+                      points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41"
+                      fill="turquoise" stroke="lightseagreen" stroke-width="5"
+                    />
+                  </svg>
+                  <pre><code class="shapes-block-code white-space" data-trim>
+                    <svg width="140" height="130">
+                      <polygon
+                        points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41"
+                        fill="turquoise" stroke="lightseagreen" stroke-width="5"
+                      />
+                    </svg>
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          <p class="fragment fade-up text">The <span>points</span> are specified <span>x,y</span>-coordinates of the vertices of the figure, separated by a space.</p>
+        </section>
+
+        <section>
+          <p class="using-title visible">Line</p>
+          <div class="shapes-wrapper">
+            <div class="fragment fade-up">
+              <div class="shapes-block">
+                <svg width="230" height="140">
+                  <line
+                    x1="220" y1="10" x2="20" y2="130"
+                    stroke="violet" stroke-width="5"
+                  />
+                </svg>
+                <pre><code class="shapes-block-code white-space" data-trim>
+                  <svg width="230" height="140">
+                    <line
+                      x1="220" y1="10" x2="20" y2="130"
+                      stroke="violet" stroke-width="5"
+                    />
+                  </svg>
+                </code></pre>
+              </div>
+            </div>
+              <div class="fragment fade-up">
+                <div class="shapes-block">
+                  <svg width="260" height="140">
+                    <polyline
+                      points="5,135 30,5 55,135 80,5, 105,135 130,5, 155,135 180,5, 205,135 230,5, 255,135"
+                      fill="none" stroke="orangered" stroke-width="5"
+                    />
+                  </svg>
+                  <pre><code class="shapes-block-code white-space" data-trim>
+                    <svg width="260" height="140">
+                      <polyline
+                        points="5,135 30,5 55,135 80,5, 105,135 130,5, 155,135 180,5, 205,135 230,5, 255,135"
+                        fill="none" stroke="orangered" stroke-width="5"
+                      />
+                    </svg>
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          <p class="fragment fade-up text"><span>x1, y1, x2, y2</span> — coordinates of the beginning and end of the line.</p>
+        </section>
+      </section>
+
+      <section>
+        <p>Animations</p>
+        <div class='container'>
+          <div class='bk'>
+            <div class='mid'>
+              <div class='fore'>
+                <div class='figure'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p>Working with svg</p>
+        <p class="fragment fade-up text"><span>fill</span>- filling the figure</p>
+        <p class="fragment fade-up text"><span>stroke</span>- stroke color</p>
+        <p class="fragment fade-up text"><span>stroke-width</span>- stroke thickness, default - 1</p>
+        <p class="fragment fade-up text"><span>g, defs, symbol</span>- grouping and reusing elements</p>
+        <p class="fragment fade-up text"><span>path</span>- a more complex version of the line. With it you can draw <span>line, polyline, polygon, circle, rect</span></p>
+      </section>
+
+      <section>
+        <p>Use (reusing SVG elements)</p>
+          <div class="use">
+          <svg viewBox="0 0 110 110">
+            <g id="g-circles--u">
+                <circle fill="orangered" r="50" cx="55" cy="55"/>
+                <circle fill="gold" r="32" cx="55" cy="55"/>
+                <circle fill="dodgerblue" r="15" cx="55" cy="55"/>
+            </g>
+            <use xlink:href="#g-circles--u" x="-110"/>
+            <use xlink:href="#g-circles--u" x="110"/>
+          </svg>
+        </div>
+          <pre><code class="shapes-block-code" data-trim>
+            <svg viewBox="0 0 110 110">
+              <g id="g-circles--u">
+                  <circle fill="orangered" r="50" cx="55" cy="55"/>
+                  <circle fill="gold" r="32" cx="55" cy="55"/>
+                  <circle fill="dodgerblue" r="15" cx="55" cy="55"/>
+              </g>
+              <use xlink:href="#g-circles--u" x="-110"/>
+              <use xlink:href="#g-circles--u" x="110"/>
+          </svg>
+          </code></pre>
+     </section>
+
+      <section>
+        <p class="gradient-text">Gradient</p>
+          <div class="gradient">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <linearGradient id="linear-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="10%" stop-color="#c71700" />
+                  <stop offset="60%" stop-color="orange" />
+                  <stop offset="100%" stop-color="#5a2100" />
+                </linearGradient>
+                <rect x="30" y="30" height="100%" width="100%" fill="url(#linear-gradient)" />
+            </svg>
+
+        </div>
+          <pre><code class="shapes-block-code white-space" data-trim>
+            <linearGradient id="linear-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="10%" stop-color="#c71700" />
+              <stop offset="60%" stop-color="orange" />
+              <stop offset="100%" stop-color="#5a2100" />
+            </linearGradient>
+          </code></pre>
+      </section>
+
+      <section>
+        <p class="gradient-text">SVG-mask</p>
+        <img src="./mask.png"/>
+
+          <pre><code class="shapes-block-code white-space" data-trim>
+            <clippath id="clip-star">
+              <polygon points="98.499..." />
+          </clippath>
+          </code></pre>
+      </section>
+
+      <section class="adding">
+        <p class="visible">Advantages SVG</p>
+        <p class="fragment blur">Scalable</p>
+        <p class="fragment blur">Human-readable code</p>
+        <p class="fragment blur">You can write by hand</p>
+        <p class="fragment blur">Source</p>
+        <p class="fragment blur">Reusable components</p>
+        <p class="fragment blur">Inside - CSS and JavaScript</p>
+        <p class="fragment blur">Good browser support</p>
+        <p class="fragment blur">Availability</p>
+        <p class="fragment blur">FOR FREE!</p>
+      </section>
+
+      <section data-markdown data-background-video="/video.mp4"
+        data-background-video-loop data-background-video-muted>
+          <textarea data-template>
+            Thank you for your attention!
+          </textarea>
+        </section>
+
+      </div>
+    </div>
+
+  </body>
+</html>
