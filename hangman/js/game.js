@@ -3,7 +3,7 @@ import { inputWorlds, question, resultNumberIncorrect,
 import CreateElement from './createElement.js';
 import PopUp from './popUp.js';
 
-import questions from "./questions.json" assert { type: "json" };
+import { questions } from "./questions.js";
 
 class Game {
 

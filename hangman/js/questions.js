@@ -1,4 +1,4 @@
- [
+export const questions = [
     {
       "answer": "delegation",
       "question": "Event, when an event handler is put only on a parent element and this element's child elements use this handler when the event happens"
