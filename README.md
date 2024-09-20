@@ -3,14 +3,14 @@
 
 Coffee House is a project where you will need to create a website consisting of two pages, make it responsive, and add interactivity.
 
-#### Deploy: [Nonograms](https://rolling-scopes-school.github.io/yuliyavoronovich-JSFE2023Q4/nonograms/)
+#### Deploy: [Nonograms](https://yuliyavoronovich.github.io/RSSchool2023-Stage1/nonograms/)
 
 
 ### 2. Hangman
 
 Hangman is a classic word game in which you must find the correct answer by guessing letters one at a time.
 
-#### Deploy: [Hangman](https://rolling-scopes-school.github.io/yuliyavoronovich-JSFE2023Q4/hangman/)
+#### Deploy: [Hangman](https://yuliyavoronovich.github.io/RSSchool2023-Stage1/hangman/)
 
 
 ### 3. Coffee House
