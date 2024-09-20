@@ -5,6 +5,9 @@ Nonograms is a puzzle game to reveal a hidden picture by looking at the number c
 
 #### Deploy: [Nonograms](https://yuliyavoronovich.github.io/RSSchool2023-Stage1/nonograms/)
 
+#### Demo
+![image](https://github.com/user-attachments/assets/0d0fbd35-d863-43d3-8bf0-f588ac063879)
+
 
 ### 2. Hangman
 
@@ -12,12 +15,20 @@ Hangman is a classic word game in which you must find the correct answer by gues
 
 #### Deploy: [Hangman](https://yuliyavoronovich.github.io/RSSchool2023-Stage1/hangman/)
 
+#### Demo
+![image](https://github.com/user-attachments/assets/e472e72a-d9d8-41e9-a693-bc6e9c89c0de)
+
 
 ### 3. Coffee House
 
 Coffee House is a project where you will need to create a website consisting of two pages, make it responsive, and add interactivity.
 
 #### Deploy: [Coffee House](https://rolling-scopes-school.github.io/yuliyavoronovich-JSFE2023Q4/coffee-house/)
+
+#### Demo
+![image](https://github.com/user-attachments/assets/0929ac9a-f284-44e9-afeb-43be5dd9de81)
+
+
 ## Key skills
 
 - Valid semantic responsive web design;
