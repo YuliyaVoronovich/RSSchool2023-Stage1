@@ -1,4 +1,4 @@
-[
+export const matrix = [
   {
     "level": "basic",
     "name": "flower",
