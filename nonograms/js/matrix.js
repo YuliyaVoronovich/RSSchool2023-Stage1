@@ -1,4 +1,4 @@
-export const matrix = [
+export const cards = [
   {
     "level": "basic",
     "name": "flower",
