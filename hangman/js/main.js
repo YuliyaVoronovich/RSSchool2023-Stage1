@@ -2,7 +2,7 @@ import CreateElement from './createElement.js';
 import CreateSvg from './createSvg.js';
 import Game from './game.js';
 
-import questions from "./questions.json" assert { type: "json" };
+import { questions } from "./questions.js";
 
 const totalAnswer = 6;
 const logoHtml = 'Hangman Game';
